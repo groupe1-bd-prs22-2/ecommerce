@@ -115,4 +115,9 @@ class Category
     {
         return $this->updated_at;
     }
+
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }

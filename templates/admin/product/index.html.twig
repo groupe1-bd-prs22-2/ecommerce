@@ -1,49 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product index{% endblock %}
+{% block title %}{{ 'product.list'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Product index</h1>
+    <div class="container my-3">
+        <h1>{{ 'product.list'|trans }}</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Slug</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Picture</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for product in products %}
-            <tr>
-                <td>{{ product.id }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.slug }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.price }}</td>
-                <td>{{ product.quantity }}</td>
-                <td>{{ product.picture }}</td>
-                <td>{{ product.createdAt ? product.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ product.updatedAt ? product.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('admin_product_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('admin_product_edit', {'id': product.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <a href="{{ path('admin_product_new') }}" class="btn btn-success btn-sm float-end my-3">
+            {{ 'product.create'|trans }}
+        </a>
 
-    <a href="{{ path('admin_product_new') }}">Create new</a>
+        <table class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th>{{ 'product.name'|trans }}</th>
+                    <th>{{ 'product.price'|trans }}</th>
+                    <th>{{ 'product.quantity'|trans }}</th>
+                    <th>{{ 'product.createdAt'|trans }}</th>
+                    <th>{{ 'product.updatedAt'|trans }}</th>
+                    <th>{{ 'actions'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.createdAt ? product.createdAt|date('d/m/Y H:i:s') : '' }}</td>
+                    <td>{{ product.updatedAt ? product.updatedAt|date('d/m/Y H:i:s') : '' }}</td>
+                    <td>
+                        <div class="d-flex gap-3">
+                            <a href="{{ path('admin_product_edit', {'id': product.id}) }}" class="btn btn-primary btn-sm">
+                                {{ 'product.edit'|trans }}
+                            </a>
+                            {{ include('admin/product/_delete_form.html.twig') }}
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">{{ 'product.empty'|trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,14 +14,15 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('slug')
             ->add('description')
-            ->add('price')
-            ->add('quantity')
-            ->add('picture')
-            ->add('created_at')
-            ->add('updated_at')
             ->add('category')
+            ->add('price', NumberType::class, [
+                'scale' => 2
+            ])
+            ->add('quantity', NumberType::class, [
+                'scale' => 0
+            ])
+            //->add('picture')
         ;
     }
 

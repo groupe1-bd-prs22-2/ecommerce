@@ -1,4 +1,18 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.category, { 'attr': { 'class': 'w-100' } }) }}
+        </div>
+        <div class="col">
+            {{ form_row(form.price, { 'attr': { 'class': 'w-100' } }) }}
+        </div>
+        <div class="col">
+            {{ form_row(form.quantity, { 'attr': { 'class': 'w-100' } }) }}
+        </div>
+    </div>
+
+    <button class="btn btn-success">{{ button_label|default('save')|trans }}</button>
 {{ form_end(form) }}
