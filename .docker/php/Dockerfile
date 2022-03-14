@@ -9,6 +9,8 @@ RUN docker-php-ext-install pdo_mysql
 # Install Symfony cli
 RUN apk update && apk add bash
 RUN wget https://get.symfony.com/cli/installer -O - | bash && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+RUN apk add --update nodejs npm
+RUN npm install --global yarn
 
 WORKDIR /var/www/ecommerce
 
