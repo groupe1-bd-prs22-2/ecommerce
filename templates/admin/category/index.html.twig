@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Catégories</h1>
+
+        <a href="{{ path('admin_category_new') }}" class="btn btn-success btn-sm">{{ 'category.create'|trans }}</a>
+
+        <table class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th>{{ 'category.name'|trans }}</th>
+                    <th>{{ 'category.createdAt'|trans }}</th>
+                    <th>{{ 'actions' }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td>{{ category.name }}</td>
+                        <td>{{ category.createdAt ? category.createdAt|date('d/m/Y H:i') : '' }}</td>
+                        <td>
+                            <a href="{{ path('admin_category_show', {'id': category.id}) }}">Afficher</a>
+                            <a href="{{ path('admin_category_edit', {'id': category.id}) }}">Éditer</a>
+                            {{ include('admin/category/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">{{ 'category.empty'|trans }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
