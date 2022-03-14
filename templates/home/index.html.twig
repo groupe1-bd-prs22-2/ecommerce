@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Home !{% endblock %}
+
+{% block body %}
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="row row-cols-4">
+                {# Affichage de la liste des produits #}
+                {% for p in products %}
+                    <div class="col mb-3">
+                        <div class="card shadow rounded">
+                            <img src="{{ asset('images/produit/' ~ p.photo) }}" class="card-img-top img-thumbnail" alt="{{ p.nom }}">
+                            <div class="card-body px-3">
+                                <h5 class="card-title">
+                                    {{ p.nom }}
+                                    <span class="text-muted fs-6"> - {{ p.prix }} €</span>
+                                </h5>
+                                <p class="card-text">{{ p.description }}</p>
+                                <a href="{{ path('produit_show', {'id': p.id}) }}" class="btn btn-sm btn-primary shadow w-100">{{ 'product.show'|trans }}</a>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">{{ 'product.no_records'|trans }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
