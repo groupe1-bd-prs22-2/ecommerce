@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\String\Slugger\AsciiSlugger;
+use Symfony\Component\HttpFoundation\File\File;
 use Gedmo\Mapping\Annotation as Gedmo;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Product
 {
     #[ORM\Id]
@@ -152,6 +153,27 @@ class Product
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updated_at;
+    }
+
+    /**
+     * ==========================================================================================================
+     * ====================================== LIFECYCLE CALLBACKS ===============================================
+     * ==========================================================================================================
+     */
+
+
+    /**
+     * Callback exécutée après la suppression d'un produit.
+     * @return void
+     */
+    #[ORM\PostRemove]
+    public function postRemove(): void
+    {
+        // Suppression de l'image du produit
+        $picturePath = __DIR__ . '/../../public/uploads/products/' . $this->picture;
+        if (file_exists($picturePath)) {
+            unlink($picturePath);
+        }
     }
 
 
