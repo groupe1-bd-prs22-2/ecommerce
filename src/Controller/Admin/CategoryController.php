@@ -52,19 +52,6 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    /**
-     * Fiche catégorie.
-     *
-     * @param Category $category
-     * @return Response
-     */
-    #[Route('/{id}', name: 'admin_category_show', methods: ['GET'])]
-    public function show(Category $category): Response
-    {
-        return $this->render('admin/category/show.html.twig', [
-            'category' => $category,
-        ]);
-    }
 
     #[Route('/{id}/edit', name: 'admin_category_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Category $category, CategoryRepository $categoryRepository): Response
@@ -74,7 +61,7 @@ class CategoryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $categoryRepository->add($category);
-            return $this->redirectToRoute('app_category_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_category_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/category/edit.html.twig', [

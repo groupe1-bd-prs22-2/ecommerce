@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category index{% endblock %}
+{% block title %}{{ 'category.list'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Catégories</h1>
+    <div class="container mt-3">
+        <h1>{{ 'category.list'|trans }}</h1>
 
-        <a href="{{ path('admin_category_new') }}" class="btn btn-success btn-sm">{{ 'category.create'|trans }}</a>
+        <a href="{{ path('admin_category_new') }}" class="btn btn-success btn-sm my-3 float-end">{{ 'category.create'|trans }}</a>
 
         <table class="table table-sm table-hover">
             <thead>
@@ -22,9 +22,12 @@
                         <td>{{ category.name }}</td>
                         <td>{{ category.createdAt ? category.createdAt|date('d/m/Y H:i') : '' }}</td>
                         <td>
-                            <a href="{{ path('admin_category_show', {'id': category.id}) }}">Afficher</a>
-                            <a href="{{ path('admin_category_edit', {'id': category.id}) }}">Éditer</a>
-                            {{ include('admin/category/_delete_form.html.twig') }}
+                            <div class="d-flex gap-3">
+                                <a href="{{ path('admin_category_edit', {'id': category.id}) }}" class="btn btn-primary btn-sm">
+                                    {{ 'category.edit'|trans }}
+                                </a>
+                                {{ include('admin/category/_delete_form.html.twig') }}
+                            </div>
                         </td>
                     </tr>
                 {% else %}
