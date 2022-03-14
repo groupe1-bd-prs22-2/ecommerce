@@ -5,7 +5,9 @@ namespace App\Controller\Admin;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -42,6 +44,17 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Upload de l'image du produit
+            $picture = $form->get('picture')->getData();
+            if ($picture) {
+                // Upload du fichier sur serveur
+                $uploader = new FileUploader($this->getParameter('product_pictures_directory'));
+                $fileName = $uploader->upload($picture);
+
+                // Set le nom du fichier
+                $product->setPicture($fileName);
+            }
+
             $productRepository->add($product);
             return $this->redirectToRoute('admin_product_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -68,6 +81,17 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Mise à jour de l'image du produit
+            $picture = $form->get('picture')->getData();
+            if ($picture) {
+                // Upload du fichier sur serveur
+                $uploader = new FileUploader($this->getParameter('product_pictures_directory'));
+                $fileName = $uploader->upload($picture);
+
+                // Set le nom du fichier
+                $product->setPicture($fileName);
+            }
+
             $productRepository->add($product);
             return $this->redirectToRoute('admin_product_index', [], Response::HTTP_SEE_OTHER);
         }

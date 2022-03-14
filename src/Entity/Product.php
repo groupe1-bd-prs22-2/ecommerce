@@ -2,6 +2,10 @@
 
 namespace App\Entity;
 
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\String\Slugger\AsciiSlugger;
+use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -44,6 +48,12 @@ class Product
     #[Gedmo\Timestampable(on: 'update')]
     #[ORM\Column(type: 'datetime_immutable')]
     private ?\DateTimeImmutable $updated_at;
+
+    /**
+     * ==========================================================================================================
+     * ====================================== CONSTRUCTEUR / GETTERS / SETTERS ==================================
+     * ==========================================================================================================
+     */
 
     public function getId(): ?int
     {
@@ -143,4 +153,13 @@ class Product
     {
         return $this->updated_at;
     }
+
+
+    /**
+     * ==========================================================================================================
+     * ====================================== METHODS ===========================================================
+     * ==========================================================================================================
+     */
+
+
 }
