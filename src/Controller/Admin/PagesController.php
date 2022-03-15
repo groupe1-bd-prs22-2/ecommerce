@@ -53,20 +53,6 @@ class PagesController extends AbstractController
     }
 
     /**
-     * Visualisation d'une page.
-     *
-     * @param Pages $page
-     * @return Response
-     */
-    #[Route('/{id}', name: 'admin_pages_show', methods: ['GET'])]
-    public function show(Pages $page): Response
-    {
-        return $this->render('admin/pages/show.html.twig', [
-            'page' => $page,
-        ]);
-    }
-
-    /**
      * Édition d'une page.
      *
      * @param Request $request

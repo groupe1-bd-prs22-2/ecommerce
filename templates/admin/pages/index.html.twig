@@ -23,12 +23,11 @@
                     <td>{{ page.createdAt|date('d/m/Y H:i') }}</td>
                     <td>
                         <div class="d-flex gap-3">
-                            <a href="{{ path('admin_pages_show', {'id': page.id}) }}" class="btn btn-success btn-sm">
-                                {{ 'pages.show'|trans }}
-                            </a>
+                            {{ include('admin/pages/_show_modal.html.twig', {'page': page}) }}
                             <a href="{{ path('admin_pages_edit', {'id': page.id}) }}" class="btn btn-primary btn-sm">
                                 {{ 'pages.edit'|trans }}
                             </a>
+                            {{ include('admin/pages/_delete_form.html.twig') }}
                         </div>
                     </td>
                 </tr>
