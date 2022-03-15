@@ -1,0 +1,26 @@
+<ul class="nav flex-column text-center">
+    <li class="nav-item">
+        <a class="nav-link text-decoration-none text-black" href="#">{{ 'nav.backToSite'|trans }}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-decoration-none text-black" href="#">{{ 'nav.dashboard'|trans }}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-decoration-none text-black" href="{{ path('admin_category_index') }}">
+            {{ 'nav.category'|trans }}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-decoration-none text-black" href="{{ path('admin_product_index') }}">
+            {{ 'nav.product'|trans }}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-decoration-none text-black" href="#">
+            {{ 'nav.pages'|trans }}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-decoration-none text-black" href="#">{{ 'nav.logout'|trans }}</a>
+    </li>
+</ul>
