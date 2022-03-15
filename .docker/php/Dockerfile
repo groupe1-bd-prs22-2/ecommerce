@@ -6,6 +6,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install PDO
 RUN docker-php-ext-install pdo_mysql
 
+# Install intl
+RUN apk add icu-dev
+RUN docker-php-ext-configure intl \
+    && docker-php-ext-install intl \
+    && docker-php-ext-enable intl
+
 # Install Symfony cli
 RUN apk update && apk add bash
 RUN wget https://get.symfony.com/cli/installer -O - | bash && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
