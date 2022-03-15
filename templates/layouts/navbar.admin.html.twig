@@ -1,10 +1,14 @@
 <ul class="nav flex-column text-center">
     <li class="nav-item">
-        <a class="nav-link text-decoration-none text-black" href="{{ path('app_home') }}">{{ 'nav.backToSite'|trans }}</a>
+        <a class="nav-link text-decoration-none text-black" href="{{ path('app_home') }}">
+            {{ 'nav.backToSite'|trans }}
+        </a>
     </li>
     <hr class="w-75 mx-auto">
     <li class="nav-item">
-        <a class="nav-link text-decoration-none text-black" href="#">{{ 'nav.dashboard'|trans }}</a>
+        <a class="nav-link text-decoration-none text-black" href="{{ path('admin_dashboard_index') }}">
+            {{ 'nav.dashboard'|trans }}
+        </a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-decoration-none text-black" href="{{ path('admin_category_index') }}">
