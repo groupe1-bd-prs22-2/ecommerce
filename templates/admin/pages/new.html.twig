@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}New Pages{% endblock %}
+{% block title %}{{ 'pages.create'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Create new Pages</h1>
+    <div class="container mt-5">
+        <h1 class="mb-3">{{ 'pages.create'|trans }}</h1>
 
-    {{ include('admin/pages/_form.html.twig') }}
-
-    <a href="{{ path('admin_pages_index') }}">back to list</a>
+        {{ include('admin/pages/_form.html.twig') }}
+    </div>
 {% endblock %}
