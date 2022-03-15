@@ -2,10 +2,11 @@
 
 namespace App\Form;
 
-use App\Entity\Pages;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\AbstractType;
+use App\Entity\Pages;
 
 class PagesType extends AbstractType
 {
@@ -13,7 +14,11 @@ class PagesType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('content')
+            ->add('content', TextareaType::class, [
+                'attr' => [
+                    'class' => 'tinymce'
+                ]
+            ])
         ;
     }
 

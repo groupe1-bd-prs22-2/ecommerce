@@ -14,6 +14,16 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
+    // copie des fichiers tinymce
+    .copyFiles({
+        from: 'node_modules/tinymce/skins',
+        to: 'skins/[path]/[name].[ext]'
+    })
+    .copyFiles({
+        from: 'node_modules/tinymce/icons',
+        to: 'icons/[path]/[name].[ext]'
+    })
+
     /*
      * ENTRY CONFIG
      *

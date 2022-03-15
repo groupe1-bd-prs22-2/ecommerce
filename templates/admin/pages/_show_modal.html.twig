@@ -1,0 +1,20 @@
+<button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#preview-page-{{ page.id }}">
+    {{ 'pages.preview'|trans }}
+</button>
+
+<div class="modal fade" id="preview-page-{{ page.id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ page.title }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ page.content|raw }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ 'close'|trans }}</button>
+            </div>
+        </div>
+    </div>
+</div>
