@@ -1,13 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}Edit Pages{% endblock %}
+{% block title %}{{ 'pages.edit'|trans({ '%title%': page.title }) }}{% endblock %}
 
 {% block body %}
-    <h1>Edit Pages</h1>
+    <div class="container mt-5">
+        <h1 class="mb-5">{{ 'pages.edit'|trans({ '%title%': page.title }) }}</h1>
 
-    {{ include('admin/pages/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('admin_pages_index') }}">back to list</a>
-
-    {{ include('admin/pages/_delete_form.html.twig') }}
+        {{ include('admin/pages/_form.html.twig', {'button_label': 'save'|trans}) }}
+    </div>
 {% endblock %}
