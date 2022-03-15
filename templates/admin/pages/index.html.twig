@@ -21,8 +21,8 @@
                 <td>{{ page.title }}</td>
                 <td>{{ page.content }}</td>
                 <td>
-                    <a href="{{ path('app_pages_show', {'id': page.id}) }}">show</a>
-                    <a href="{{ path('app_pages_edit', {'id': page.id}) }}">edit</a>
+                    <a href="{{ path('admin_pages_show', {'id': page.id}) }}">show</a>
+                    <a href="{{ path('admin_pages_edit', {'id': page.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_pages_new') }}">Create new</a>
+    <a href="{{ path('admin_pages_new') }}">Create new</a>
 {% endblock %}

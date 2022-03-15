@@ -21,10 +21,6 @@ class PagesRepository extends ServiceEntityRepository
         parent::__construct($registry, Pages::class);
     }
 
-    /**
-     * @throws ORMException
-     * @throws OptimisticLockException
-     */
     public function add(Pages $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
@@ -33,10 +29,6 @@ class PagesRepository extends ServiceEntityRepository
         }
     }
 
-    /**
-     * @throws ORMException
-     * @throws OptimisticLockException
-     */
     public function remove(Pages $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
