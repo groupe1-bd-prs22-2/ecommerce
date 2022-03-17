@@ -14,6 +14,16 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
+    // copie des fichiers tinymce
+    .copyFiles({
+        from: 'node_modules/tinymce/skins',
+        to: 'skins/[path]/[name].[ext]'
+    })
+    .copyFiles({
+        from: 'node_modules/tinymce/icons',
+        to: 'icons/[path]/[name].[ext]'
+    })
+
     /*
      * ENTRY CONFIG
      *
@@ -53,6 +63,70 @@ Encore
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = 3;
+    })
+    .copyFiles({
+        from: './assets/img',
+
+        // optional target path, relative to the output dir
+        to: 'img/[path][name].[ext]',
+
+        // if versioning is enabled, add the file hash too
+        //to: 'images/[path][name].[hash:8].[ext]',
+
+        // only copy files matching this pattern
+        //pattern: /.(png|jpg|jpeg)$/
+    })
+
+    .copyFiles({
+        from: './assets/sass',
+
+        // optional target path, relative to the output dir
+        to: 'sass/[path][name].[ext]',
+
+        // if versioning is enabled, add the file hash too
+        //to: 'images/[path][name].[hash:8].[ext]',
+
+        // only copy files matching this pattern
+        //pattern: /.(png|jpg|jpeg)$/
+    })
+
+    .copyFiles({
+        from: './assets/css',
+
+        // optional target path, relative to the output dir
+        to: 'css/[path][name].[ext]',
+
+        // if versioning is enabled, add the file hash too
+        //to: 'images/[path][name].[hash:8].[ext]',
+
+        // only copy files matching this pattern
+        //pattern: /.(png|jpg|jpeg)$/
+    })
+
+    .copyFiles({
+        from: './assets/js',
+
+        // optional target path, relative to the output dir
+        to: 'js/[path][name].[ext]',
+
+        // if versioning is enabled, add the file hash too
+        //to: 'images/[path][name].[hash:8].[ext]',
+
+        // only copy files matching this pattern
+        //pattern: /.(png|jpg|jpeg)$/
+    })
+
+    .copyFiles({
+        from: './assets/fonts',
+
+        // optional target path, relative to the output dir
+        to: 'fonts/[path][name].[ext]',
+
+        // if versioning is enabled, add the file hash too
+        //to: 'images/[path][name].[hash:8].[ext]',
+
+        // only copy files matching this pattern
+        //pattern: /.(png|jpg|jpeg)$/
     })
 
     // enables Sass/SCSS support

@@ -1,0 +1,11 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}{{ 'product.edit'|trans({ '%name%': product.name }) }}{% endblock %}
+
+{% block body %}
+    <div class="container my-3">
+        <h1 class="mb-3">{{ 'product.edit'|trans({ '%name%': product.name }) }}</h1>
+
+        {{ include('admin/product/_form.html.twig', { 'button_label': 'save'|trans }) }}
+    </div>
+{% endblock %}

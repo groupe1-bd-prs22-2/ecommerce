@@ -6,7 +6,13 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
+// Import de TinyMCE
+import tinymce from "tinymce";
+import 'tinymce/themes/silver/theme';
+
+tinymce.init({
+    selector: '.tinymce'
+})
 
 // start the Stimulus application
-import './bootstrap';
+//import './bootstrap';

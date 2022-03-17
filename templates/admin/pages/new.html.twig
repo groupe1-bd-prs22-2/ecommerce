@@ -1,0 +1,11 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}{{ 'pages.create'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-3">{{ 'pages.create'|trans }}</h1>
+
+        {{ include('admin/pages/_form.html.twig') }}
+    </div>
+{% endblock %}
