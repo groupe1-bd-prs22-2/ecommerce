@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="row row-cols-4">
                 {# Affichage de la liste des produits #}
-                {% for p in products %}
+              {#  {% for p in products %}
                     <div class="col mb-3">
                         <div class="card shadow rounded">
                             <img src="{{ asset('images/produit/' ~ p.photo) }}" class="card-img-top img-thumbnail" alt="{{ p.nom }}">
@@ -23,7 +23,7 @@
                     </div>
                 {% else %}
                     <div class="alert alert-info">{{ 'product.no_records'|trans }}</div>
-                {% endfor %}
+                {% endfor %} #}
             </div>
         </div>
     </div>
