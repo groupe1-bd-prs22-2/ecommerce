@@ -1837,7 +1837,7 @@ ol {
 }
 
 .product__details__last__option ul {
-	padding-top: 40px;
+	padding-top: 0px;
 }
 
 .product__details__last__option ul li {
@@ -1854,7 +1854,7 @@ ol {
 }
 
 .product__details__tab {
-	padding-top: 60px;
+	padding-top: 10px;
 }
 
 .product__details__tab .nav-tabs {
