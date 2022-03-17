@@ -15,4 +15,4 @@ tinymce.init({
 })
 
 // start the Stimulus application
-import './bootstrap';
+//import './bootstrap';
