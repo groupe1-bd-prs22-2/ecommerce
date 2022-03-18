@@ -52,34 +52,35 @@ class Cart
         // Vérification de la quantité ajoutée
         if ($quantity <= 0) {
             throw new Exception(new TranslatableMessage('cart.emptyQty'));
-        }
+        } else {
+            // Récupération de la liste des produits du panier
+            $products = $this->getProducts();
 
-        // Récupération de la liste des produits du panier
-        $products = $this->getProducts();
+            // Recherche du produit que l'on veut ajouter
+            $isAlreadyInCart = false;
+            if (!empty($products)) {
+                foreach ($products as &$elem) {
+                    if ($elem['product']->getId() === $product->getId()) {
+                        // Si le produit est déjà dans le panier, on incrémente uniquement la quantité de ce dernier
+                        $isAlreadyInCart = true;
+                        $elem['quantity'] += $quantity;
 
-        // Recherche du produit que l'on veut ajouter
-        $isAlreadyInCart = false;
-        if (!empty($products)) {
-            foreach ($products as $elem) {
-                if ($elem['product']->getId() === $product->getId()) {
-                    // Si le produit est déjà dans le panier, on incrémente uniquement la quantité de ce dernier
-                    $isAlreadyInCart = true;
-                    $elem['quantity'] += $quantity;
-
-                    break;
+                        break;
+                    }
                 }
             }
-        }
 
-        // Si non trouvé dans le panier, on crée la ligne
-        if (!$isAlreadyInCart) {
-            $products[] = [
-                'product' => $product,
-                'quantity' => $quantity
-            ];
-        }
+            // Si non trouvé dans le panier, on crée la ligne
+            if (!$isAlreadyInCart) {
+                $products[] = [
+                    'product' => $product,
+                    'quantity' => $quantity
+                ];
+            }
 
-        $this->session->set('products', $products);
+            // Mise à jour du panier
+            $this->session->set('products', $products);
+        }
     }
 
     /**
