@@ -135,7 +135,11 @@
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg" data-setbg="{{asset('uploads/products/' ~ p.picture)}}">
-                                            <span class="label">New</span>
+                                            {% if p.quantity == 0 %}
+                                            <span class="label" style="color:red; !important">HORS STOCK</span>
+                                            {% elseif "now"|date('d/m/y') == p.createdAt|date('d/m/y') %}
+                                            <span class="label">NEW</span>
+                                            {% endif %}
                                             <ul class="product__hover">
                                                 <li><a href="#"><img src="{{ asset ('img/icon/heart.png') }}" alt=""></a></li>
                                                 <li><a href="#"><img src="{{ asset('img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
