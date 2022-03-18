@@ -16,7 +16,7 @@ class HomeController extends AbstractController
 
         //dump ($request->attributes->get('_route'));
         return $this->render('home/index.html.twig', [
-            'products' => $productRepository->findAll(),
+            'products' => $productRepository->findProductByMax(12),
 
         ]);
     }
