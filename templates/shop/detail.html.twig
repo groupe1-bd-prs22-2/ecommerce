@@ -75,7 +75,7 @@
                                     </div>
                                 </div>
                                 <a href="#" class="primary-btn">add to cart</a>-->
-                                {{ render(controller('App\\Controller\\CartController::addToCart', {'product': product})) }}
+                                {{ include('cart/_add_to_cart_form.html.twig', {'form': cartForm}) }}
                             </div>
                             <div class="product__details__btns__option">
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
