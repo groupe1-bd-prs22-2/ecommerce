@@ -72,8 +72,8 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li class="{{ route == 'app_home' ? 'active' : ''}}"><a href="{{ path('app_home') }}">Home</a></li>
-                        <li class="{{ route == 'app_shop' ? 'active' : ''}}><a href="{{ path ('app_shop') }}">Shop</a></li>
+                        <li {{ route == 'app_home' ? 'class="active"' : ''}}><a href="{{ path('app_home') }}">Home</a></li>
+                        <li {{ route == 'app_shop' ? ' class="active"' : ''}}><a href="{{ path ('app_shop') }}">Shop</a></li>
                         {% if pages|length %}
                             <li>
                                 <a href="#">Pages</a>
@@ -86,8 +86,8 @@
                                 </ul>
                             </li>
                         {% endif %}
-                        <li class="active"><a href="./blog.html">Blog</a></li>
-                        <li class="active"><a href="./contact.html">Contacts</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./contact.html">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
