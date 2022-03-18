@@ -61,7 +61,7 @@ class Cart
         $isAlreadyInCart = false;
         if (!empty($products)) {
             foreach ($products as $elem) {
-                if ($elem['product'] === $product) {
+                if ($elem['product']->getId() === $product->getId()) {
                     // Si le produit est déjà dans le panier, on incrémente uniquement la quantité de ce dernier
                     $isAlreadyInCart = true;
                     $elem['quantity'] += $quantity;
@@ -93,11 +93,36 @@ class Cart
         $products = $this->getProducts();
         if (!empty($products)) {
             foreach ($products as $k => $elem) {
-                if ($elem['product'] === $product) {
+                if ($elem['product']->getId() === $product->getId()) {
                     unset($products[$k]);
                     $this->session->set('products', $products);
                 }
             }
         }
+    }
+
+    /**
+     * Calcul du total du panier.
+     *
+     * @return float
+     */
+    public function getTotal(): float
+    {
+        // Initialisation
+        $products = $this->getProducts();
+        $total = 0.00;
+
+        // Cumul des sous-totaux de chaque élément du panier
+        if (!empty($products)) {
+            foreach ($products as $elem) {
+                /** @var Product $product */
+                $product = $elem['product'];
+
+                // Calcul du sous-total et ajout au total
+                $total += $product->getPrice() * $elem['quantity'];
+            }
+        }
+
+        return $total;
     }
 }

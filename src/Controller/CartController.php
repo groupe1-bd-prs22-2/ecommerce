@@ -22,14 +22,14 @@ class CartController extends AbstractController
     /**
      * Chargement du panier
      *
-     * @param Request $request
      * @param Cart $cart
      * @return Response
      */
-    #[Route('/', name: 'app_cart', methods: ['GET', 'POST'])]
-    public function index(Request $request, Cart $cart): Response
+    #[Route('/', name: 'app_cart', methods: ['GET'])]
+    public function index(Cart $cart): Response
     {
-        dd($cart->getProducts());
-        return $this->render('cart/index.html.twig');
+        return $this->render('cart/index.html.twig', [
+            'cart' => $cart->getProducts()
+        ]);
     }
 }
