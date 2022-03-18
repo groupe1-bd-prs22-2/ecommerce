@@ -84,8 +84,13 @@
                                 <h5><span>Guaranteed Safe Checkout</span></h5>
                                 <img src="img/shop-details/details-payment.png" alt="">
                                 <ul>
-                                    <li><span>SKU:</span> 3812912</li>
-                                    <li><span>Categories:</span>{{ product.category }}</li>
+                                    <li><span>Réf:</span> {{ product.id }}</li>
+                                    <li>
+                                        <span>Categories:</span>
+                                        {% for c in product.categories %}
+                                            <span class="badge bg-dark">{{ c.name }}</span>
+                                        {% endfor %}
+                                    </li>
                                 </ul>
                             </div>
                         </div>
