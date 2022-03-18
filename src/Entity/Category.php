@@ -26,9 +26,6 @@ class Category
     #[Gedmo\Slug(fields: ['name'])]
     private ?string $slug;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class, orphanRemoval: true)]
-    private $products;
-
     #[Gedmo\Timestampable(on: 'create')]
     #[ORM\Column(type: 'datetime_immutable')]
     private ?\DateTimeImmutable $created_at;
@@ -36,6 +33,9 @@ class Category
     #[Gedmo\Timestampable(on: 'update')]
     #[ORM\Column(type: 'datetime_immutable')]
     private ?\DateTimeImmutable $updated_at;
+
+    #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'categories')]
+    private $products;
 
 
     /**
@@ -76,6 +76,16 @@ class Category
         return $this;
     }
 
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->created_at;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updated_at;
+    }
+
     /**
      * @return Collection<int, Product>
      */
@@ -88,7 +98,7 @@ class Category
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
-            $product->setCategory($this);
+            $product->addCategory($this);
         }
 
         return $this;
@@ -97,23 +107,10 @@ class Category
     public function removeProduct(Product $product): self
     {
         if ($this->products->removeElement($product)) {
-            // set the owning side to null (unless already changed)
-            if ($product->getCategory() === $this) {
-                $product->setCategory(null);
-            }
+            $product->removeCategory($this);
         }
 
         return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->created_at;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeImmutable
-    {
-        return $this->updated_at;
     }
 
     public function __toString(): string
