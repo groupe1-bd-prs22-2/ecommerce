@@ -44,7 +44,6 @@ class ProductRepository extends ServiceEntityRepository
     public function findProductByMax($value)
     {
         return $this->createQueryBuilder('p')
-            ->orderBy('p.created_at')
             ->setMaxResults($value)
             ->getQuery()
             ->getResult()

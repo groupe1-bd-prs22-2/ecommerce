@@ -25,10 +25,11 @@ class ShopController extends AbstractController
     }
 
         #[Route('/detail/{slug}', name: 'app_shop_detail')]
-    public function detail(Product $product): Response
+    public function detail(ProductRepository $productRepository, Product $product): Response
     {
         return $this->render('shop/detail.html.twig', [
             'product' => $product,
+            'products' => $productRepository->findProductByMax(4),
         ]);
     }
 

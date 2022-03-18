@@ -15,9 +15,9 @@ class AppFixtures extends Fixture
         for ($i = 1; $i <= 25; $i++) {
             $product = new Product();
             $product->setName('One Pièce Tome : '.$i);
-            $product->setPrice(mt_rand(0, 10));
+            $product->setPrice(mt_rand(1, 15));
             $product->setQuantity(mt_rand(0,8000));
-            $product->setCategory($category->setName('Shonen'));
+            $product->addCategory($category->setName('OnePiece'));
             $product->setDescription('blablapoukie');
             $product->setPicture("Tome".$i.'.jpg');
             $manager->persist($product);
