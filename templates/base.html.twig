@@ -33,7 +33,7 @@
         {% endblock %}
     </head>
     <body>
-        {{ render(controller('App\\Controller\\NavbarController::renderNav')) }}
+        {{ render(controller('App\\Controller\\NavbarController::renderNav',{'route':app.request.get('_route')})) }}
         {% block body %}{% endblock %}
 
         <footer class="footer">
