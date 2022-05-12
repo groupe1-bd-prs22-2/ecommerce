@@ -1,0 +1,10 @@
+<form id="remove-cart-product-{{ id }}" method="post" action="{{ path('app_cart_remove_product', {'id': id}) }}">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ id) }}">
+    <i id="btn-remove-cart-product-{{ id }}" class="fa fa-close" style="cursor: pointer;"></i>
+</form>
+
+<script>
+    document.getElementById(`btn-remove-cart-product-{{ id }}`).addEventListener('click', () => {
+        document.getElementById(`remove-cart-product-{{ id }}`).submit()
+    })
+</script>

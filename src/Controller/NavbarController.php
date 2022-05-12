@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Pages;
+use App\Service\Cart;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,15 +16,16 @@ class NavbarController extends AbstractController
      * Rendu de la navbar.
      *
      * @param EntityManagerInterface $em
+     * @param string $route
+     * @param Cart $cart
      * @return Response
      */
-    public function renderNav(EntityManagerInterface $em, $route =''): Response
+    public function renderNav(EntityManagerInterface $em, string $route, Cart $cart): Response
     {
-
-        //dump ($request->attributes->get('_route'));
         return $this->render('layouts/navbar.html.twig', [
             'pages' => $em->getRepository(Pages::class)->findAll(),
             'route' => $route,
+            'cartAmount' => $cart->getTotal()
         ]);
     }
 }

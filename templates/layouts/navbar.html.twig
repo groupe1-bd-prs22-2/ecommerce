@@ -95,8 +95,8 @@
                 <div class="header__nav__option">
                     <a href="#" class="search-switch"><img src="{{ asset('img/icon/search.png') }}" alt=""></a>
                     <a href="#"><img src="{{ asset('img/icon/heart.png') }}" alt=""></a>
-                    <a href="#"><img src="{{ asset('img/icon/cart.png') }}" alt=""> <span>0</span></a>
-                    <div class="price">$0.00</div>
+                    <a href="{{ path('app_cart') }}"><img src="{{ asset('img/icon/cart.png') }}" alt=""></a>
+                    <div class="price">{{ cartAmount }} €</div>
                 </div>
             </div>
         </div>
