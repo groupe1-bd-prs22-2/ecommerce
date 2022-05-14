@@ -2,19 +2,19 @@
 
 namespace App\Controller;
 
+use Exception;
 use App\Service\Cart;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Product;
+use App\Repository\ProductRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\TranslatableMessage;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Gestion du panier.
+ * 
  */
 #[Route('/cart')]
 class CartController extends AbstractController
@@ -35,9 +35,32 @@ class CartController extends AbstractController
     }
 
     /**
+     * Ajout d'un produit au panier.
+     *
+     * @param Request $request
+     * @param Cart $cart
+     * @param ProductRepository $repository
+     * @return Response
+     * @throws Exception
+     */
+    #[Route('/', name: 'app_cart_add_product', methods: ['POST'])]
+    public function add(Request $request, Cart $cart, ProductRepository $repository): Response
+    {
+        // Récupération du produit ajouté ainsi que sa quantité
+        $product = $repository->find($request->get('product'));
+        $quantity = (int) $request->get('quantity');
+
+        if (!empty($product) && !empty($quantity)) {
+            $cart->addProduct($product, $quantity);
+        }
+
+        return $this->redirectToRoute('app_cart');
+    }
+
+    /**
      * Suppression d'un produit du panier.
      *
-     * @param Product $produit
+     * @param Product $product
      * @param Request $request
      * @param Cart $cart
      * @return Response
