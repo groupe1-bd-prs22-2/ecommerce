@@ -77,7 +77,8 @@
         "symfony/polyfill-php72": "*",
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php74": "*",
-        "symfony/polyfill-php80": "*"
+        "symfony/polyfill-php80": "*",
+        "symfony/debug-bundle": "6.0.*",
     },
     "scripts": {
         "auto-scripts": {
@@ -105,7 +106,6 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
-        "symfony/debug-bundle": "6.0.*",
         "symfony/maker-bundle": "^1.0",
         "symfony/stopwatch": "6.0.*",
         "symfony/web-profiler-bundle": "6.0.*"
