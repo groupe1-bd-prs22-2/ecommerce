@@ -47,7 +47,8 @@
         "symfony/webpack-encore-bundle": "^1.12",
         "symfony/yaml": "6.0.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "symfony/debug-bundle": "6.0.*"
     },
     "config": {
         "allow-plugins": {
@@ -77,8 +78,7 @@
         "symfony/polyfill-php72": "*",
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php74": "*",
-        "symfony/polyfill-php80": "*",
-        "symfony/debug-bundle": "6.0.*"
+        "symfony/polyfill-php80": "*"
     },
     "scripts": {
         "auto-scripts": {
