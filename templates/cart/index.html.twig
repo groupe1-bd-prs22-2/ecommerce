@@ -42,7 +42,9 @@
                                                 <img src="{{ asset('uploads/products/' ~ product.picture) }}" width="90" alt="{{ product.name }}">
                                             </div>
                                             <div class="product__cart__item__text">
-                                                <h6>{{ product.name }}</h6>
+                                                <a href="{{ path('app_shop_detail', {'slug': product.slug}) }}">
+                                                    <h6>{{ product.name }}</h6>
+                                                </a>
                                                 <h5>
                                                     {{ product.price }} €
                                                     ({{ 'quantity.short'|trans }}: {{ element.quantity }})
