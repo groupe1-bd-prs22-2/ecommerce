@@ -1,0 +1,32 @@
+<div class="product__item">
+    <div class="product__item__pic set-bg" data-setbg="{{asset('uploads/products/' ~ p.picture)}}">
+        {% if p.quantity == 0 %}
+            <span class="label" style="color: red !important;">HORS STOCK</span>
+        {% elseif "now"|date('d/m/y') == p.createdAt|date('d/m/y') %}
+            <span class="label">NEW</span>
+        {% endif %}
+        <ul class="product__hover">
+            <li><a href="#"><img src="{{ asset ('img/icon/heart.png') }}" alt=""></a></li>
+            <li><a href="#"><img src="{{ asset('img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
+            <li><a href="{{ path('app_shop_detail',{'slug' : p.slug})}}"><img src="{{ asset('img/icon/search.png') }}" alt=""></a></li>
+        </ul>
+    </div>
+    <div class="product__item__text">
+        <h6>{{ p.name }}</h6>
+        <form id="add-product-to-cart-{{ p.id }}" action="{{ path('app_cart_add_product') }}" method="post">
+            <input type="hidden" name="quantity" value="1">
+            <input type="hidden" name="product" value="{{ p.id }}">
+            <a href="#" class="add-cart" onclick="document.forms['add-product-to-cart-{{ p.id }}'].submit()">
+                + Ajouter au panier
+            </a>
+        </form>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+        <h5>{{ p.price }}</h5>
+    </div>
+</div>
