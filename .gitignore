@@ -22,4 +22,5 @@ docker-compose.override.yml
 /public/sass/*
 npm-debug.log
 yarn-error.log
+package-lock.json
 ###< symfony/webpack-encore-bundle ###
