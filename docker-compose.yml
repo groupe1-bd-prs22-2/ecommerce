@@ -3,21 +3,25 @@ version: '3.8'
 services:
   # Configuration MySQL
   db:
-    image: mysql:5.7
-    command: --default-authentication-plugin=mysql_native_password
+    image: postgres
     restart: always
     ports:
-      - "3309:3309"
+      - '5432:5432'
     environment:
-      MYSQL_ROOT_PASSWORD: 4db4ea9f1
-      MYSQL_USER: ecommerce_dev
-      MYSQL_PASSWORD: 3c0mMerce
-      MYSQL_DATABASE: ecommerce
-      MYSQL_TCP_PORT: 3309
-      TZ: Europe/Paris
+      POSTGRES_USER: ecommerce_dev
+      POSTGRES_PASSWORD: 3c0mMerce
+      POSTGRES_DB: ecommerce
+      #MYSQL_ROOT_PASSWORD: 4db4ea9f1
+      #MYSQL_USER: ecommerce_dev
+      #MYSQL_PASSWORD: 3c0mMerce
+      #MYSQL_DATABASE: ecommerce
+      #MYSQL_TCP_PORT: 3309
+      #TZ: Europe/Paris
+    volumes:
+      - db:/var/lib/postgresql/data
   # Configuration PHP
   php:
-    container_name: ecommerce-app
+    container_name: mangamania
     build:
       context: ./.docker/php
     volumes:
@@ -36,3 +40,7 @@ services:
       - php
     ports:
       - "8089:8089"
+
+volumes:
+  db:
+    driver: local

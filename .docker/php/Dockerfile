@@ -3,8 +3,12 @@ FROM php:fpm-alpine
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install PDO
-RUN docker-php-ext-install pdo_mysql
+# Installation Composant DB
+#RUN docker-php-ext-install pdo_mysql #MySQL
+
+# POSTGRESQL (Migration du 06/07 pour déploiement Heroku)
+RUN apk add postgresql-dev
+RUN docker-php-ext-install pdo_pgsql
 
 # Install intl
 RUN apk add icu-dev
