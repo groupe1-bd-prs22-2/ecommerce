@@ -161,6 +161,9 @@
             "config/packages/stof_doctrine_extensions.yaml"
         ]
     },
+    "stripe/stripe-php": {
+        "version": "v8.9.0"
+    },
     "symfony/apache-pack": {
         "version": "1.0",
         "recipe": {
