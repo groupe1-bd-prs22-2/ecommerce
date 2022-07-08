@@ -19,6 +19,7 @@ class Stripe
     /**
      * Constants
      */
+    private const API_URL = 'https://api.stripe.com';
     private const API_PRIVATE_KEY = 'sk_test_51LIuofHEu3pjKYHbCBdF45ID5zKNJwfC0wRn53o37qYJKgBggXNKWOjTsGMlEx1ZRyXbrMTQjyDilJC1U9dtAllG00Y0or74pD';
 
     /**

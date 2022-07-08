@@ -24,7 +24,7 @@ class Order
     private $updated_at;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'orders')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private $customer;
 
     public function getId(): ?int

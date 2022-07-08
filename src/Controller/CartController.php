@@ -87,4 +87,19 @@ class CartController extends AbstractController
 
         return $this->redirectToRoute('app_cart');
     }
+
+    /**
+     * Paiement du panier.
+     *
+     * @param Cart $cart
+     * @return Response
+     */
+    #[Route('/payment', name: 'app_cart_payment', methods: ['GET', 'POST'])]
+    public function payment(Cart $cart): Response
+    {
+        return $this->render('cart/payment.html.twig', [
+            'cart' => $cart->getProducts(),
+            'total' => $cart->getTotal()
+        ]);
+    }
 }
