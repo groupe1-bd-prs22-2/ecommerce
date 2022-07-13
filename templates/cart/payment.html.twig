@@ -108,11 +108,17 @@
                                 <ul class="checkout__total__products">
                                     {% for key, element in cart %}
                                         {% set product = element.product %}
-                                        <li style="font-size: small">{{ product.name }} <span>{{ product.price * element.quantity }} €</span></li>
+                                        <li style="font-size: small">
+                                            {{ product.name }}
+                                            {% if element.quantity > 1 %}
+                                                (x{{ element.quantity }})
+                                            {% endif %}
+                                            <span>{{ product.price * element.quantity }} €</span>
+                                        </li>
                                     {% endfor %}
                                 </ul>
                                 <ul class="checkout__total__all">
-                                    <li>Total <span>{{ total }} €</span></li>
+                                    <li>{{ 'total'|trans }} <span>{{ total }} €</span></li>
                                 </ul>
                                 <p>{{ 'cart.payment.card'|trans }}</p>
                                 <button type="submit" class="site-btn">{{ 'cart.payment.proceed'|trans }}</button>
