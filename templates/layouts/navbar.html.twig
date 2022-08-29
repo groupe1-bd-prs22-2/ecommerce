@@ -9,14 +9,12 @@
     <div class="offcanvas__option">
         <div class="offcanvas__links">
             <a href="#">Sign in</a>
-            <a href="#">FAQs</a>
         </div>
         <div class="offcanvas__top__hover">
-            <span>Usd <i class="arrow_carrot-down"></i></span>
+            <span>LANGUE <i class="arrow_carrot-down"></i></span>
             <ul>
-                <li>USD</li>
-                <li>EUR</li>
-                <li>USD</li>
+                <li>FR</li>
+                <li>EN</li>
             </ul>
         </div>
     </div>
@@ -27,9 +25,9 @@
         <div class="price">$0.00</div>
     </div>
     <div id="mobile-menu-wrap"></div>
-    <div class="offcanvas__text">
+    <!--<div class="offcanvas__text">
         <p>Free shipping, 30-day return or refund guarantee.</p>
-    </div>
+    </div>-->
 </div>
 <!-- Offcanvas Menu End -->
 
@@ -39,22 +37,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-7">
-                    <div class="header__top__left">
+                    <!--<div class="header__top__left">
                         <p>Free shipping, 30-day return or refund guarantee.</p>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-lg-6 col-md-5">
                     <div class="header__top__right">
                         <div class="header__top__links">
                             <a href="#">Sign in</a>
-                            <a href="#">FAQs</a>
                         </div>
                         <div class="header__top__hover">
-                            <span>Usd <i class="arrow_carrot-down"></i></span>
+
+                            <span>LANGUE <i class="arrow_carrot-down"></i></span>
                             <ul>
-                                <li>USD</li>
-                                <li>EUR</li>
-                                <li>USD</li>
+                                {% for locale in locales %}
+                                    {% if locale != app.request.locale %}
+                                        <li><a href="{{ path('change_locale', {'locale':locale})}}"><img src="{{asset('img/icon/'~locale~'.png')}}" height="20px" alt="{{ locale }}"></a></li>
+                                    {% endif %}
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -103,4 +103,3 @@
         <div class="canvas__open"><i class="fa fa-bars"></i></div>
     </div>
 </header>
-<!-- Header Section End -->
