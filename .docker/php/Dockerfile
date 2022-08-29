@@ -17,8 +17,9 @@ RUN docker-php-ext-configure intl \
     && docker-php-ext-enable intl
 
 # Install Symfony cli
-RUN apk update && apk add bash
-RUN wget https://get.symfony.com/cli/installer -O - | bash && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+RUN apk update && apk add --no-cache bash
+RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.alpine.sh' | bash
+RUN apk add symfony-cli
 RUN apk add --update nodejs npm
 RUN npm install --global yarn
 
