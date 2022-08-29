@@ -20,6 +20,8 @@ class Cart
     /** @var SessionInterface $session Interface permettant d'interagir avec les données de session */
     private SessionInterface $session;
 
+    /** @var ?string "Client_secret" Stripe permettant le paiement du panier */
+    private ?string $clientSecret = null;
 
     /**
      * Constructeur.
@@ -125,5 +127,23 @@ class Cart
         }
 
         return $total;
+    }
+
+    /**
+     * Set le "client_secret" Stripe pour l'intention de paiement du paiement du panier.
+     * @param string $secret
+     * @return void
+     */
+    public function setClientSecret(string $secret): void
+    {
+        $this->session->set('stripe_client_secret', $secret);
+    }
+
+    /**
+     * @return string "Client_secret" pour procéder au paiement.
+     */
+    public function getClientSecret(): string
+    {
+        return $this->session->get('stripe_client_secret');
     }
 }

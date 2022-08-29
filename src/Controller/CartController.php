@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\Stripe;
 use Exception;
 use App\Service\Cart;
 use App\Entity\Product;
@@ -23,11 +24,24 @@ class CartController extends AbstractController
      * Chargement du panier
      *
      * @param Cart $cart
+     * @param Stripe $stripe
+     * @param Request $request
      * @return Response
+     * @throws \Stripe\Exception\ApiErrorException
      */
-    #[Route('/', name: 'app_cart', methods: ['GET'])]
-    public function index(Cart $cart): Response
+    #[Route('/', name: 'app_cart', methods: ['GET', 'POST'])]
+    public function index(Cart $cart, Stripe $stripe, Request $request): Response
     {
+        // Création de l'intention de paiement au clic sur "Paiement"
+        if ($request->getMethod() === 'POST') {
+            $clientSecret = $stripe->createPaymentIntent($cart->getTotal());
+            $cart->setClientSecret($clientSecret);
+
+            // Redirection vers la page de paiement
+            return $this->redirectToRoute('app_cart_payment');
+        }
+
+        // Chargement de la page récapitulative en méthode GET
         return $this->render('cart/index.html.twig', [
             'cart' => $cart->getProducts(),
             'total' => $cart->getTotal()
@@ -43,7 +57,7 @@ class CartController extends AbstractController
      * @return Response
      * @throws Exception
      */
-    #[Route('/', name: 'app_cart_add_product', methods: ['POST'])]
+    #[Route('/add', name: 'app_cart_add_product', methods: ['POST'])]
     public function add(Request $request, Cart $cart, ProductRepository $repository): Response
     {
         // Récupération du produit ajouté ainsi que sa quantité
@@ -98,6 +112,7 @@ class CartController extends AbstractController
     public function payment(Cart $cart): Response
     {
         return $this->render('cart/payment.html.twig', [
+            'stripe_client_secret' => $cart->getClientSecret(),
             'cart' => $cart->getProducts(),
             'total' => $cart->getTotal()
         ]);

@@ -2508,7 +2508,8 @@ ol {
 	float: right;
 }
 
-.cart__total .primary-btn {
+.cart__total > form > button.primary-btn {
+	width: 100%;
 	display: block;
 	padding: 12px 10px;
 	text-align: center;
