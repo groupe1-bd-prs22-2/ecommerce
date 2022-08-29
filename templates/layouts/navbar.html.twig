@@ -44,11 +44,11 @@
                 <div class="col-lg-6 col-md-5">
                     <div class="header__top__right">
                         <div class="header__top__links">
-                            <a href="#">Sign in</a>
+                            <a href="#">{{ 'navbar.signin'|trans }}</a>
                         </div>
                         <div class="header__top__hover">
 
-                            <span>LANGUE <i class="arrow_carrot-down"></i></span>
+                            <span>{{ 'navbar.lang'|trans }} <i class="arrow_carrot-down"></i></span>
                             <ul>
                                 {% for locale in locales %}
                                     {% if locale != app.request.locale %}
@@ -72,8 +72,8 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li class="{{ route == 'app_home' ? 'active' : ''}}"><a href="{{ path('app_home') }}">Home</a></li>
-                        <li class="{{ route in ['app_shop','app_shop_detail'] ?  'active' : ''}}"><a href="{{ path ('app_shop') }}">Shop</a></li>
+                        <li class="{{ route == 'app_home' ? 'active' : ''}}"><a href="{{ path('app_home') }}">{{ 'navbar.home'|trans }}</a></li>
+                        <li class="{{ route in ['app_shop','app_shop_detail'] ?  'active' : ''}}"><a href="{{ path ('app_shop') }}">{{ 'navbar.shop'|trans }}</a></li>
                         {% if pages|length %}
                             <li>
                                 <a href="#">Pages</a>
@@ -86,8 +86,8 @@
                                 </ul>
                             </li>
                         {% endif %}
-                        <li class=''><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contacts</a></li>
+                        <li class=''><a href="./blog.html">{{ 'navbar.blog'|trans }}</a></li>
+                        <li><a href="./contact.html">{{ 'navbar.contact'|trans }}</a></li>
                     </ul>
                 </nav>
             </div>

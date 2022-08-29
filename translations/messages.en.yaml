@@ -1,2 +1,15 @@
-#Defaut :
 # Langue : 'English'
+navbar:
+  lang : language
+  home : home
+  shop : shop
+  blog : blog
+  contact : contact
+  signin: sign in
+home:
+  shopnow: shop now
+  sasuke : is one of the main characters of the series. He was originally introduced as a protagonist, a member of Konoha belonging to Team Kakashi.
+  goku: is the main protagonist of the manga Dragon Ball and Dragon Ball Super, and their animated adaptations.
+  clothes : clothes
+  figurines : figurines
+
