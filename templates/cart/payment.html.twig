@@ -23,10 +23,18 @@
     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <form action="#">
+                <form action="#" id="payment-form">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="checkout__input">
+                                        <p class="font-weight-bold">Saisissez les informations de votre carte de paiement</p>
+                                        <div id="payment-element"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Fist Name<span>*</span></p>
@@ -99,7 +107,7 @@
                                 <p>Order notes<span>*</span></p>
                                 <input type="text"
                                        placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div>
+                            </div>-->
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
@@ -121,7 +129,7 @@
                                     <li>{{ 'total'|trans }} <span>{{ total }} €</span></li>
                                 </ul>
                                 <p>{{ 'cart.payment.card'|trans }}</p>
-                                <button type="submit" class="site-btn">{{ 'cart.payment.proceed'|trans }}</button>
+                                <button type="submit" class="site-btn" id="handle-payment">{{ 'cart.payment.proceed'|trans }}</button>
                             </div>
                         </div>
                     </div>
@@ -129,4 +137,48 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block js %}
+    <script>
+
+        document
+            .querySelector("#payment-form")
+            .addEventListener("submit", handleSubmit);
+
+        const stripe = new Stripe(`{{ constant('App\\Service\\Stripe::API_PUBLIC_KEY') }}`)
+
+        const elements = stripe.elements({
+            'clientSecret': `{{ stripe_client_secret }}`
+        })
+
+        const paymentElement = elements.create("payment");
+        paymentElement.mount("#payment-element");
+
+        async function handleSubmit(e) {
+            e.preventDefault();
+            //setLoading(true);
+
+            const { error } = await stripe.confirmPayment({
+                elements,
+                confirmParams: {
+                    // Make sure to change this to your payment completion page
+                    return_url: `{{ url('app_home') }}`,
+                },
+            });
+
+            // This point will only be reached if there is an immediate error when
+            // confirming the payment. Otherwise, your customer will be redirected to
+            // your `return_url`. For some payment methods like iDEAL, your customer will
+            // be redirected to an intermediate site first to authorize the payment, then
+            // redirected to the `return_url`.
+            if (error.type === "card_error" || error.type === "validation_error") {
+                console.error(error.message);
+            } else {
+                console.error("An unexpected error occurred.");
+            }
+
+            //setLoading(false);
+        }
+    </script>
 {% endblock %}

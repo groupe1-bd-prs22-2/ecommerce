@@ -18,7 +18,7 @@ class Stripe
      */
     private const API_URL = 'https://api.stripe.com';
     private const API_PRIVATE_KEY = 'sk_test_51LIuofHEu3pjKYHbCBdF45ID5zKNJwfC0wRn53o37qYJKgBggXNKWOjTsGMlEx1ZRyXbrMTQjyDilJC1U9dtAllG00Y0or74pD';
-    private const API_PUBLIC_KEY = 'pk_test_51LIuofHEu3pjKYHbbpcZvtJLcUvYFWBPHgODtdi9qn3nskuD2WCywmfIWACKLqLWA8h2jqew4H8D3mdWzRzFiMBr00P1INvBQD';
+    public const API_PUBLIC_KEY = 'pk_test_51LIuofHEu3pjKYHbbpcZvtJLcUvYFWBPHgODtdi9qn3nskuD2WCywmfIWACKLqLWA8h2jqew4H8D3mdWzRzFiMBr00P1INvBQD';
 
     private const CURRENCY = 'eur';
 

@@ -111,6 +111,11 @@ class CartController extends AbstractController
     #[Route('/payment', name: 'app_cart_payment', methods: ['GET', 'POST'])]
     public function payment(Cart $cart): Response
     {
+        // Redirection vers le panier si aucun "client_secret" Stripe trouvé
+        if (is_null($cart->getClientSecret())) {
+            return $this->redirectToRoute('app_cart');
+        }
+
         return $this->render('cart/payment.html.twig', [
             'stripe_client_secret' => $cart->getClientSecret(),
             'cart' => $cart->getProducts(),
