@@ -81,9 +81,11 @@
                             <!--<li>Subtotal <span>$ 169.50</span></li>-->
                             <li>{{ 'total'|trans }} <span>{{ total }} €</span></li>
                         </ul>
-                        <form action="{{ path('app_cart') }}" method="post">
-                            <button type="submit" class="primary-btn">{{ 'cart.pay'|trans }}</button>
-                        </form>
+                        {% if cart is not empty and total > 0 %}
+                            <form action="{{ path('app_cart') }}" method="post">
+                                <button type="submit" class="primary-btn">{{ 'cart.pay'|trans }}</button>
+                            </form>
+                        {% endif %}
                     </div>
                 </div>
             </div>

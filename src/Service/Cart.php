@@ -105,6 +105,15 @@ class Cart
     }
 
     /**
+     * Vide le panier en cours.
+     * @return void
+     */
+    public function emptyCart()
+    {
+        $this->session->set('products', []);
+    }
+
+    /**
      * Calcul du total du panier.
      *
      * @return float

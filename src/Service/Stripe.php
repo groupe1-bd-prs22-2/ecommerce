@@ -39,7 +39,7 @@ class Stripe
     public function createPaymentIntent(float $amount): string
     {
         $intent = \Stripe\PaymentIntent::create([
-            'amount' => $amount * 100,
+            'amount' => $amount * 100, // API Stripe force la multiplication par 100 pour avoir le bon montant
             'currency' => self::CURRENCY,
             'payment_method_types' => ['card']
         ]);

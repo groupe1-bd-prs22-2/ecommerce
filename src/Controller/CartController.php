@@ -122,4 +122,27 @@ class CartController extends AbstractController
             'total' => $cart->getTotal()
         ]);
     }
+
+    /**
+     * Confirmation et enregistrement du paiement.
+     *
+     * @param Cart $cart
+     * @param Request $request
+     * @return Response
+     */
+    #[Route('/payment-confirm', name: 'app_cart_payment_confirm', methods: ['GET'])]
+    public function paymentConfirm(Cart $cart, Request $request): Response
+    {
+        $routeParams = $request->attributes->get('_route_params');
+
+        // TODO: Enregistrer la commande en base de données
+
+        // TODO: Mise à jour du stock du (des) produit(s) acheté(s)
+
+        // Vide le panier
+        $cart->emptyCart();
+
+        // Redirection vers la page d'accueil
+        return $this->redirectToRoute('app_home');
+    }
 }
