@@ -29,6 +29,7 @@
         "symfony/http-client": "6.0.*",
         "symfony/intl": "6.0.*",
         "symfony/mailer": "6.0.*",
+        "symfony/messenger": "6.0.*",
         "symfony/mime": "6.0.*",
         "symfony/monolog-bundle": "^3.0",
         "symfony/notifier": "6.0.*",
@@ -38,7 +39,6 @@
         "symfony/proxy-manager-bridge": "6.0.*",
         "symfony/runtime": "6.0.*",
         "symfony/security-bundle": "6.0.*",
-        "symfony/sendinblue-mailer": "6.0.*",
         "symfony/serializer": "6.0.*",
         "symfony/string": "6.0.*",
         "symfony/translation": "6.0.*",
@@ -48,6 +48,7 @@
         "symfony/webapp-meta": "^1.0",
         "symfony/webpack-encore-bundle": "^1.12",
         "symfony/yaml": "6.0.*",
+        "twig/cssinliner-extra": "^3.4",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },

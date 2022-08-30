@@ -1,5 +1,3 @@
 framework:
     mailer:
         dsn: '%env(MAILER_DSN)%'
-        headers:
-            From: 'Manga Mania <noreply@mangamania.com>'

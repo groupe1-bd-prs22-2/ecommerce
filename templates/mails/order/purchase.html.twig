@@ -1,0 +1,43 @@
+{% apply inline_css %}
+    <style>
+        h1, p {
+            text-align: center;
+        }
+    </style>
+
+    <h1>LOGO MANGA MANIA</h1>
+
+    <p>Votre transaction sur Manga Mania a bien été effectuée. Merci !</p>
+
+    <p>
+        Vous trouverez une copie des détails de votre transaction ci-dessous,
+        ainsi qu'un lien vers les conditions applicables. Veuillez les imprimer et les conserver en lieu sûr
+        pour pouvoir vous y reporter ultérieurement.
+    </p>
+
+    <table>
+        <!-- Références de la commande -->
+        <tr>
+            <td>Référence de la commande : `$uidOrder`</td>
+            <td>
+                `$fullName`
+            </td>
+        </tr>
+
+        <!-- Détails de la commande -->
+        <tr>
+            <td>Détails</td>
+            <td>Prix</td>
+        </tr>
+
+        {% for key, element in cart %}
+            {% set product = element.product %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }} €</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <hr>
+{% endapply %}

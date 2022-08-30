@@ -7,8 +7,12 @@ use Exception;
 use App\Service\Cart;
 use App\Entity\Product;
 use App\Repository\ProductRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportException;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\TranslatableMessage;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -127,17 +131,33 @@ class CartController extends AbstractController
      * Confirmation et enregistrement du paiement.
      *
      * @param Cart $cart
+     * @param MailerInterface $mailer
      * @param Request $request
      * @return Response
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
     #[Route('/payment-confirm', name: 'app_cart_payment_confirm', methods: ['GET'])]
-    public function paymentConfirm(Cart $cart, Request $request): Response
+    public function paymentConfirm(Cart $cart, MailerInterface $mailer, Request $request): Response
     {
-        $routeParams = $request->attributes->get('_route_params');
-
         // TODO: Enregistrer la commande en base de données
 
-        // TODO: Envoi du mail récapitulatif de l'achat
+        // Envoi du mail récapitulatif de l'achat
+        // TODO: Intégrer les informations manquantes (user etc...) -> Non en place au moment du développement
+        $email = (new TemplatedEmail())
+            ->to(new Address('yyroist@gmail.com', 'RAJOARIFERA Tsiory'))
+            ->from('noreply@mangamania.com')
+            ->subject('Merci pour votre achat')
+            ->htmlTemplate('mails/order/purchase.html.twig')
+            ->context([
+                'cart' => $cart->getProducts()
+            ])
+        ;
+
+        try {
+            $mailer->send($email);
+        } catch (TransportException $e) {
+            dd($e->getMessage());
+        }
 
         // TODO: Mise à jour du stock du (des) produit(s) acheté(s)
 
