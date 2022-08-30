@@ -137,6 +137,8 @@ class CartController extends AbstractController
 
         // TODO: Enregistrer la commande en base de données
 
+        // TODO: Envoi du mail récapitulatif de l'achat
+
         // TODO: Mise à jour du stock du (des) produit(s) acheté(s)
 
         // Vide le panier
