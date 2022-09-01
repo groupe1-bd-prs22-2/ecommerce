@@ -69,12 +69,13 @@
                                 </div>
                             </div>
                             <div class="product__details__cart__option pt-3">
-                                <div class="quantity">
+                                <!--<div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" value="1" max="{{ product.quantity }}" min="0">
+                                        <input type="text" value="1" max="{# product.quantity #}" min="0">
                                     </div>
                                 </div>
-                                <a href="#" class="primary-btn">add to cart</a>
+                                <a href="#" class="primary-btn">add to cart</a>-->
+                                {{ include('cart/_add_to_cart_form.html.twig', {'form': cartForm}) }}
                             </div>
                             <div class="product__details__btns__option">
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
@@ -84,8 +85,13 @@
                                 <h5><span>Guaranteed Safe Checkout</span></h5>
                                 <img src="img/shop-details/details-payment.png" alt="">
                                 <ul>
-                                    <li><span>SKU:</span> 3812912</li>
-                                    <li><span>Categories:</span>{{ product.category }}</li>
+                                    <li><span>Réf:</span> {{ product.id }}</li>
+                                    <li>
+                                        <span>Categories:</span>
+                                        {% for c in product.categories %}
+                                            <span class="badge bg-dark">{{ c.name }}</span>
+                                        {% endfor %}
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -105,27 +111,29 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{asset('uploads/products/' ~ product.picture)}}">
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>{{ product.name }}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
+                {#{% for p in products %}
+                     <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{asset('uploads/products/' ~ p.picture)}}">
+                                <ul class="product__hover">
+                                    <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                </ul>
                             </div>
-                            <h5>{{ product.price }} €</h5>
+                            <div class="product__item__text">
+                                <h6>{{ p.name }}</h6>
+                                <a href="#" class="add-cart">+ Add To Cart</a>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                                <h5>{{ p.price }} €</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}#}
             </div>
         </div>
     </section>

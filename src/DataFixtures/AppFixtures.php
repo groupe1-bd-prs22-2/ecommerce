@@ -2,29 +2,41 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use App\Entity\Product;
+use App\Entity\Category;
 
+/**
+ * Gestion des données par défaut de test de l'application.
+ */
 class AppFixtures extends Fixture
 {
+    /**
+     * @var array Liste des catégories par défaut
+     */
+    private const DEFAULT_CATEGORIES = [
+        ['name' => 'Vêtements'],
+        ['name' => 'Figurines'],
+        ['name' => 'Manga'],
+        ['name' => 'One Piece'],
+        ['name' => 'Dragon Ball'],
+        ['name' => 'Naruto'],
+    ];
+
+    /**
+     * @param ObjectManager $manager
+     * @return void
+     */
     public function load(ObjectManager $manager): void
     {
-        $category = new Category();
-        for ($i = 1; $i <= 25; $i++) {
-            $product = new Product();
-            $product->setName('One Pièce Tome : '.$i);
-            $product->setPrice(mt_rand(0, 10));
-            $product->setQuantity(mt_rand(0,8000));
-            $product->setCategory($category->setName('Shonen'));
-            $product->setDescription('blablapoukie');
-            $product->setPicture("Tome".$i.'.jpg');
-            $manager->persist($product);
-            $manager->persist($category);
+        // Création des catégories
+        foreach (self::DEFAULT_CATEGORIES as $category) {
+            $manager->persist(
+                (new Category())->setName($category['name'])
+            );
         }
 
-
+        // Enregistrement des modifications
         $manager->flush();
     }
 }
