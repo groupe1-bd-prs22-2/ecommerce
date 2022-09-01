@@ -17,9 +17,10 @@ class ProductType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('category')
+            ->add('categories')
             ->add('picture', FileType::class, [
                 'mapped' => false,
+                'required' => false,
                 'constraints' => [
                     new File(
                         maxSize: '1024k', mimeTypes: ['image/*'],

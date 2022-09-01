@@ -30,10 +30,11 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            <script src="https://js.stripe.com/v3/"></script> <!-- Chargement de Stripe.js -->
         {% endblock %}
     </head>
     <body>
-        {{ render(controller('App\\Controller\\NavbarController::renderNav')) }}
+        {{ render(controller('App\\Controller\\NavbarController::renderNav',{'route':app.request.get('_route')})) }}
         {% block body %}{% endblock %}
 
         <footer class="footer">
@@ -114,6 +115,7 @@
                 </form>
             </div>
         </div>
+
         <!-- Script -->
         <script src="{{ asset ('js/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ asset ('js/bootstrap.min.js') }}"></script>
@@ -125,5 +127,8 @@
         <script src="{{ asset ('js/mixitup.min.js') }}"></script>
         <script src="{{ asset ('js/owl.carousel.min.js') }}"></script>
         <script src="{{ asset ('js/main.js') }}"></script>
+
+        <!-- Script JS spécifique à la page en cours -->
+        {% block js %}{% endblock %}
     </body>
 </html>

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\String\Slugger\AsciiSlugger;
@@ -35,10 +37,6 @@ class Product
     #[ORM\Column(type: 'integer')]
     private ?int $quantity;
 
-    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Category $category;
-
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $picture;
 
@@ -49,6 +47,14 @@ class Product
     #[Gedmo\Timestampable(on: 'update')]
     #[ORM\Column(type: 'datetime_immutable')]
     private ?\DateTimeImmutable $updated_at;
+
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'products')]
+    private $categories;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
 
     /**
      * ==========================================================================================================
@@ -121,18 +127,6 @@ class Product
         return $this;
     }
 
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?Category $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
     public function getPicture(): ?string
     {
         return $this->picture;
@@ -182,6 +176,30 @@ class Product
      * ====================================== METHODS ===========================================================
      * ==========================================================================================================
      */
+
+    /**
+     * @return Collection<int, Category>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        $this->categories->removeElement($category);
+
+        return $this;
+    }
 
 
 }
