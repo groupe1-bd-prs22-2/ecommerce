@@ -63,16 +63,15 @@ class Product
      */
 
     public function getTags(): string{
-        $tags = "";
 
         if ($this->getQuantity() == 0){
-            $tags .= " nostock";
+            $tags = "nostock";
         }
         else if ($this->getQuantity() < 10 && $this->getQuantity() > 0){
-            $tags .= " lowstock";
+            $tags = "lowstock";
         }
         else if($this->getCreatedAt()->format('d/m/y') == (new \DateTimeImmutable())->format('d/m/y')){
-            $tags .=  " new";
+            $tags = "new";
         }
 
         return $tags;
