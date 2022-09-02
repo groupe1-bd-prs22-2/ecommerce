@@ -1,0 +1,29 @@
+{% extends '../base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+
+    <section class="breadcrumb-blog set-bg" data-setbg="{{ asset('img/banner.png') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Our Blog</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+    <section class="blog spad">
+        <div class="container">
+            <div class="row">
+    {% for a in articles%}
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            {{ include('article/_article_preview.html.twig', {'a': a}) }}
+        </div>
+    {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
