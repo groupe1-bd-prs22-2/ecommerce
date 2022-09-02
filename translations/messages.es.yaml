@@ -16,3 +16,9 @@ home:
 blog :
   readmore: Leer más
   ourblog : Nuestro blog
+shop:
+  search : Recherche ...
+  categories : Catégories
+  price : Prix
+  addtocart : Añadir a la cesta
+  sortbyprice : Ordenar por precio

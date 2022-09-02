@@ -16,3 +16,11 @@ home:
 blog :
   readmore: Read more
   ourblog : Our Blog
+shop:
+  search : Search ...
+  categories : Categories
+  price : Price
+  addtocart : Add to cart
+  sortbyprice : Sort by Price
+  lowtohigh: Bajo a Alto
+  hightolow: Alto a Bajo

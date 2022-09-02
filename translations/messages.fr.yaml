@@ -16,3 +16,12 @@ home:
 blog :
     readmore: Savoir plus
     ourblog : Notre Blog
+shop:
+    search : Recherche ...
+    categories : Catégories
+    price : Prix
+    addtocart : Ajouter au panier
+    sortbyprice : Trier par Prix
+    lowtohigh: Ordre croissant
+    hightolow: Ordre décroissant
+

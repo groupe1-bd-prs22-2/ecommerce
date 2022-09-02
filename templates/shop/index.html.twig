@@ -8,10 +8,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__text">
-                        <h4>Shop</h4>
+                        <h4>{{ 'navbar.shop'|trans }}</h4>
                         <div class="breadcrumb__links">
-                            <a href="{{ path('app_home') }}">Accueil</a>
-                            <span>Boutique</span>
+                            <a href="{{ path('app_home') }}">{{ 'navbar.home'|trans }}</a>
+                            <span>{{ 'navbar.shop'|trans }}</span>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="shop__sidebar">
                         <div class="shop__sidebar__search">
                             <form action="#">
-                                <input type="text" placeholder="Rechercher...">
+                                <input type="text" placeholder="{{ 'shop.search'|trans }}">
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
                         </div>
@@ -36,7 +36,7 @@
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
                                     <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseOne">Catégories</a>
+                                        <a data-toggle="collapse" data-target="#collapseOne">{{ 'shop.categories'|trans }}</a>
                                     </div>
                                     <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
@@ -52,24 +52,7 @@
                                 </div>
                                 <div class="card">
                                     <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__brand">
-                                                <ul>
-                                                    <li><a href="#">Naruto</a></li>
-                                                    <li><a href="#">Dragon Ball</a></li>
-                                                    <li><a href="#">Jujutsu Kaisen</a></li>
-                                                    <li><a href="#">Tokyo Revengers</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                        <a data-toggle="collapse" data-target="#collapseThree">{{ 'shop.price'|trans }}</a>
                                     </div>
                                     <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
@@ -86,25 +69,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
-                                    </div>
-                                    <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__tags">
-                                                <a href="#">Product</a>
-                                                <a href="#">Bags</a>
-                                                <a href="#">Shoes</a>
-                                                <a href="#">Fashio</a>
-                                                <a href="#">Clothing</a>
-                                                <a href="#">Hats</a>
-                                                <a href="#">Accessories</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -114,16 +78,15 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__left">
-                                    <p>Showing 1–12 of 126 results</p>
+                                    <p>Showing 1–12 of {{ products|length }} results</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__right">
-                                    <p>Sort by Price:</p>
+                                    <p>{{ 'shop.sortbyprice' | trans }}:</p>
                                     <select>
-                                        <option value="">Low To High</option>
-                                        <option value="">$0 - $55</option>
-                                        <option value="">$55 - $100</option>
+                                        <option value="">{{ 'shop.lowtohigh' | trans }}</option>
+                                        <option value="">{{ 'shop.hightolow' | trans }}</option>
                                     </select>
                                 </div>
                             </div>
