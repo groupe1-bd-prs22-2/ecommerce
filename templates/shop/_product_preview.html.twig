@@ -17,7 +17,7 @@
             <input type="hidden" name="quantity" value="1">
             <input type="hidden" name="product" value="{{ p.id }}">
             <a href="#" class="add-cart" onclick="document.forms['add-product-to-cart-{{ p.id }}'].submit()">
-                + Ajouter au panier
+                + {{ 'shop.addtocart' | trans }}
             </a>
         </form>
         <div class="rating">

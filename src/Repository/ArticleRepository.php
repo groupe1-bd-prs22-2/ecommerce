@@ -33,6 +33,16 @@ class ArticleRepository extends ServiceEntityRepository
         }
     }
 
+    public function findArticleByMax($value)
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.id','DESC')
+            ->setMaxResults($value)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     /**
      * @throws ORMException
      * @throws OptimisticLockException

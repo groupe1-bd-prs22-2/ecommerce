@@ -62,6 +62,21 @@ class Product
      * ==========================================================================================================
      */
 
+    public function getTags(): string{
+        $tags = "";
+
+        if ($this->getQuantity() == 0){
+            $tags .= " nostock";
+        }
+        else if ($this->getQuantity() < 10 && $this->getQuantity() > 0){
+            $tags .= " lowstock";
+        }
+        else if($this->getCreatedAt()->format('d/m/y') == (new \DateTimeImmutable())->format('d/m/y')){
+            $tags .=  " new";
+        }
+
+        return $tags;
+    }
     public function getId(): ?int
     {
         return $this->id;

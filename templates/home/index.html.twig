@@ -124,7 +124,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6>{{ p.name }}</h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
+                                    <a href="#" class="add-cart">+ {{ 'shop.addtocart' | trans }}</a>
                                     <div class="rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -182,36 +182,18 @@
                 </div>
             </div>
             <div class="row">
+                {% for a in articles %}
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-1.jpg"></div>
+                        <div class="blog__item__pic set-bg" data-setbg="{{asset('uploads/articles/' ~ a.picture)}}"></div>
                         <div class="blog__item__text">
-                            <span><img src="img/icon/calendar.png" alt=""> 14 Mars 2022</span>
-                            <h5>Jujutsu Kaisen 0 : le blockbuster d’animation qui plaira aux fans du manga</h5>
-                            <a href="https://www.numerama.com/pop-culture/879733-jujutsu-kaisen-0-le-nouveau-blockbuster-danimation-venu-du-japon.html">Read More</a>
+                            <span><img src="{{ asset('img/icon/calendar.png') }}" alt="">{{ a.createdAt  ? a.createdAt|date('l F o') : '' }}</span>
+                            <h5>{{ a.title }}</h5>
+                            <a href="">{{ 'shop.readmore' | trans }}</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-2.jpg"></div>
-                        <div class="blog__item__text">
-                            <span><img src="img/icon/calendar.png" alt=""> 4 Mars 2022</span>
-                            <h5>Crunchyroll devient l’Olympe de l’anime après l’obtention du catalogue Wakanim et Funimation</h5>
-                            <a href="https://leclaireur.fnac.com/article/75914-crunchyroll-devient-lolympe-de-lanime-apres-lobtention-du-catalogue-wakanim-et-funimation/">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-3.jpg"></div>
-                        <div class="blog__item__text">
-                            <span><img src="img/icon/calendar.png" alt=""> 16 Mars 2022</span>
-                            <h5>Etes-vous plutôt Team One Piece ou Naruto ?</h5>
-                            <a href="https://www.idboox.com/etudes/etes-vous-plutot-team-one-piece-ou-naruto/">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
