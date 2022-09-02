@@ -17,11 +17,13 @@
     <section class="blog spad">
         <div class="container">
             <div class="row">
+
     {% for a in articles %}
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            {{ include('article/_article_preview.html.twig', {'a': a}) }}
-        </div>
+
+            {{ include('blog/_article_preview.html.twig', {'a': a}) }}
+
     {% endfor %}
+
             </div>
         </div>
     </section>
