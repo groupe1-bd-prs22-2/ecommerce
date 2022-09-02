@@ -114,7 +114,9 @@ ol {
 	margin-bottom: 45px;
 	text-align: center;
 }
-
+.letter-space{
+	letter-spacing: 4px;
+}
 .section-title span {
 	color: #e53637;
 	font-size: 14px;
