@@ -4,7 +4,7 @@
         <div class="blog__item__text">
             <span><img src="{{ asset('img/icon/calendar.png') }}" alt="">{{ a.createdAt  ? a.createdAt|date('l F o') : '' }} </span>
             <h5>{{ a.title }}</h5>
-            <a href="#">Read More</a>
+            <a href="#">{{ 'blog.readmore'|trans }}</a>
         </div>
     </div>
 </div>
