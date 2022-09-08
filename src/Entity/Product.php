@@ -64,6 +64,7 @@ class Product
 
     public function getTags(): string{
 
+        $tags = "";
         if ($this->getQuantity() == 0){
             $tags = "nostock";
         }
@@ -76,6 +77,7 @@ class Product
 
         return $tags;
     }
+
     public function getId(): ?int
     {
         return $this->id;
