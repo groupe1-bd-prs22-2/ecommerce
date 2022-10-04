@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\Stripe;
+use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use App\Service\Cart;
 use App\Entity\Product;
@@ -133,15 +134,19 @@ class CartController extends AbstractController
      * @param Cart $cart
      * @param MailerInterface $mailer
      * @param Request $request
+     * @param EntityManagerInterface $em
      * @return Response
      * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
     #[Route('/payment-confirm', name: 'app_cart_payment_confirm', methods: ['GET'])]
-    public function paymentConfirm(Cart $cart, MailerInterface $mailer, Request $request): Response
+    public function paymentConfirm(
+        Cart $cart, MailerInterface $mailer, Request $request,
+        ProductRepository $productRepository
+    ): Response
     {
         // TODO: Enregistrer la commande en base de données
 
-        // Envoi du mail récapitulatif de l'achat
+        // Génération du mail récapitulatif de l'achat
         // TODO: Intégrer les informations manquantes (user etc...) -> Non en place au moment du développement
         $email = (new TemplatedEmail())
             ->to(new Address('yyroist@gmail.com', 'RAJOARIFERA Tsiory'))
@@ -152,14 +157,15 @@ class CartController extends AbstractController
                 'cart' => $cart->getProducts()
             ])
         ;
+        $mailer->send($email); // Envoi du mail
 
-        try {
-            $mailer->send($email);
-        } catch (TransportException $e) {
-            dd($e->getMessage());
+        // Mise à jour du stock du (des) produit(s) acheté(s)
+        foreach ($cart->getProducts() as $element) {
+            $product = $productRepository->find($element['product']->getId());
+            $newQty = $product->getQuantity() - $element['quantity'];
+            $product->setQuantity($newQty);
+            $productRepository->add($product);
         }
-
-        // TODO: Mise à jour du stock du (des) produit(s) acheté(s)
 
         // Vide le panier
         $cart->emptyCart();
