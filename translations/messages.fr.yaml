@@ -6,6 +6,8 @@ navbar:
     blog : Actualité
     contact : Contact
     signin: S'inscrire
+    admin:
+        orders: Commandes
 home:
     collection : collection
     shopnow: Acheter maintenant
@@ -25,4 +27,6 @@ shop:
     sortbyprice : Trier par Prix
     lowtohigh: Ordre croissant
     hightolow: Ordre décroissant
+orders:
+    list: Liste des commandes
 
