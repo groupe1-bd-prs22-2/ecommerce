@@ -16,6 +16,7 @@ home:
 blog :
     readmore: Savoir plus
     ourblog : Notre Blog
+register: S'inscrire
 shop:
     search : Recherche ...
     categories : Catégories
