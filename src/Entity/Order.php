@@ -15,27 +15,56 @@ class Order
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private ?int $id;
 
     #[Gedmo\Timestampable(on: 'create')]
     #[ORM\Column(type: 'datetime_immutable')]
-    private $created_at;
+    private ?\DateTimeImmutable $created_at;
 
     #[Gedmo\Timestampable(on: 'update')]
     #[ORM\Column(type: 'datetime_immutable')]
-    private $updated_at;
+    private ?\DateTimeImmutable $updated_at;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'orders')]
     #[ORM\JoinColumn(nullable: false)]
-    private $customer;
+    private ?User $customer;
 
     #[ORM\OneToMany(mappedBy: 'purchase', targetEntity: OrderProduct::class)]
     private $products;
+
+    #[ORM\Column(type: 'string', length: 255, options: ['default' => self::STATUS_PREPARATION])]
+    private string $status = self::STATUS_PREPARATION;
+
+    /**
+     * ==========================================================================
+     * ============================ CONSTANTS ===================================
+     * ==========================================================================
+     */
+
+    // Gestion des différents états d'une commande
+    public const STATUS_CANCELED = 'canceled';
+    public const STATUS_PREPARATION = 'in_preparation';
+    public const STATUS_DELIVERED = 'delivered';
+
+    public const STATUSES = [self::STATUS_CANCELED, self::STATUS_PREPARATION, self::STATUS_DELIVERED];
+
+    /**
+     * ==========================================================================
+     * ============================ CONSTRUCTOR =================================
+     * ==========================================================================
+     */
 
     public function __construct()
     {
         $this->products = new ArrayCollection();
     }
+
+
+    /**
+     * ==========================================================================
+     * ============================ ACCESSORS ===================================
+     * ==========================================================================
+     */
 
     public function getId(): ?int
     {
@@ -90,6 +119,18 @@ class Order
                 $product->setPurchase(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

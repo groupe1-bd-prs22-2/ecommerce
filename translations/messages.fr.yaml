@@ -32,4 +32,8 @@ shop:
     hightolow: Ordre décroissant
 orders:
     list: Liste des commandes
+    status:
+        in_preparation: Commande en cours de préparation
+        canceled: Commande annulée
+        delivered: Commande délivrée
 
