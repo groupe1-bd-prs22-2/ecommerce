@@ -134,4 +134,27 @@ class Order
 
         return $this;
     }
+
+    /**
+     * ==========================================================================
+     * ============================   METHODS   =================================
+     * ==========================================================================
+     */
+
+    /**
+     * Calcul du total d'une commande.
+     * @return float
+     */
+    public function getTotalAmount(): float
+    {
+        // Initialisation
+        $amount = 0;
+
+        // Parcours la liste des produits reliés à cette commande
+        foreach ($this->getProducts() as $row) {
+            $amount += $row->getProduct()->getPrice() * $row->getQuantity();
+        }
+
+        return $amount;
+    }
 }

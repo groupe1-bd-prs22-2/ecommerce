@@ -8,7 +8,7 @@
 
         {# total items count #}
         <div class="count">
-            {{ pagination.getTotalItemCount }}
+            {{ 'orders.total' | trans }} : {{ pagination.getTotalItemCount }}
         </div>
         <table>
             <tr>
@@ -20,6 +20,8 @@
                 <th{% if pagination.isSorted('a.createdAt') %} class="sorted"{% endif %}>
                     {{ knp_pagination_sortable(pagination, 'Date d\'achat', 'a.createdAt') }}
                 </th>
+                <th>{{ knp_pagination_sortable(pagination, 'Montant', null) }}</th>
+                <th>Actions</th>
             </tr>
 
             {# table body #}
@@ -28,6 +30,17 @@
                     <td>{{ order.id }}</td>
                     <td>{{ ('orders.status.' ~ order.status) | trans }}</td>
                     <td>{{ order.createdAt | date('d/m/Y H:i:s') }}</td>
+                    <td>{{ order.totalAmount }} €</td>
+                    <td class="d-flex gap-2">
+                        <form method="post" action="#">
+                            <input type="hidden" name="_token" value="{{ csrf_token('cancel' ~ order.id) }}">
+                            <button class="btn btn-danger btn-sm">{{ 'orders.cancel'|trans }}</button>
+                        </form>
+                        <form method="post" action="#">
+                            <input type="hidden" name="_token" value="{{ csrf_token('cancel' ~ order.id) }}">
+                            <button class="btn btn-success btn-sm">{{ 'orders.validate'|trans }}</button>
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
         </table>
