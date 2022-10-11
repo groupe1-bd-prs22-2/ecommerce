@@ -8,6 +8,9 @@ navbar:
     signin: S'inscrire
     admin:
         orders: Commandes
+errors:
+    payment:
+        must_be_auth: Merci de créer votre compte Manga Mania afin de poursuivre votre achat.
 home:
     collection : collection
     shopnow: Acheter maintenant

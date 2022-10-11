@@ -22,10 +22,6 @@ class OrderRepository extends ServiceEntityRepository
         parent::__construct($registry, Order::class);
     }
 
-    /**
-     * @throws ORMException
-     * @throws OptimisticLockException
-     */
     public function add(Order $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
@@ -34,10 +30,6 @@ class OrderRepository extends ServiceEntityRepository
         }
     }
 
-    /**
-     * @throws ORMException
-     * @throws OptimisticLockException
-     */
     public function remove(Order $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
