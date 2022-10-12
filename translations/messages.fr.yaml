@@ -77,3 +77,13 @@ admin:
         name: Libellé
         createdAt: Date de création
         empty: Aucune catégorie créée
+    product:
+        list: Liste des produits
+        create: Créer un nouveau produit
+        name: Libellé
+        categories: Catégorie(s)
+        price: Prix
+        quantity: Stock
+        createdAt: Date de création
+        updatedAt: Dernière mise à jour
+        edit: Mettre à jour %name%

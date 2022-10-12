@@ -1,25 +1,25 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}{{ 'product.list'|trans }}{% endblock %}
+{% block title %}{{ 'admin.product.list'|trans }}{% endblock %}
 
 {% block body %}
     <div class="container my-3">
-        <h1>{{ 'product.list'|trans }}</h1>
+        <h1>{{ 'admin.product.list'|trans }}</h1>
 
         <a href="{{ path('admin_product_new') }}" class="btn btn-success btn-sm float-end my-3">
-            {{ 'product.create'|trans }}
+            {{ 'admin.product.create'|trans }}
         </a>
 
         <table class="table table-sm table-hover">
             <thead>
                 <tr>
-                    <th>{{ 'product.name'|trans }}</th>
-                    <th>{{ 'product.categories'|trans }}</th>
-                    <th>{{ 'product.price'|trans }}</th>
-                    <th>{{ 'product.quantity'|trans }}</th>
-                    <th>{{ 'product.createdAt'|trans }}</th>
-                    <th>{{ 'product.updatedAt'|trans }}</th>
-                    <th>{{ 'actions'|trans }}</th>
+                    <th>{{ 'admin.product.name'|trans }}</th>
+                    <th>{{ 'admin.product.categories'|trans }}</th>
+                    <th>{{ 'admin.product.price'|trans }}</th>
+                    <th>{{ 'admin.product.quantity'|trans }}</th>
+                    <th>{{ 'admin.product.createdAt'|trans }}</th>
+                    <th>{{ 'admin.product.updatedAt'|trans }}</th>
+                    <th>{{ 'actions.title'|trans }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,14 +31,14 @@
                             <span class="badge bg-dark">{{ c.name }}</span>
                         {% endfor %}
                     </td>
-                    <td>{{ product.price }}</td>
+                    <td>{{ product.price }} €</td>
                     <td>{{ product.quantity }}</td>
                     <td>{{ product.createdAt ? product.createdAt|date('d/m/Y H:i:s') : '' }}</td>
                     <td>{{ product.updatedAt ? product.updatedAt|date('d/m/Y H:i:s') : '' }}</td>
                     <td>
                         <div class="d-flex gap-3">
                             <a href="{{ path('admin_product_edit', {'id': product.id}) }}" class="btn btn-primary btn-sm">
-                                {{ 'product.edit'|trans }}
+                                {{ 'actions.edit'|trans }}
                             </a>
                             {{ include('admin/product/_delete_form.html.twig') }}
                         </div>
@@ -46,7 +46,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="6">{{ 'product.empty'|trans }}</td>
+                    <td colspan="6">{{ 'admin.product.empty'|trans }}</td>
                 </tr>
             {% endfor %}
             </tbody>
