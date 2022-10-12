@@ -32,6 +32,7 @@ shop:
     hightolow: Ordre décroissant
 orders:
     list: Liste des commandes
+    administration: Gestion des commandes
     total: Nombre total de commandes enregistrées
     ship: Expédier
     deliver: Marquer comme "délivré"
