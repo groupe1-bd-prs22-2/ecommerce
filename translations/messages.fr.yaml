@@ -63,3 +63,17 @@ orders:
 quantity:
     short: Qté
 
+# Administration
+actions:
+    title: Actions
+    delete: Supprimer
+    edit: Modifier
+    update: Mettre à jour
+admin:
+    category:
+        edit: Mettre à jour la catégorie %name%
+        list: Liste des catégories
+        create: Créer une catégorie
+        name: Libellé
+        createdAt: Date de création
+        empty: Aucune catégorie créée
