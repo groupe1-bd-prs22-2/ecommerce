@@ -44,9 +44,10 @@ class Order
     // Gestion des différents états d'une commande
     public const STATUS_CANCELED = 'canceled';
     public const STATUS_PREPARATION = 'in_preparation';
+    public const STATUS_SHIPPED = 'shipped';
     public const STATUS_DELIVERED = 'delivered';
 
-    public const STATUSES = [self::STATUS_CANCELED, self::STATUS_PREPARATION, self::STATUS_DELIVERED];
+    public const STATUSES = [self::STATUS_CANCELED, self::STATUS_PREPARATION, self::STATUS_SHIPPED, self::STATUS_DELIVERED];
 
     /**
      * ==========================================================================
