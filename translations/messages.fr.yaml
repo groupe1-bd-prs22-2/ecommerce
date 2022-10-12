@@ -11,6 +11,13 @@ navbar:
     logout: Déconnexion
     admin:
         orders: Commandes
+        backToSite: Revenir sur le site
+        dashboard: Tableau de bord
+        category: Catégories
+        product: Produits
+        pages: Pages
+        article: Articles
+        logout: Déconnexion
 errors:
     payment:
         must_be_auth: Merci de créer votre compte Manga Mania afin de poursuivre votre achat.
