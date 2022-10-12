@@ -14,6 +14,8 @@ navbar:
 errors:
     payment:
         must_be_auth: Merci de créer votre compte Manga Mania afin de poursuivre votre achat.
+login:
+    title: Me connecter à mon compte Manga Mania
 home:
     collection : collection
     shopnow: Acheter maintenant
