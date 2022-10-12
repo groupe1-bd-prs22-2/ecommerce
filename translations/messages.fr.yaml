@@ -5,7 +5,8 @@ navbar:
     shop : Boutique
     blog : Actualité
     contact : Contact
-    signin: S'inscrire
+    signin: Se connecter
+    signup: S'inscrire
     login: Se connecter
     logout: Déconnexion
     admin:
@@ -20,11 +21,16 @@ home:
     goku: est le principal protagoniste des manga Dragon Ball et Dragon Ball Super, et de leurs adaptations animées.
     clothes : Vêtements
     figurines : Figurines
+    latest_news: Dernières actualités
 blog :
     readmore: Savoir plus
     ourblog : Notre Blog
 register: S'inscrire
 shop:
+    product:
+        out_of_stock: Rupture de stock
+        new: Nouveau
+        see: Voir la fiche produit
     search : Recherche...
     categories : Catégories
     price : Prix

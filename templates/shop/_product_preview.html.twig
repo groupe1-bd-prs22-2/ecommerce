@@ -1,14 +1,18 @@
 <div class="product__item">
     <div class="product__item__pic set-bg" data-setbg="{{asset('uploads/products/' ~ p.picture)}}">
         {% if p.tags == "nostock" %}
-            <span class="label" style="color: red !important;">HORS STOCK</span>
+            <span class="label" style="color: red !important;">{{ 'shop.product.out_of_stock'|trans }}</span>
         {% elseif p.tags == "new" %}
-            <span class="label">NEW</span>
+            <span class="label">{{ 'shop.product.new'|trans }}</span>
         {% endif %}
         <ul class="product__hover">
-            <li><a href="#"><img src="{{ asset ('img/icon/heart.png') }}" alt=""></a></li>
-            <li><a href="#"><img src="{{ asset('img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-            <li><a href="{{ path('app_shop_detail',{'slug' : p.slug})}}"><img src="{{ asset('img/icon/search.png') }}" alt=""></a></li>
+            {# <li><a href="#"><img src="{{ asset ('img/icon/heart.png') }}" alt=""></a></li>
+            <li><a href="#"><img src="{{ asset('img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li> #}
+            <li>
+                <a href="{{ path('app_shop_detail',{'slug' : p.slug})}}" title="{{ 'shop.product.see'|trans }}">
+                    <img src="{{ asset('img/icon/search.png') }}" alt="" >
+                </a>
+            </li>
         </ul>
     </div>
     <div class="product__item__text">
@@ -20,13 +24,13 @@
                 + {{ 'shop.addtocart' | trans }}
             </a>
         </form>
-        <div class="rating">
+        {# <div class="rating">
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star-o"></i>
-        </div>
-        <h5>{{ p.price }}</h5>
+        </div> #}
+        <h5>{{ p.price }} €</h5>
     </div>
 </div>
