@@ -4,12 +4,14 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Gedmo\Mapping\Annotation as Gedmo;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: OrderRepository::class)]
 #[ORM\Table(name: '`order`')]
+#[ORM\HasLifecycleCallbacks]
+#[ORM\Entity(repositoryClass: OrderRepository::class)]
 class Order
 {
     #[ORM\Id]
@@ -34,6 +36,9 @@ class Order
 
     #[ORM\Column(type: 'string', length: 255, options: ['default' => self::STATUS_PREPARATION])]
     private string $status = self::STATUS_PREPARATION;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $reference;
 
     /**
      * ==========================================================================
@@ -157,5 +162,17 @@ class Order
         }
 
         return $amount;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
     }
 }

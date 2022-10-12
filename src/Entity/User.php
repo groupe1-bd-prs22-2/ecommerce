@@ -43,11 +43,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'customer', targetEntity: Order::class, orphanRemoval: true)]
     private $orders;
 
+    /**
+     * ==========================================================================
+     * ============================ CONSTRUCTOR =================================
+     * ==========================================================================
+     */
+
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
         $this->orders = new ArrayCollection();
     }
+
+    /**
+     * ==========================================================================
+     * ============================ ACCESSORS ===================================
+     * ==========================================================================
+     */
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -175,5 +189,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    /**
+     * ==========================================================================
+     * ============================   METHODS   =================================
+     * ==========================================================================
+     */
+
+    /**
+     * @return string Nom complet de l'utilisateur
+     */
+    public function getFullName(): string
+    {
+        return mb_strtoupper($this->lastname) . ' ' . ucfirst($this->firstname);
     }
 }

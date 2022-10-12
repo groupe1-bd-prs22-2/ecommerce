@@ -6,6 +6,8 @@ navbar:
     blog : Actualité
     contact : Contact
     signin: S'inscrire
+    login: Se connecter
+    logout: Déconnexion
     admin:
         orders: Commandes
 errors:
@@ -43,4 +45,6 @@ orders:
         in_preparation: Commande en cours de préparation
         shipped: Commande expédiée
         delivered: Commande délivrée
+quantity:
+    short: Qté
 

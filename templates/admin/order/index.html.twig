@@ -14,7 +14,7 @@
             <thead>
                 <tr>
                     {# sorting of properties based on query components #}
-                    <th>{{ knp_pagination_sortable(pagination, 'Numéro de commande', 'o.id') }}</th>
+                    <th>Référence</th>
                     <th{% if pagination.isSorted('o.status') %} class="sorted"{% endif %}>
                         {{ knp_pagination_sortable(pagination, 'État', 'o.status') }}
                     </th>
@@ -28,7 +28,7 @@
             <tbody>
                 {% for order in pagination %}
                     <tr {% if loop.index is odd %}class="color"{% endif %}>
-                        <td>{{ order.id }}</td>
+                        <td>{{ order.reference }}</td>
                         <td>{{ ('orders.status.' ~ order.status) | trans }}</td>
                         <td>{{ order.createdAt | date('d/m/Y H:i:s') }}</td>
                         <td>{{ order.totalAmount }} €</td>

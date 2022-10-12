@@ -5,7 +5,9 @@
         }
     </style>
 
-    <h1>LOGO MANGA MANIA</h1>
+    <center>
+        <img src="cid:logo" alt="Manga Mania" style="margin: 0 auto">
+    </center>
 
     <p>Votre transaction sur Manga Mania a bien été effectuée. Merci !</p>
 
@@ -15,28 +17,36 @@
         pour pouvoir vous y reporter ultérieurement.
     </p>
 
-    <table>
+    <table style="width: 100%">
         <!-- Références de la commande -->
         <tr>
-            <td>Référence de la commande : `$uidOrder`</td>
-            <td>
-                `$fullName`
+            <td style="border-top: 1px solid darkgrey">Référence de la commande : {{ order.reference }}</td>
+            <td style="background-color: darkgrey; text-align: right; padding: 5px">
+                Client : {{ user.fullName }}<br>
+                Date d'achat : {{ order.createdAt|date('d/m/Y H:i') }}
             </td>
         </tr>
 
         <!-- Détails de la commande -->
-        <tr>
-            <td>Détails</td>
-            <td>Prix</td>
+        <tr style="background-color: black; color: white">
+            <td style="text-align: left; padding: 5px">Détails</td>
+            <td style="text-align: right; padding: 5px">Prix</td>
         </tr>
 
         {% for key, element in cart %}
             {% set product = element.product %}
             <tr>
-                <td>{{ product.name }}</td>
-                <td>{{ product.price }} €</td>
+                <td>{{ product.name }} ({{ 'quantity.short'|trans }} {{ element.quantity }})</td>
+                <td style="text-align: right">{{ product.price * element.quantity }} €</td>
             </tr>
         {% endfor %}
+
+        <!-- Résumé de la commande -->
+        <tr>
+            <td colspan="2" style="text-align: right">
+                Total : {{ total }} €
+            </td>
+        </tr>
     </table>
 
     <hr>

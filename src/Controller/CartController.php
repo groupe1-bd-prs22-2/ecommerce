@@ -163,6 +163,10 @@ class CartController extends AbstractController
         $order->setCustomer($user);
         $em->getRepository(Order::class)->add($order);
 
+        // Création de la référence de la commande
+        $order->setReference(md5($order->getId()));
+        $em->getRepository(Order::class)->add($order);
+
         foreach ($cart->getProducts() as $element) {
             // Récupération de l'entité du produit
             $product = $em->getRepository(Product::class)->find($element['product']->getId());
@@ -183,13 +187,16 @@ class CartController extends AbstractController
 
         // Génération du mail récapitulatif de l'achat
         $email = (new TemplatedEmail())
-            ->to(new Address('yyroist@gmail.com', 'RAJOARIFERA Tsiory'))
+            ->to(new Address($user->getEmail(), $user->getFullName()))
             ->from('noreply@mangamania.com')
             ->subject('Merci pour votre achat')
+            ->embedFromPath(__DIR__ . '/../../public/img/logo.png', 'logo', 'image/png')
             ->htmlTemplate('mails/order/purchase.html.twig')
             ->context([
                 'cart' => $cart->getProducts(),
-                'user' => $user
+                'user' => $user,
+                'order' => $order,
+                'total' => $cart->getTotal()
             ])
         ;
         $mailer->send($email); // Envoi du mail
