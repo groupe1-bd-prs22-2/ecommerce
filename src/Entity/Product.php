@@ -51,9 +51,13 @@ class Product
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'products')]
     private $categories;
 
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: OrderProduct::class)]
+    private $orders;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     /**
@@ -213,6 +217,36 @@ class Product
     public function removeCategory(Category $category): self
     {
         $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, OrderProduct>
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(OrderProduct $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(OrderProduct $order): self
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getProduct() === $this) {
+                $order->setProduct(null);
+            }
+        }
 
         return $this;
     }

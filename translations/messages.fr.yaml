@@ -6,6 +6,11 @@ navbar:
     blog : Actualité
     contact : Contact
     signin: S'inscrire
+    admin:
+        orders: Commandes
+errors:
+    payment:
+        must_be_auth: Merci de créer votre compte Manga Mania afin de poursuivre votre achat.
 home:
     collection : collection
     shopnow: Acheter maintenant
@@ -18,11 +23,24 @@ blog :
     ourblog : Notre Blog
 register: S'inscrire
 shop:
-    search : Recherche ...
+    search : Recherche...
     categories : Catégories
     price : Prix
     addtocart : Ajouter au panier
     sortbyprice : Trier par Prix
     lowtohigh: Ordre croissant
     hightolow: Ordre décroissant
+orders:
+    list: Liste des commandes
+    administration: Gestion des commandes
+    total: Nombre total de commandes enregistrées
+    ship: Expédier
+    deliver: Marquer comme "délivré"
+    cancel: Annuler la commande
+    prepare: Préparer la commande
+    status:
+        canceled: Commande annulée
+        in_preparation: Commande en cours de préparation
+        shipped: Commande expédiée
+        delivered: Commande délivrée
 

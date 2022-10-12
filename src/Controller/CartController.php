@@ -2,15 +2,21 @@
 
 namespace App\Controller;
 
+use App\Entity\Order;
+use App\Entity\OrderProduct;
+use App\Entity\User;
 use App\Service\Stripe;
+use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use App\Service\Cart;
 use App\Entity\Product;
 use App\Repository\ProductRepository;
+use Stripe\Exception\ApiErrorException;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\Exception\TransportException;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,7 +37,7 @@ class CartController extends AbstractController
      * @param Stripe $stripe
      * @param Request $request
      * @return Response
-     * @throws \Stripe\Exception\ApiErrorException
+     * @throws ApiErrorException
      */
     #[Route('/', name: 'app_cart', methods: ['GET', 'POST'])]
     public function index(Cart $cart, Stripe $stripe, Request $request): Response
@@ -133,33 +139,60 @@ class CartController extends AbstractController
      * @param Cart $cart
      * @param MailerInterface $mailer
      * @param Request $request
+     * @param EntityManagerInterface $em
      * @return Response
-     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @throws TransportExceptionInterface
      */
     #[Route('/payment-confirm', name: 'app_cart_payment_confirm', methods: ['GET'])]
-    public function paymentConfirm(Cart $cart, MailerInterface $mailer, Request $request): Response
+    public function paymentConfirm(
+        Cart $cart, MailerInterface $mailer,
+        Request $request, EntityManagerInterface $em
+    ): Response
     {
-        // TODO: Enregistrer la commande en base de données
+        // Vérification que l'utilisateur soit bien authentifié
+        if (!$this->isGranted('ROLE_USER')) {
+            $this->addFlash('error', new TranslatableMessage('errors.payment.must_be_auth'));
+            return $this->redirectToRoute('app_cart');
+        }
 
-        // Envoi du mail récapitulatif de l'achat
-        // TODO: Intégrer les informations manquantes (user etc...) -> Non en place au moment du développement
+        /** @var User $user */
+        $user = $this->getUser(); // Récupération de l'utilisateur courant
+
+        // Enregistrement de la commande en base de données
+        $order = new Order();
+        $order->setCustomer($user);
+        $em->getRepository(Order::class)->add($order);
+
+        foreach ($cart->getProducts() as $element) {
+            // Récupération de l'entité du produit
+            $product = $em->getRepository(Product::class)->find($element['product']->getId());
+
+            // Association des produits achetés à la commande
+            $orderProduct = (new OrderProduct())
+                ->setPurchase($order)
+                ->setProduct($product)
+                ->setQuantity($element['quantity'])
+            ;
+            $em->getRepository(OrderProduct::class)->add($orderProduct);
+
+            // Mise à jour du stock du (des) produit(s) acheté(s)
+            $newQty = $product->getQuantity() - $element['quantity'];
+            $product->setQuantity($newQty);
+            $em->getRepository(Product::class)->add($product);
+        }
+
+        // Génération du mail récapitulatif de l'achat
         $email = (new TemplatedEmail())
             ->to(new Address('yyroist@gmail.com', 'RAJOARIFERA Tsiory'))
             ->from('noreply@mangamania.com')
             ->subject('Merci pour votre achat')
             ->htmlTemplate('mails/order/purchase.html.twig')
             ->context([
-                'cart' => $cart->getProducts()
+                'cart' => $cart->getProducts(),
+                'user' => $user
             ])
         ;
-
-        try {
-            $mailer->send($email);
-        } catch (TransportException $e) {
-            dd($e->getMessage());
-        }
-
-        // TODO: Mise à jour du stock du (des) produit(s) acheté(s)
+        $mailer->send($email); // Envoi du mail
 
         // Vide le panier
         $cart->emptyCart();
