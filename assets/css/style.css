@@ -1940,7 +1940,6 @@ ol {
 
 .footer {
 	background: #111111;
-	padding-top: 70px;
 }
 
 .footer__about {
@@ -2035,7 +2034,6 @@ ol {
 .footer__copyright__text {
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 	padding: 20px 0;
-	margin-top: 40px;
 }
 
 .footer__copyright__text p {

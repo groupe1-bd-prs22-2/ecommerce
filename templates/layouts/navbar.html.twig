@@ -49,7 +49,7 @@
                             </div>
                         {% else %}
                             <div class="header__top__links">
-                                <a href="{{ path('app_register') }}">{{ 'navbar.signin'|trans }}</a>
+                                <a href="{{ path('app_register') }}">{{ 'navbar.signup'|trans }}</a>
                             </div>
                             <div class="header__top__links">
                                 <a href="{{ path('app_login') }}">{{ 'navbar.login'|trans }}</a>
@@ -102,8 +102,8 @@
             </div>
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
-                    <a href="#" class="search-switch"><img src="{{ asset('img/icon/search.png') }}" alt=""></a>
-                    <a href="#"><img src="{{ asset('img/icon/heart.png') }}" alt=""></a>
+                    {# <a href="#" class="search-switch"><img src="{{ asset('img/icon/search.png') }}" alt=""></a>
+                    <a href="#"><img src="{{ asset('img/icon/heart.png') }}" alt=""></a> #}
                     <a href="{{ path('app_cart') }}"><img src="{{ asset('img/icon/cart.png') }}" alt=""></a>
                     <div class="price">{{ cartAmount }} €</div>
                 </div>

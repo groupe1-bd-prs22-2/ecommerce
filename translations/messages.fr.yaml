@@ -5,14 +5,24 @@ navbar:
     shop : Boutique
     blog : Actualité
     contact : Contact
-    signin: S'inscrire
+    signin: Se connecter
+    signup: S'inscrire
     login: Se connecter
     logout: Déconnexion
     admin:
         orders: Commandes
+        backToSite: Revenir sur le site
+        dashboard: Tableau de bord
+        category: Catégories
+        product: Produits
+        pages: Pages
+        article: Articles
+        logout: Déconnexion
 errors:
     payment:
         must_be_auth: Merci de créer votre compte Manga Mania afin de poursuivre votre achat.
+login:
+    title: Me connecter à mon compte Manga Mania
 home:
     collection : collection
     shopnow: Acheter maintenant
@@ -20,11 +30,16 @@ home:
     goku: est le principal protagoniste des manga Dragon Ball et Dragon Ball Super, et de leurs adaptations animées.
     clothes : Vêtements
     figurines : Figurines
+    latest_news: Dernières actualités
 blog :
     readmore: Savoir plus
     ourblog : Notre Blog
 register: S'inscrire
 shop:
+    product:
+        out_of_stock: Rupture de stock
+        new: Nouveau
+        see: Voir la fiche produit
     search : Recherche...
     categories : Catégories
     price : Prix
@@ -48,3 +63,27 @@ orders:
 quantity:
     short: Qté
 
+# Administration
+actions:
+    title: Actions
+    delete: Supprimer
+    edit: Modifier
+    update: Mettre à jour
+admin:
+    category:
+        edit: Mettre à jour la catégorie %name%
+        list: Liste des catégories
+        create: Créer une catégorie
+        name: Libellé
+        createdAt: Date de création
+        empty: Aucune catégorie créée
+    product:
+        list: Liste des produits
+        create: Créer un nouveau produit
+        name: Libellé
+        categories: Catégorie(s)
+        price: Prix
+        quantity: Stock
+        createdAt: Date de création
+        updatedAt: Dernière mise à jour
+        edit: Mettre à jour %name%

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello Home !{% endblock %}
+{% block title %}{{ 'navbar.home'|trans }}{% endblock %}
 
 {% block body %}
 
@@ -16,12 +16,12 @@
                                 <h2>Sasuke Uchiwa</h2>
                                 <p>Sasuke Uchiwa (うちはサスケ, Uchiha Sasuke), {{ 'home.sasuke' | trans }}</p>
                                 <a href="#" class="primary-btn">{{ 'home.shopnow' | trans }}<span class="arrow_right"></span></a>
-                                <div class="hero__social">
+                                {# <div class="hero__social">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-pinterest"></i></a>
                                     <a href="#"><i class="fa fa-instagram"></i></a>
-                                </div>
+                                </div> #}
                             </div>
                         </div>
                     </div>
@@ -36,12 +36,12 @@
                                 <h2>Son Goku</h2>
                                 <p>Son Gokû (孫そん悟ご空くう, Son Gokū), {{ 'home.goku' | trans }}</p>
                                 <a href="#" class="primary-btn">{{ 'home.shopnow' | trans }}<span class="arrow_right"></span></a>
-                                <div class="hero__social">
+                                {# <div class="hero__social">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-pinterest"></i></a>
                                     <a href="https://www.instagram.com/mangamaniabrysas"><i class="fa fa-instagram"></i></a>
-                                </div>
+                                </div> #}
                             </div>
                         </div>
                     </div>
@@ -101,8 +101,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="filter__controls">
-                        <li data-filter=".new">New Arrivals</li>
-                        <li data-filter=".popular">Popular</li>
+                        <li data-filter=".new">{{ 'shop.new_arrivals'|trans }}</li>
+                        <li data-filter=".popular">{{ 'shop.populars'|trans }}</li>
                     </ul>
                 </div>
             </div>
@@ -110,7 +110,8 @@
 
                     {% for p in products%}
                         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix {{p.tags}}">
-                            <div class="product__item">
+                            {{ include('shop/_product_preview.html.twig', {'p': p}) }}
+                            {# <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="{{asset('uploads/products/' ~ p.picture)}}">
                                     {% if p.tags == "new" %}
                                     <span class="label">New</span>
@@ -133,7 +134,7 @@
                                     </div>
                                     <h5>{{ p.price }}</h5>
                                 </div>
-                            </div>
+                            </div> #}
                         </div>
                     {% endfor %}
 
@@ -175,7 +176,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>Latest News</span>
+                        <span>{{ 'home.latest_news'|trans }}</span>
                         <h2>Manga'Actu</h2>
                     </div>
                 </div>

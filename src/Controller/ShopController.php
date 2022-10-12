@@ -42,7 +42,7 @@ class ShopController extends AbstractController
      * @return Response
      * @throws Exception
      */
-    #[Route('/detail/{slug}', name: 'app_shop_detail')]
+    #[Route('/product/{slug}', name: 'app_shop_detail')]
     public function detail(Product $product, Request $request, Cart $cart): Response
     {
         // Chargement du formulaire d'ajout au panier
