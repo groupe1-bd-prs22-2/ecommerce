@@ -24,7 +24,7 @@ class ArticleController extends AbstractController
     #[Route('/detail/{slug}', name: 'app_article_detail')]
     public function show(Article $article): Response
     {
-        return $this->render('blog/show.html.twig', [
+        return $this->render('blog/detail.html.twig', [
             'article' => $article,
         ]);
     }
