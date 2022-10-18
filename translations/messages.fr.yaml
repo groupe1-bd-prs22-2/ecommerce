@@ -10,6 +10,8 @@ navbar:
     login: Se connecter
     logout: Déconnexion
     admin:
+        administration: Administration
+        cms: Gestion de contenu
         orders: Commandes
         backToSite: Revenir sur le site
         dashboard: Tableau de bord

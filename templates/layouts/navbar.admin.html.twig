@@ -1,42 +1,59 @@
-<ul class="nav flex-column text-center">
-    <li class="nav-item">
-        <a class="nav-link text-decoration-none text-black" href="{{ path('app_home') }}">
-            {{ 'navbar.admin.backToSite'|trans }}
+<nav id="sidebar" class="sidebar js-sidebar">
+    <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand" href="#">
+            <span class="align-middle">{{ 'navbar.administration'|trans }}</span>
         </a>
-    </li>
-    <hr class="w-75 mx-auto">
-    <li class="nav-item">
-        <a class="nav-link text-decoration-none text-black" href="{{ path('admin_dashboard_index') }}">
-            {{ 'navbar.admin.dashboard'|trans }}
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-decoration-none text-black" href="{{ path('admin_order_index') }}">
-            {{ 'navbar.admin.orders'|trans }}
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-decoration-none text-black" href="{{ path('admin_category_index') }}">
-            {{ 'navbar.admin.category'|trans }}
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-decoration-none text-black" href="{{ path('admin_product_index') }}">
-            {{ 'navbar.admin.product'|trans }}
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-decoration-none text-black" href="{{ path('admin_pages_index') }}">
-            {{ 'navbar.admin.pages'|trans }}
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-decoration-none text-black" href="{{ path('admin_article_index') }}">
-            {{ 'navbar.admin.article'|trans }}
-        </a>
-    </li>
-    <hr class="w-75 mx-auto">
-    <li class="nav-item">
-        <a class="nav-link text-decoration-none text-black" href="#">{{ 'navbar.admin.logout'|trans }}</a>
-    </li>
-</ul>
+
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('app_home') }}">
+                    <i class="align-middle" data-feather="home"></i> <span class="align-middle">{{ 'navbar.admin.backToSite'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-header">
+                {{ 'navbar.admin.administration'|trans }}
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_dashboard_index') }}">
+                    <i class="align-middle" data-feather="bar-chart"></i> <span class="align-middle">{{ 'navbar.admin.dashboard'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_order_index') }}">
+                    <i class="align-middle" data-feather="package"></i> <span class="align-middle">{{ 'navbar.admin.orders'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_category_index') }}">
+                    <i class="align-middle" data-feather="tag"></i> <span class="align-middle">{{ 'navbar.admin.category'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_product_index') }}">
+                    <i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">{{ 'navbar.admin.product'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-header">
+                {{ 'navbar.admin.cms'|trans }}
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_pages_index') }}">
+                    <i class="align-middle" data-feather="bookmark"></i> <span class="align-middle">{{ 'navbar.admin.pages'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_article_index') }}">
+                    <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">{{ 'navbar.admin.article'|trans }}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

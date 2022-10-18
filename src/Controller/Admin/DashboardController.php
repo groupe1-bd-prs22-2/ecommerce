@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+// TODO: Bloquer le controller uniquement aux administrateurs
 #[Route('/admin/dashboard')]
 class DashboardController extends AbstractController
 {
@@ -18,7 +19,7 @@ class DashboardController extends AbstractController
     public function index(): Response
     {
         return $this->render('admin/dashboard/index.html.twig', [
-            'controller_name' => 'DashboardController',
+            'controller_name' => 'Tableau de bord',
         ]);
     }
 }
