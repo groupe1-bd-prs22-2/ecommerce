@@ -3,5 +3,96 @@
 {% block title %}{{ 'navbar.admin.dashboard'|trans }}{% endblock %}
 
 {% block body %}
-        <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1 class="h3 mb-3">{{ 'navbar.admin.dashboard'|trans }}</h1>
+
+    <div class="row">
+        <div class="col-xl-6 col-xxl-5 d-flex">
+            <div class="w-100">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col mt-0">
+                                        <h5 class="card-title">{{ 'dashboard.sales'|trans }}</h5>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="stat text-primary">
+                                            <i class="align-middle" data-feather="truck"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h1 class="mt-1 mb-3">{{ sales }}</h1>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col mt-0">
+                                        <h5 class="card-title">{{ 'dashboard.users'|trans }}</h5>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="stat text-primary">
+                                            <i class="align-middle" data-feather="users"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h1 class="mt-1 mb-3">{{ users }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col mt-0">
+                                        <h5 class="card-title">{{ 'dashboard.earnings'|trans }}</h5>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="stat text-primary">
+                                            €
+                                        </div>
+                                    </div>
+                                </div>
+                                <h1 class="mt-1 mb-3">{{ earnings|number_format(2) }}</h1>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col mt-0">
+                                        <h5 class="card-title">{{ 'navbar.admin.orders'|trans }}</h5>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="stat text-primary">
+                                            <i class="align-middle" data-feather="shopping-cart"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h1 class="mt-1 mb-3">{{ orders }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-xxl-7">
+            <div class="card flex-fill w-100">
+                <div class="card-header">
+
+                    <h5 class="card-title mb-0">Recent Movement</h5>
+                </div>
+                <div class="card-body py-3">
+                    <div class="chart chart-sm">
+                        <canvas id="chartjs-dashboard-line"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

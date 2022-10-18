@@ -89,3 +89,8 @@ admin:
         createdAt: Date de création
         updatedAt: Dernière mise à jour
         edit: Mettre à jour %name%
+dashboard:
+    sales: Ventes
+    earnings: Revenus
+    users: Clients
+
