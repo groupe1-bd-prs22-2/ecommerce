@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Order;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\ORM\Query;
@@ -47,5 +48,25 @@ class OrderRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('o')
             ->orderBy('o.created_at', 'DESC')
             ->getQuery();
+    }
+
+    /**
+     * Récupération des commandes réalisées sur une année donnée.
+     * @param string $year
+     * @return Order[]
+     */
+    public function getOrdersFromYear(string $year): array
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('YEAR(o.created_at) = :year')
+            ->andWhere('o.status IN (:statuses)')
+            ->setParameters(new ArrayCollection([
+                new Query\Parameter('year', $year),
+                new Query\Parameter('statuses', [Order::STATUS_SHIPPED, Order::STATUS_PREPARATION, Order::STATUS_DELIVERED])
+            ]))
+            ->orderBy('o.created_at', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
     }
 }

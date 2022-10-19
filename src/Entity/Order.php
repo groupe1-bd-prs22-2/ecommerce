@@ -141,6 +141,18 @@ class Order
         return $this;
     }
 
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
     /**
      * ==========================================================================
      * ============================   METHODS   =================================
@@ -162,17 +174,5 @@ class Order
         }
 
         return $amount;
-    }
-
-    public function getReference(): ?string
-    {
-        return $this->reference;
-    }
-
-    public function setReference(string $reference): self
-    {
-        $this->reference = $reference;
-
-        return $this;
     }
 }
