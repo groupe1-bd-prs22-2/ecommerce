@@ -94,6 +94,36 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-8 col-xxl-9 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">{{ 'dashboard.lastOrders'|trans }}</h5>
+                </div>
+                <table class="table table-hover my-0">
+                    <thead>
+                        <tr>
+                            <th>{{ 'order.reference'|trans }}</th>
+                            <th class="d-none d-xl-table-cell">{{ 'order.status'|trans }}</th>
+                            <th class="d-none d-xl-table-cell">{{ 'order.purchase_date'|trans }}</th>
+                            <th>{{ 'order.amount'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in lastOrders %}
+                            <tr>
+                                <td>{{ order.reference }}</td>
+                                <td><span class="badge rounded-pill {{ order.tags }}">{{ ('orders.status.' ~ order.status)|trans }}</span></td>
+                                <td class="d-none d-xl-table-cell">{{ order.createdAt | date('d/m/Y H:i:s') }}</td>
+                                <td><span class="d-none d-xl-table-cell">{{ order.totalAmount }} €</span></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block js %}

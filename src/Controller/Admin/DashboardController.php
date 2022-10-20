@@ -32,17 +32,21 @@ class DashboardController extends AbstractController
         ]); // Total des ventes
 
         // Récupération du chiffre d'affaires
-        $earnigs = 0;
+        $earnings = 0;
         foreach ($orders as $order) {
-            $earnigs += $order->getTotalAmount();
+            $earnings += $order->getTotalAmount();
         }
+
+        // Récupération des dernières commandes
+        $lastOrders = $em->getRepository(Order::class)->findBy([], ['created_at' => 'ASC'], 5);
 
         return $this->render('admin/dashboard/index.html.twig', [
             'controller_name' => 'Tableau de bord',
             'sales' => count($orders),
-            'earnings' => $earnigs,
+            'earnings' => $earnings,
             'orders' => $em->getRepository(Order::class)->count([]),
-            'users' => $em->getRepository(User::class)->count([])
+            'users' => $em->getRepository(User::class)->count([]),
+            'lastOrders' => $lastOrders
         ]);
     }
 

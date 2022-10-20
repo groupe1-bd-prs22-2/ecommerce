@@ -175,4 +175,18 @@ class Order
 
         return $amount;
     }
+
+    /**
+     * @return string Classes à utiliser sur le front pour le statut de la commande
+     */
+    public function getTags(): string
+    {
+        return match ($this->status) {
+            self::STATUS_CANCELED => 'bg-danger',
+            self::STATUS_PREPARATION => 'bg-warning',
+            self::STATUS_SHIPPED => 'bg-primary',
+            self::STATUS_DELIVERED => 'bg-success',
+            default => 'bg-secondary',
+        };
+    }
 }
