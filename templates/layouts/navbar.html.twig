@@ -44,6 +44,11 @@
                 <div class="col-lg-6 col-md-5">
                     <div class="header__top__right">
                         {% if app.user %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <div class="header__top__links">
+                                    <a href="{{ path('admin_dashboard_index') }}">{{ 'navbar.admin.dashboard'|trans }}</a>
+                                </div>
+                            {% endif %}
                             <div class="header__top__links">
                                 <a href="{{ path('app_logout') }}">{{ 'navbar.logout'|trans }}</a>
                             </div>
@@ -56,7 +61,6 @@
                             </div>
                         {% endif %}
                         <div class="header__top__hover">
-
                             <span>{{ 'navbar.lang'|trans }} <i class="arrow_carrot-down"></i></span>
                             <ul>
                                 {% for locale in locales %}
