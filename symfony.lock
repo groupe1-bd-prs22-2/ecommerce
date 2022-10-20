@@ -1,4 +1,7 @@
 {
+    "beberlei/doctrineextensions": {
+        "version": "v1.3.0"
+    },
     "behat/transliterator": {
         "version": "v1.3.0"
     },
@@ -112,6 +115,9 @@
     },
     "monolog/monolog": {
         "version": "2.3.5"
+    },
+    "nesbot/carbon": {
+        "version": "2.62.1"
     },
     "nikic/php-parser": {
         "version": "v4.13.2"

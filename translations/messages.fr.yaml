@@ -10,6 +10,8 @@ navbar:
     login: Se connecter
     logout: Déconnexion
     admin:
+        administration: Administration
+        cms: Gestion de contenu
         orders: Commandes
         backToSite: Revenir sur le site
         dashboard: Tableau de bord
@@ -87,3 +89,9 @@ admin:
         createdAt: Date de création
         updatedAt: Dernière mise à jour
         edit: Mettre à jour %name%
+dashboard:
+    sales: Ventes
+    earnings: Revenus
+    users: Clients
+    earningsChart: Chiffre d'affaires
+
