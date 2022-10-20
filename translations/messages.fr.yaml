@@ -19,6 +19,7 @@ navbar:
         product: Produits
         pages: Pages
         article: Articles
+        contact: Support
         logout: Déconnexion
 errors:
     payment:
@@ -89,6 +90,12 @@ admin:
         createdAt: Date de création
         updatedAt: Dernière mise à jour
         edit: Mettre à jour %name%
+    contact:
+        sujet: Sujet du message
+        email: Email du déstinataire
+        message: Corps du message
+        empty: Vide
+        list: Liste des messages
 dashboard:
     sales: Ventes
     earnings: Revenus
