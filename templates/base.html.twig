@@ -27,10 +27,18 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
+        <link rel="stylesheet" href="{{ asset('build/cookie-consent/cookie-consent.css') }}">
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
             <script src="https://js.stripe.com/v3/"></script> <!-- Chargement de Stripe.js -->
+            <script src="{{ asset('build/cookie-consent/cookie-consent.js') }}"></script>
+            <script>
+                const cookieConsent = new CookieConsent({
+                    contentUrl: "build/cookie-consent/cookie-consent-content", // location of the language files
+                    privacyPolicyUrl: "/cgu"
+                })
+            </script>
         {% endblock %}
     </head>
     <body>

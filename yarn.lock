@@ -1862,6 +1862,11 @@ convert-source-map@^1.7.0:
   dependencies:
     safe-buffer "~5.1.1"
 
+cookie-consent-js@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/cookie-consent-js/-/cookie-consent-js-2.1.6.tgz#c4c5a105c21740e19ac44e99417ddde7e5756a53"
+  integrity sha512-ELrbxfGYN9dCY4FJ7+33+n94liMTwfHD8TW/P2r0adz5gxaqTUwpn7raecBqvN9pYve4FsGNo5qhgxdzSNepCQ==
+
 cookie-signature@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
