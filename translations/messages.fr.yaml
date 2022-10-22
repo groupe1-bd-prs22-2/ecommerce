@@ -6,7 +6,7 @@ navbar:
     blog : Actualité
     contact : Contact
     signin: Se connecter
-    signup: S'inscrire
+    register: S'inscrire
     login: Se connecter
     logout: Déconnexion
     admin:
@@ -21,11 +21,25 @@ navbar:
         article: Articles
         contact: Support
         logout: Déconnexion
+confirm: Valider
+user:
+    editinfo: Modifier mes informations
+    editpass: Modification du mot de passe
+    currentpass: Mot de passe actuel
+    newpass: Nouveau mot de passe
+    repeatpass: Répeter le mot de passe
+commande:
+    history: Historique de mes commandes
+    name: Nom
+    quantity: Quantité
+    date: Date
 errors:
     payment:
         must_be_auth: Merci de créer votre compte Manga Mania afin de poursuivre votre achat.
 login:
     title: Me connecter à mon compte Manga Mania
+    email: Email
+    password: Mot de passe
 home:
     collection : collection
     shopnow: Acheter maintenant

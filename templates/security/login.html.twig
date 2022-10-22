@@ -16,9 +16,9 @@
                         <div class="contact__form">
                             <div class="row">
                                 <h1 class="h3 mb-3 font-weight-normal"></h1>
-                                <label for="inputEmail">Email</label>
+                                <label for="inputEmail">{{ 'login.email'|trans }}</label>
                                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                                <label for="inputPassword">Password</label>
+                                <label for="inputPassword">{{ 'login.password'|trans }}</label>
                                 <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                                 {#
@@ -33,12 +33,12 @@
                                 #}
                                 <div class="col-lg-6 col-md-6">
                                     <button class="site-btn w-100" type="submit">
-                                        {{ 'navbar.signin'|trans }}
+                                        {{ 'navbar.login'|trans }}
                                     </button>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <a class="text-white text-center site-btn w-100 letter-space" href="{{ path('app_register') }}" >
-                                        {{ 'navbar.signup'|trans }}
+                                        {{ 'navbar.register'|trans }}
                                     </a>
                                 </div>
                             </div>

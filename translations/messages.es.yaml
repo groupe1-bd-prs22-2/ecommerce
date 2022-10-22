@@ -5,7 +5,26 @@ navbar:
   shop : Tienda
   blog : Noticias
   contact : Contacto
-  signin: Inscríbete
+  login: Conexión
+  logout: Cerrar sesión
+  register: Registro
+user:
+  editinfo: Modificar mi información
+  editpass: Modificar el clave
+  currentpass: Clave actual
+  newpass: Nueva clave
+  repeatpass: Repita el clave
+confirm: Validar
+register: Registro
+commande:
+  history: Mi historial de pedidos
+  name: Apellido
+  quantity: Monto
+  date: Fecha
+login:
+  title: Iniciar sesión en mi cuenta Manga Mania
+  email: Email
+  password: Clave
 home:
   collection : colección
   shopnow: Comprar ahora
