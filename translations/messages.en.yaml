@@ -6,6 +6,26 @@ navbar:
   blog : Blog
   contact : Contact
   signin: Sign in
+  login: Log in
+  logout: Log out
+  register: Registration
+confirm: Confirm
+user:
+  editinfo : Edit my information
+  editpass: Edit my password
+  currentpass: Current password
+  newpass: New password
+  repeatpass: Repeat password
+commande:
+  history: My order history
+  name: Name
+  quantity: Quantity
+  date: Date
+login:
+  title: Login to my Manga Mania account
+  email: Email
+  password: Password
+register: Register
 home:
   collection : collection
   shopnow: Shop now

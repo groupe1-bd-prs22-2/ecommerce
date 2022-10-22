@@ -45,10 +45,10 @@
                         <div class="d-flex">
                             <div class="row-2">
                                 <button class="px-1 site-btn">
-                                    <a style=" color: #FFFFFF" href="{{ path('user_edit') }}">Modifier ses informations</a>
+                                    <a style=" color: #FFFFFF" href="{{ path('user_edit') }}">{{ 'user.editinfo'|trans }}</a>
                                 </button>
                                 <button class="site-btn">
-                                    <a style=" color: #FFFFFF" href="{{ path('app_logout') }}">Déconnexion</a>
+                                    <a style=" color: #FFFFFF" href="{{ path('app_logout') }}">{{ 'navbar.logout'|trans }}</a>
                                 </button>
                             </div>
                         </div>
@@ -57,14 +57,14 @@
                 </div>
                 <div class="col-md-6">
                     <div class="heading_container">
-                        <h2>Historique de mes commandes</h2>
+                        <h2>{{ 'commande.history'|trans }}</h2>
                     </div>
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Nom </th>
-                            <th>Quantités</th>
-                            <th>Date</th>
+                            <th>{{ 'commande.name'|trans }} </th>
+                            <th>{{ 'commande.quantity'|trans }}</th>
+                            <th>{{ 'commande.date'|trans }}</th>
                         </tr>
                         </thead>
                         <tbody>
