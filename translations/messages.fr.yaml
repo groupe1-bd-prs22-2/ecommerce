@@ -31,6 +31,7 @@ user:
     currentpass: Mot de passe actuel
     newpass: Nouveau mot de passe
     repeatpass: Répeter le mot de passe
+    infoperso: Mes informations personnels
 commande:
     history: Historique de mes commandes
     name: Nom

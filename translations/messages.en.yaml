@@ -19,6 +19,7 @@ user:
   currentpass: Current password
   newpass: New password
   repeatpass: Repeat password
+  infoperso: My personal information
 commande:
   history: My order history
   name: Name
