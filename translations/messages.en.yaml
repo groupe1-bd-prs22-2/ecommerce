@@ -10,6 +10,9 @@ navbar:
   logout: Log out
   register: Registration
 confirm: Confirm
+footer:
+  cgu: General user condition
+  ml: Legal mentions
 user:
   editinfo : Edit my information
   editpass: Edit my password
@@ -44,3 +47,33 @@ shop:
   sortbyprice : Sort by Price
   lowtohigh: Bajo a Alto
   hightolow: Alto a Bajo
+admin:
+  category:
+    edit: Update category %name%
+    list: List of categories
+    create: Create a category
+    name: Name
+    createdAt: Creation date
+    empty: No category created
+  product:
+    list: Products List
+    create: Create a new product
+    name: Name
+    categories: Categories
+    price: Price
+    quantity: Quantity
+    createdAt: Creation date
+    updatedAt: Last update
+    edit: Update %name%
+  contact:
+    sujet: Message subject
+    email: Recipient email
+    message: Message content
+    empty: Empty
+    list: List of messages
+dashboard:
+  sales: Sales
+  earnings: Earnings
+  users: Clients
+  earningsChart: Gross sales
+
