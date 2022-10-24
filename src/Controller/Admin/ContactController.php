@@ -29,13 +29,13 @@ class ContactController extends AbstractController
      * @param ContactRepository $contactRepository
      * @return Response
      */
-    #[Route('/{id}', name: 'admin_contact_delete', methods: ['POST'])]
+    #[Route('/admin/contact/{id}/delete', name: 'admin_contact_delete', methods: ['POST'])]
     public function delete(Request $request, Contact $contact, ContactRepository $contactRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$contact->getId(), $request->request->get('_token'))) {
             $contactRepository->remove($contact);
         }
 
-        return $this->redirectToRoute('admin_contactgit _index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_contact_index', [], Response::HTTP_SEE_OTHER);
     }
 }
