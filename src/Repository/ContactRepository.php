@@ -34,8 +34,6 @@ class ContactRepository extends ServiceEntityRepository
     }
 
     /**
-     * @throws ORMException
-     * @throws OptimisticLockException
      */
     public function remove(Contact $entity, bool $flush = true): void
     {
