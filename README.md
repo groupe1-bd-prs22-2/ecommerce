@@ -20,6 +20,15 @@ Carte de paiement Stripe
 Pour réaliser un achat, le numéro de carte Stripe à utiliser est le suivant : _**4242 4242 4242 4242**_.
 La date d'expiration et le CVC sont libres de saisie tant qu'ils sont valides.
 
+Accès à l'interface Stripe
+-----------
+
+Vous pouvez également accéder à l'interface Stripe (https://dashboard.stripe.com/) afin de récupérer/visualiser les paiements effectués en utilisant les identifiants suivants :
+- Utilisateur : **t.rajoarifera@ecole-ipssi.net**
+- Mot de passe : **30jt%3S!8!kj**
+
+Pour consulter les paiements réalisés, vous pouvez vous rendre à cette URL une fois authentifiée : https://dashboard.stripe.com/test/payments
+
 Accès aux e-mails
 -----------
 
