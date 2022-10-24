@@ -1,3 +1,34 @@
+# Accès à l'application
+
+---
+
+URL de l'application 
+-----------
+
+Vous pouvez accéder à l'application via l'URL suivante : https://mangamania.herokuapp.com/
+
+Compte administrateur
+-----------
+
+Pour accéder à l'administration de l'application, vous pouvez utiliser les identifiants suivants :
+- Utilisateur : **administrateur@mangamania.com**
+- Mot de passe : **Adm1nTest** 
+
+Carte de paiement Stripe
+-----------
+
+Pour réaliser un achat, le numéro de carte Stripe à utiliser est le suivant : _**4242 4242 4242 4242**_.
+La date d'expiration et le CVC sont libres de saisie tant qu'ils sont valides.
+
+Accès aux e-mails
+-----------
+
+Pour visualiser les mails envoyés par l'application, il faudra se connecter à MailTrap (https://mailtrap.io/) en utilisant les identifiants suivants :
+- Utilisateur : **manga.mania.ipssi@gmail.com**
+- Mot de passe : **SkasLR0Q436x1G4GHlq9**
+
+---
+
 # Prise en main de l'image Docker #
 
 ---
