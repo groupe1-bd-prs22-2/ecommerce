@@ -22,6 +22,9 @@ navbar:
         contact: Support
         logout: Déconnexion
 confirm: Valider
+footer:
+    cgu: Conditions générales de l'utilisateur
+    ml: Mentions légales
 user:
     editinfo: Modifier mes informations
     editpass: Modification du mot de passe
