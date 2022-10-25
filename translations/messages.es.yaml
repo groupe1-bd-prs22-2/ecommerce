@@ -153,3 +153,7 @@ save: Guardar
 Firstname: Nombre
 Lastname: Apellido
 Valider: Validar
+cart:
+  title: Cesta
+  empty: Cesta vacía
+  total: Total

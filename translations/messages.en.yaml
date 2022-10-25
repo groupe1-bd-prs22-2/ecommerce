@@ -153,3 +153,7 @@ save: Save
 Firstname: Firstname
 Lastname: Lastname
 Valider: Save
+cart:
+  title: Cart
+  empty: Empty cart
+  total: Total

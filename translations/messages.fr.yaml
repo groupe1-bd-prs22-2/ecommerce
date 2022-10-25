@@ -166,3 +166,7 @@ save: Enregistrer
 Firstname: Prénom
 Lastname: Nom
 Valider: Valider
+cart:
+    title: Panier
+    empty: Panier vide
+    total: Total
