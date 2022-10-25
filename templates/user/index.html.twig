@@ -3,58 +3,62 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>{{ 'user.user'|trans }}</h4>
+                        <div class="breadcrumb__links">
+                            <a href="{{ path('app_home') }}">{{ 'navbar.home'|trans }}</a>
+                            <span>{{ 'user.user'|trans }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
     <section class="contact_section layout_padding">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form_container">
+                    <div class="form_container " >
                         <div class="section-title">
                             <span>Mes informations personnels</span>
-                            <h2>Contact Us</h2>
-                            <p>As you might expect of a company that began as a high-end interiors contractor, we pay
-                                strict attention.</p>
                         </div>
-                        <ul>
-                            <li>
-                                <h4>America</h4>
-                                <p>195 E Parker Square Dr, Parker, CO 801 <br />+43 982-314-0958</p>
-                            </li>
-                            <li>
-                                <h4>France</h4>
-                                <p>109 Avenue Léon, 63 Clermont-Ferrand <br />+12 345-423-9893</p>
-                            </li>
-                        </ul>
-                        <div class="heading_container">
-                            <h2>
-                                Mes informations personnels
-                            </h2>
-                        </div>
-
-                        <div>
-                            {{ app.user.firstname }}
-                        </div>
-                        <div>
-                            {{ app.user.lastname }}
-                        </div>
-                        <div>
-                            {{ app.user.email }}
-                        </div>
-                        <div>
-
-                        </div>
-                        <div class="d-flex">
-                            <div class="row-2">
-                                <button class="px-1 site-btn">
-                                    <a style=" color: #FFFFFF" href="{{ path('user_edit') }}">{{ 'user.editinfo'|trans }}</a>
-                                </button>
-                                <button class="site-btn">
-                                    <a style=" color: #FFFFFF" href="{{ path('app_logout') }}">{{ 'navbar.logout'|trans }}</a>
-                                </button>
+                        <center>
+                            <div>
+                                {{ 'user.firstname'|trans }} : {{ app.user.firstname }}
                             </div>
-                        </div>
+                            <div>
+                                {{ 'user.secondname'|trans }} : {{ app.user.lastname }}
+                            </div>
+                            <div>
+                                @ : {{ app.user.email }}
+                            </div>
+                        </center>
+                            <div>
 
+                            </div>
+                            <br>
+                        <center>
+
+                                <div class="row-2">
+                                    <button class="px-1 site-btn">
+                                        <a style=" color: #FFFFFF" href="{{ path('user_edit') }}">{{ 'user.editinfo'|trans }}</a>
+                                    </button>
+                                    <button class="site-btn">
+                                        <a style=" color: #FFFFFF" href="{{ path('app_logout') }}">{{ 'navbar.logout'|trans }}</a>
+                                    </button>
+                                </div>
+
+                        </center>
+
+                        <br>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="heading_container">
                         <h2>{{ 'order.reference'|trans }}</h2>
