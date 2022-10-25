@@ -22,6 +22,7 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\TranslatableMessage;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Gestion du panier.
@@ -68,7 +69,7 @@ class CartController extends AbstractController
      * @throws Exception
      */
     #[Route('/add', name: 'app_cart_add_product', methods: ['POST'])]
-    public function add(Request $request, Cart $cart, ProductRepository $repository): Response
+    public function add(Request $request, Cart $cart, ProductRepository $repository, TranslatorInterface $translator): Response
     {
         // Récupération du produit ajouté ainsi que sa quantité
         $product = $repository->find($request->get('product'));
@@ -76,10 +77,10 @@ class CartController extends AbstractController
 
         if (!empty($product) && !empty($quantity)) {
             if ($product->getQuantity() < $quantity) {
-                $this->addFlash('danger', new TranslatableMessage('cart.product.qty_not_enough'));
+                $this->addFlash('danger', $translator->trans('cart.product.qty_not_enough'));
             } else {
                 $cart->addProduct($product, $quantity);
-                $this->addFlash('success', new TranslatableMessage('cart.product.added'));
+                $this->addFlash('success', $translator->trans('cart.product.added'));
             }
         }
 
