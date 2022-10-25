@@ -58,10 +58,11 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
-                                                    <li><a href="{{ app.request.requestUri  }}?prixMin=0&prixMax=10">-10€</a></li>
-                                                    <li><a href="#">10€ - 50€</a></li>
-                                                    <li><a href="#">50€+</a></li>
-
+                                                    <li><a href="{{ path ('app_shop')  }}?prixMin=0&prixMax=10">-10€</a></li>
+                                                    <li><a href="{{ path ('app_shop')  }}?prixMin=10&prixMax=20">10€ - 20€</a></li>
+                                                    <li><a href="{{ path ('app_shop')  }}?prixMin=20&prixMax=30">20€ - 30€</a></li>
+                                                    <li><a href="{{ path ('app_shop')  }}?prixMin=40&prixMax=50">40€ - 50€</a></li>
+                                                    <li><a href="{{ path ('app_shop')  }}?prixMin=50&prixMax=500">50€+</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -76,7 +77,6 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__left">
-                                    <p>Showing 1–12 of {{ products|length }} results</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -101,6 +101,6 @@
             </div>
         </div>
     </section>
-    <!-- Shop Section End -->
+
 
 {% endblock %}
