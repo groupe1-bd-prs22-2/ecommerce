@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/article')]
+#[Route('/blog')]
 class ArticleController extends AbstractController
 {
     #[Route('/', name: 'app_blog', methods: ['GET'])]
@@ -21,7 +21,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/detail/{slug}', name: 'app_article_detail')]
+    #[Route('/{slug}', name: 'app_article_detail')]
     public function show(Article $article): Response
     {
         return $this->render('blog/detail.html.twig', [

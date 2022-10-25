@@ -16,12 +16,6 @@
                                 <h2>Sasuke Uchiwa</h2>
                                 <p>Sasuke Uchiwa (うちはサスケ, Uchiha Sasuke), {{ 'home.sasuke' | trans }}</p>
                                 <a href="#" class="primary-btn">{{ 'home.shopnow' | trans }}<span class="arrow_right"></span></a>
-                                {# <div class="hero__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                </div> #}
                             </div>
                         </div>
                     </div>
@@ -36,12 +30,6 @@
                                 <h2>Son Goku</h2>
                                 <p>Son Gokû (孫そん悟ご空くう, Son Gokū), {{ 'home.goku' | trans }}</p>
                                 <a href="#" class="primary-btn">{{ 'home.shopnow' | trans }}<span class="arrow_right"></span></a>
-                                {# <div class="hero__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="https://www.instagram.com/mangamaniabrysas"><i class="fa fa-instagram"></i></a>
-                                </div> #}
                             </div>
                         </div>
                     </div>
@@ -62,7 +50,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2>Vêtements</h2>
-                            <a href="#">Shop now</a>
+                            <a href="{{ path ('app_shop') }}?categorie=vetements">{{ 'home.shopnow'|trans }}</a>
                         </div>
                     </div>
                 </div>
@@ -73,23 +61,10 @@
                         </div>
                         <div class="banner__item__text">
                             <h2>Figurines</h2>
-                            <a href="#">Shop now</a>
+                            <a href="{{ path ('app_shop') }}?categorie=figurines">{{ 'home.shopnow'|trans }}</a>
                         </div>
                     </div>
                 </div>
-                <!-- Choisir une catégorie
-                <div class="col-lg-7">
-                    <div class="banner__item banner__item--last">
-                        <div class="banner__item__pic">
-                            <img src="img/banner/banner-3.jpg" alt="">
-                        </div>
-                        <div class="banner__item__text">
-                            <h2>Shoes Spring 2030</h2>
-                            <a href="#">Shop now</a>
-                        </div>
-                    </div>
-                </div>
-                -->
             </div>
         </div>
     </section>
@@ -111,30 +86,6 @@
                     {% for p in products%}
                         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix {{p.tags}}">
                             {{ include('shop/_product_preview.html.twig', {'p': p}) }}
-                            {# <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{asset('uploads/products/' ~ p.picture)}}">
-                                    {% if p.tags == "new" %}
-                                    <span class="label">New</span>
-                                    {% endif %}
-                                    <ul class="product__hover">
-                                        <li><a href="#"><img src="{{ asset('img/icon/heart.png') }}" alt=""></a></li>
-                                        <li><a href="#"><img src="{{ asset('img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-                                        <li><a href="{{ path('app_shop_detail',{'slug' : p.slug})}}"><img src="img/icon/search.png" alt=""></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>{{ p.name }}</h6>
-                                    <a href="#" class="add-cart">+ {{ 'shop.addtocart' | trans }}</a>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <h5>{{ p.price }}</h5>
-                                </div>
-                            </div> #}
                         </div>
                     {% endfor %}
 
@@ -160,8 +111,8 @@
                 <div class="col-lg-4">
                     <div class="instagram__text">
                         <h2>Instagram</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
+                        <p>Vous pouvez nous retrouver sur Instagram sous le pseudo de "MangaMania.shopFr" pour des infos
+                        et concours exclusifs !</p>
                         <h3>#MangaMania</h3>
                     </div>
                 </div>

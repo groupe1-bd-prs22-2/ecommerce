@@ -13,6 +13,7 @@ use App\Entity\Product;
 use App\Service\Cart;
 use Exception;
 use Symfony\Component\Translation\TranslatableMessage;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route('/shop')]
 class ShopController extends AbstractController
@@ -52,7 +53,7 @@ class ShopController extends AbstractController
      * @throws Exception
      */
     #[Route('/product/{slug}', name: 'app_shop_detail')]
-    public function detail(Product $product, Request $request, Cart $cart): Response
+    public function detail(Product $product, Request $request, Cart $cart, ProductRepository $productRepository, TranslatorInterface $translator): Response
     {
         // Chargement du formulaire d'ajout au panier
         $cartForm = $this->createForm(AddToCartType::class, $product);
@@ -60,14 +61,18 @@ class ShopController extends AbstractController
 
         // Traitement du formulaire : ajout du produit et de la quantité voulue au panier
         if ($cartForm->isSubmitted() && $cartForm->isValid()) {
-            $cart->addProduct($product, $cartForm->get('quantity')->getData());
-
-            $this->addFlash('success', new TranslatableMessage('cart.product.added'));
+            if ($product->getQuantity() < $cartForm->get('quantity')->getData()) {
+                $this->addFlash('danger', $translator->trans('cart.product.qty_not_enough'));
+            } else {
+                $cart->addProduct($product, $cartForm->get('quantity')->getData());
+                $this->addFlash('success', $translator->trans('cart.product.added'));
+            }
             return $this->redirectToRoute('app_cart');
         }
 
         return $this->render('shop/detail.html.twig', [
             'product' => $product,
+            'products'=>$productRepository->findProductByMax(4),
             'cartForm' => $cartForm->createView()
         ]);
     }

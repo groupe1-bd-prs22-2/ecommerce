@@ -23,15 +23,20 @@ navbar:
         logout: Déconnexion
 confirm: Valider
 footer:
+    attach: Le client est au cœur de notre business modèle, qui comprend le design.
     cgu: Conditions générales de l'utilisateur
     ml: Mentions légales
 user:
+    edit: Modification de mes informations
     editinfo: Modifier mes informations
     editpass: Modification du mot de passe
     currentpass: Mot de passe actuel
     newpass: Nouveau mot de passe
     repeatpass: Répeter le mot de passe
-    infoperso: Mes informations personnels
+    infoperso: Mes informations personnelles
+    firstname: Prénom
+    lastname: Nom
+    email: Adresse e-mail
 commande:
     history: Historique de mes commandes
     name: Nom
@@ -68,6 +73,8 @@ shop:
     sortbyprice : Trier par Prix
     lowtohigh: Ordre croissant
     hightolow: Ordre décroissant
+    new_arrivals: Nouveauté
+    populars: Populaire
 orders:
     list: Liste des commandes
     administration: Gestion des commandes
@@ -76,6 +83,9 @@ orders:
     deliver: Marquer comme "délivré"
     cancel: Annuler la commande
     prepare: Préparer la commande
+    ref: Référence
+    amount: Montant
+    action: Actions
     status:
         canceled: Commande annulée
         in_preparation: Commande en cours de préparation
@@ -108,6 +118,7 @@ admin:
         createdAt: Date de création
         updatedAt: Dernière mise à jour
         edit: Mettre à jour %name%
+        empty: Aucun produit crée
     contact:
         sujet: Sujet du message
         email: Email du déstinataire
@@ -115,8 +126,63 @@ admin:
         empty: Vide
         list: Liste des messages
 dashboard:
+    lastOrders: Dernières commandes
     sales: Ventes
     earnings: Revenus
     users: Clients
     earningsChart: Chiffre d'affaires
-
+order:
+    reference: Référence
+    status: Statut
+    purchase_date: Date d'achat
+    amount: Montant
+pages:
+    create: Créer une page
+    list: Liste des pages
+    title: Titre
+    createdAt: Date de création
+    empty: Aucune page crées
+    actions: Actions
+    view: Visualiser la page
+    edit: Modifier le contenu
+    delete: Supprimer la page
+article:
+    list: Liste des articles
+    create: Créer un article
+    title: Titre
+    content: Contenu
+    createdAt: Date de création
+    updatedAt: Modifié le
+    empty: Aucun article
+    actions: Actions
+    edit: Modifier
+    delete: Supprimer
+Date d'achat: Date d'achat
+État: État
+category:
+    create: Créer une catégorie
+product:
+    create: Créer un produit
+Name: Nom
+Description: Description
+Picture: Image
+Categories: Categorie(s)
+Price: Prix
+Quantity: Quantité
+Save: Enregistrer
+save: Enregistrer
+Firstname: Prénom
+Lastname: Nom
+Valider: Valider
+cart:
+    title: Panier
+    empty: Panier vide
+    total: Total
+    addToCart: Ajouter au panier
+    pay: Payer
+    product:
+        added: Le produit a bien été ajouté au panier.
+        qty_not_enough: La quantité demandée est supérieure au stock.
+    payment:
+        proceed: Procéder au paiement
+        card: Paiement par carte

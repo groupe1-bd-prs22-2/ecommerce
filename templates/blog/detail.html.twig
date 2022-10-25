@@ -12,9 +12,7 @@
                     <div class="blog__hero__text">
                         <h2>{{ article.title }}</h2>
                         <ul>
-
-                            <li>{{ article.createdAt  ? article.createdAt|date('l F o') : '' }}</li>
-
+                            <li>{{ article.createdAt  ? article.createdAt|date('d/m/Y H:i') : '' }}</li>
                         </ul>
                     </div>
                 </div>
@@ -33,17 +31,8 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="blog__details__content">
-                        <div class="blog__details__share">
-                            <span>share</span>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a></li>
-                                <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
                         <div class="blog__details__text">
-                            {{ article.content }}
+                            {{ article.content|raw }}
                         </div>
                     </div>
                 </div>

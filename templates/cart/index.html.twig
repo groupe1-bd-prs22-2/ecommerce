@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'cart'|trans }}{% endblock %}
+{% block title %}{{ 'cart.title'|trans }}{% endblock %}
 
 {% block body %}
     <section class="breadcrumb-option">
@@ -10,8 +10,8 @@
                     <div class="breadcrumb__text">
                         <h4>{{ 'cart.title'|trans }}</h4>
                         <div class="breadcrumb__links">
-                            <a href="{{ path('app_home') }}">{{ 'nav.home'|trans }}</a>
-                            <a href="{{ path('app_shop') }}">{{ 'nav.shop'|trans }}</a>
+                            <a href="{{ path('app_home') }}">{{ 'navbar.home'|trans }}</a>
+                            <a href="{{ path('app_shop') }}">{{ 'navbar.shop'|trans }}</a>
                             <span>{{ 'cart.title'|trans }}</span>
                         </div>
                     </div>
