@@ -43,6 +43,7 @@
     </head>
     <body>
         {{ render(controller('App\\Controller\\NavbarController::renderNav',{'route':app.request.get('_route')})) }}
+        {{ include('layouts/flash.html.twig') }}
         {% block body %}{% endblock %}
 
         <footer class="footer">
