@@ -157,3 +157,4 @@ cart:
   title: Cesta
   empty: Cesta vacía
   total: Total
+  addToCart : Añadir a la cesta

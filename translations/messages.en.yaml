@@ -157,3 +157,4 @@ cart:
   title: Cart
   empty: Empty cart
   total: Total
+  addToCart : Add to cart

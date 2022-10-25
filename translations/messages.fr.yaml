@@ -170,3 +170,4 @@ cart:
     title: Panier
     empty: Panier vide
     total: Total
+    addToCart: Ajouter au panier
