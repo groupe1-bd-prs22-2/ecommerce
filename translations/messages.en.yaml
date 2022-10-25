@@ -122,6 +122,9 @@ pages:
   createdAt: Created at
   empty: No page created
   actions: Actions
+  view: View page
+  edit: Edit content
+  delete: Delete page
 article:
   list: List of articles
   create: Create an article

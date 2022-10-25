@@ -1,10 +1,10 @@
 # Langue : 'Español'
 navbar:
-  lang : Lengua
-  home : Inicio
-  shop : Tienda
-  blog : Noticias
-  contact : Contacto
+  lang: Lengua
+  home: Inicio
+  shop: Tienda
+  blog: Noticias
+  contact: Contacto
   login: Conexión
   logout: Cerrar sesión
   register: Registro
@@ -43,21 +43,21 @@ login:
   email: Email
   password: Clave
 home:
-  collection : colección
+  collection: colección
   shopnow: Comprar ahora
-  sasuke : es uno de los personajes principales de la serie. Originalmente fue presentado como protagonista, un miembro de Konoha perteneciente al Equipo Kakashi.
+  sasuke: es uno de los personajes principales de la serie. Originalmente fue presentado como protagonista, un miembro de Konoha perteneciente al Equipo Kakashi.
   goku: es el protagonista principal del manga Dragon Ball y Dragon Ball Super, y de sus adaptaciones animadas.
-  clothes : Ropa
-  figurines : Figuras
-blog :
+  clothes: Ropa
+  figurines: Figuras
+blog:
   readmore: Leer más
-  ourblog : Nuestro blog
+  ourblog: Nuestro blog
 shop:
-  search : Buscar
-  categories : Categorías
-  price : Precio
-  addtocart : Añadir a la cesta
-  sortbyprice : Ordenar por precio
+  search: Buscar
+  categories: Categorías
+  price: Precio
+  addtocart: Añadir a la cesta
+  sortbyprice: Ordenar por precio
   lowtohigh: Bajo a Alto
   hightolow: Alto a Bajo
   new_arrivals: Nuevos productos
@@ -105,6 +105,9 @@ pages:
   createdAt: Fecha de creación
   empty: Sin página creadas
   actions: Acciones
+  view: Ver la página
+  edit: Contenido editado
+  delete: Eliminar página
   status:
     canceled: Pedido cancelado
     in_preparation: Pedido en proceso de preparación
@@ -157,5 +160,5 @@ cart:
   title: Cesta
   empty: Cesta vacía
   total: Total
-  addToCart : Añadir a la cesta
+  addToCart: Añadir a la cesta
   pay: Pagar

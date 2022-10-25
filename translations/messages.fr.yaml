@@ -140,6 +140,9 @@ pages:
     createdAt: Date de création
     empty: Aucune page crées
     actions: Actions
+    view: Visualiser la page
+    edit: Modifier le contenu
+    delete: Supprimer la page
 article:
     list: Liste des articles
     create: Créer un article
