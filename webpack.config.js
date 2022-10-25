@@ -25,14 +25,14 @@ Encore
     })
 
     // Copie des fichiers de consentement des cookies
-    .copyFiles({
+    /*.copyFiles({
         from: 'node_modules/cookie-consent-js/src',
         to: 'cookie-consent/[name].[ext]'
     })
     .copyFiles({
         from: 'node_modules/cookie-consent-js/cookie-consent-content',
         to: 'cookie-consent/cookie-consent-content/[name].[ext]'
-    })
+    })*/
 
     /*
      * ENTRY CONFIG
