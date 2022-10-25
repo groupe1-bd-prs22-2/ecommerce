@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="heading_container">
-                        <h2>{{ 'commande.history'|trans }}</h2>
+                        <h2>{{ 'order.reference'|trans }}</h2>
                     </div>
                     <table class="table">
                         <thead>
@@ -65,12 +65,20 @@
                             <th>{{ 'commande.name'|trans }} </th>
                             <th>{{ 'commande.quantity'|trans }}</th>
                             <th>{{ 'commande.date'|trans }}</th>
+                            <th>{{ 'commande.price'|trans }}</th>
                         </tr>
                         </thead>
                         <tbody>
-
+                        {% for order in orders %}
+                            <tr>
+                                <td>{{ order.reference }}</td>
+                                <td>{{ order.status }} </td>
+                                <td>{{ order.createdAt | date('d/m/y H:i') }}</td>
+                                <td>{{ order.totalAmount }} €
+                                </td>
+                            </tr>
+                        {% endfor %}
                         </tbody>
-
                     </table>
                 </div>
             </div>

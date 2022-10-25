@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Form\EditProfileType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -16,8 +17,12 @@ class UserController extends AbstractController
     #[Route('/user', name: 'user')]
     public function index(): Response
     {
+        /** @var User $user */
+        $user = $this->getUser();
+        $orders = $user->getOrders();
+
         return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
+            'orders' => $orders,
         ]);
     }
 
@@ -42,6 +47,7 @@ class UserController extends AbstractController
             'editUserForm' => $form->createView(),
         ]);
     }
+
 
     #[Route('/user/edit/password', name: 'user_edit_pass')]
     public function EditPassword(Request $request,ManagerRegistry $doctrine ,UserPasswordHasherInterface $passwordHasher): Response
