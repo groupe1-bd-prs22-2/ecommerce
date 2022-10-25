@@ -9,8 +9,21 @@ navbar:
   login: Log in
   logout: Log out
   register: Registration
+  admin:
+    administration: Administration
+    cms: Content gestion
+    orders: Orders
+    backToSite: Back to site
+    dashboard: Dashboard
+    category: Category
+    product: Product
+    pages: Pages
+    article: Articles
+    contact: Contact
+    logout: Log out
 confirm: Confirm
 footer:
+  attach: The customer is at the heart of our unique business model, which includes design.
   cgu: General user condition
   ml: Legal mentions
 user:
@@ -46,8 +59,10 @@ shop:
   price : Price
   addtocart : Add to cart
   sortbyprice : Sort by Price
-  lowtohigh: Bajo a Alto
-  hightolow: Alto a Bajo
+  lowtohigh: Ascending order
+  hightolow: Descending order
+  new_arrivals: New arrival
+  populars: Populars
 admin:
   category:
     edit: Update category %name%
@@ -66,6 +81,7 @@ admin:
     createdAt: Creation date
     updatedAt: Last update
     edit: Update %name%
+    empty: No product created
   contact:
     sujet: Message subject
     email: Recipient email
@@ -73,8 +89,67 @@ admin:
     empty: Empty
     list: List of messages
 dashboard:
+  lastOrders: Last orders
   sales: Sales
   earnings: Earnings
-  users: Clients
+  users: Customers
   earningsChart: Gross sales
-
+orders:
+  list: List of orders
+  administration: Order management
+  total: Total number of orders registered
+  ship: Ship
+  deliver: Mark as "delivered"
+  cancel: Cancel the order
+  prepare: Prepare the order
+  ref: Reference
+  amount: Amount
+  action: Actions
+  status:
+    canceled: Order cancelled
+    in_preparation: Order being prepared
+    shipped: Order shipped
+    delivered: Order delivered
+order:
+  reference: Reference
+  status: Status
+  purchase_date: Purchase date
+  amount: Amount
+pages:
+  create: Create a page
+  list: Page list
+  title: Title
+  createdAt: Created at
+  empty: No page created
+  actions: Actions
+article:
+  list: List of articles
+  create: Create an article
+  title: Title
+  content: Content
+  createdAt: Created At
+  updatedAt: Updated At
+  empty: No article
+  actions: Actions
+Date d'achat: Purchase date
+État: Status
+actions:
+  title: Actions
+  delete: Delete
+  edit: Edit
+  update: Update
+category:
+  create: Create category
+product:
+  create: Create product
+Name: Name
+Description: Description
+Picture: Picture
+Categories: Category
+Price: Price
+Quantity: Quantity
+Save: Save
+save: Save
+Firstname: Firstname
+Lastname: Lastname
+Valider: Save

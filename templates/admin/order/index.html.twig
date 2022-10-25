@@ -14,15 +14,15 @@
             <thead>
                 <tr>
                     {# sorting of properties based on query components #}
-                    <th>Référence</th>
+                    <th>{{ 'orders.ref' | trans }}</th>
                     <th{% if pagination.isSorted('o.status') %} class="sorted"{% endif %}>
-                        {{ knp_pagination_sortable(pagination, 'État', 'o.status') }}
+                        {{ knp_pagination_sortable(pagination, 'État'|trans, 'o.status') }}
                     </th>
                     <th{% if pagination.isSorted('o.created_at') %} class="sorted"{% endif %}>
-                        {{ knp_pagination_sortable(pagination, 'Date d\'achat', 'o.created_at') }}
+                        {{ knp_pagination_sortable(pagination, 'Date d\'achat'|trans, 'o.created_at') }}
                     </th>
-                    <th>Montant</th>
-                    <th>Actions</th>
+                    <th>{{ 'orders.amount' | trans }}</th>
+                    <th>{{ 'orders.action' | trans }}</th>
                 </tr>
             </thead>
             <tbody>

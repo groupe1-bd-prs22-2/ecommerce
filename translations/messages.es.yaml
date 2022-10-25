@@ -8,6 +8,18 @@ navbar:
   login: Conexión
   logout: Cerrar sesión
   register: Registro
+  admin:
+    administration: Administración
+    cms: Administración de contenido
+    orders: Pedidos
+    backToSite: Volver al sitio
+    dashboard: Panel de control
+    category: Categorias
+    product: Producto
+    pages: Páginas
+    article: Artículos
+    contact: Contacto
+    logout: Cerrar sesión
 user:
   editinfo: Modificar mi información
   editpass: Modificar el clave
@@ -17,6 +29,7 @@ user:
   infoperso: Mi información personal
 confirm: Validar
 footer:
+  attach: El cliente está en el corazón de nuestro modelo de negocio único, que incluye el diseño.
   cgu: Condición general del usuario
   ml: Menciones legales
 register: Registro
@@ -40,11 +53,15 @@ blog :
   readmore: Leer más
   ourblog : Nuestro blog
 shop:
-  search : Recherche ...
-  categories : Catégories
-  price : Prix
+  search : Buscar
+  categories : Categorías
+  price : Precio
   addtocart : Añadir a la cesta
   sortbyprice : Ordenar por precio
+  lowtohigh: Bajo a Alto
+  hightolow: Alto a Bajo
+  new_arrivals: Nuevos productos
+  populars: Popular
 admin:
   category:
     edit: Actualizar categoría %name%
@@ -63,14 +80,76 @@ admin:
     createdAt: Fecha de creación
     updatedAt: Última actualización
     edit: Poner al día %name%
+    empty: Ningún producto crea
   contact:
     sujet: Asunto del mensaje
     email: Receptor de E-mail
     message: Vuestro mensaje
     empty: Vacío
     list: Lista de mensajes
+orders:
+  list: Lista de pedidos
+  administration: Gestión de pedidos
+  total: Número total de pedidos registrados
+  ship: Enviar
+  deliver: Marcar como "entregado"
+  cancel: Cancelar el pedido
+  prepare: Preparar el pedido
+  ref: Referencia
+  amount: Monto
+  action: Acciones
+pages:
+  create: Crear una página
+  list: Lista de páginas
+  title: Título
+  createdAt: Fecha de creación
+  empty: Sin página creadas
+  actions: Acciones
+  status:
+    canceled: Pedido cancelado
+    in_preparation: Pedido en proceso de preparación
+    shipped: Orden enviada
+    delivered: Pedido expedido
 dashboard:
+  lastOrders: Últimos pedidos
   sales: Ventas
   earnings: Ingresos
   users: Clientela
   earningsChart: Cifra de negocio
+order:
+  reference: Referencia
+  status: Estatus
+  purchase_date: Fecha de compra
+  amount: Importe
+article:
+  list: Lista de artículos
+  create: Crear un artículo
+  title: Título
+  content: Descripción
+  createdAt: Fecha de creación
+  updatedAt: Actualizar en
+  empty: Ningún artículo
+  actions: Acciones
+Date d'achat: Fecha de compra
+État: Estado
+actions:
+  title: Acciones
+  delete: Eliminar
+  edit: Editar
+  update: Actualización
+  actions: Acciones
+category:
+  create: Crear una categoría
+product:
+  create: Crear un producto
+Name: Nombre
+Description: Descripción
+Picture: Imagen
+Categories: Categoría
+Price: Precio
+Quantity: Cantidad
+Save: Guardar
+save: Guardar
+Firstname: Nombre
+Lastname: Apellido
+Valider: Validar

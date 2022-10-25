@@ -23,9 +23,11 @@ navbar:
         logout: Déconnexion
 confirm: Valider
 footer:
+    attach: Le client est au cœur de notre business modèle, qui comprend le design.
     cgu: Conditions générales de l'utilisateur
     ml: Mentions légales
 user:
+    edit: Modification de mes informations
     editinfo: Modifier mes informations
     editpass: Modification du mot de passe
     currentpass: Mot de passe actuel
@@ -68,6 +70,8 @@ shop:
     sortbyprice : Trier par Prix
     lowtohigh: Ordre croissant
     hightolow: Ordre décroissant
+    new_arrivals: Nouveauté
+    populars: Populaire
 orders:
     list: Liste des commandes
     administration: Gestion des commandes
@@ -76,6 +80,9 @@ orders:
     deliver: Marquer comme "délivré"
     cancel: Annuler la commande
     prepare: Préparer la commande
+    ref: Référence
+    amount: Montant
+    action: Actions
     status:
         canceled: Commande annulée
         in_preparation: Commande en cours de préparation
@@ -108,6 +115,7 @@ admin:
         createdAt: Date de création
         updatedAt: Dernière mise à jour
         edit: Mettre à jour %name%
+        empty: Aucun produit crée
     contact:
         sujet: Sujet du message
         email: Email du déstinataire
@@ -115,8 +123,46 @@ admin:
         empty: Vide
         list: Liste des messages
 dashboard:
+    lastOrders: Dernières commandes
     sales: Ventes
     earnings: Revenus
     users: Clients
     earningsChart: Chiffre d'affaires
-
+order:
+    reference: Référence
+    status: Statut
+    purchase_date: Date d'achat
+    amount: Montant
+pages:
+    create: Créer une page
+    list: Liste des pages
+    title: Titre
+    createdAt: Date de création
+    empty: Aucune page crées
+    actions: Actions
+article:
+    list: Liste des articles
+    create: Créer un article
+    title: Titre
+    content: Contenu
+    createdAt: Date de création
+    updatedAt: Modifier le
+    empty: Aucun article
+    actions: Actions
+Date d'achat: Date d'achat
+État: État
+category:
+    create: Créer une catégorie
+product:
+    create: Créer un produit
+Name: Nom
+Description: Description
+Picture: Image
+Categories: Categorie(s)
+Price: Prix
+Quantity: Quantité
+Save: Enregistrer
+save: Enregistrer
+Firstname: Prénom
+Lastname: Nom
+Valider: Valider
