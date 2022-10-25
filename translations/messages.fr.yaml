@@ -149,9 +149,11 @@ article:
     title: Titre
     content: Contenu
     createdAt: Date de création
-    updatedAt: Modifier le
+    updatedAt: Modifié le
     empty: Aucun article
     actions: Actions
+    edit: Modifier
+    delete: Supprimer
 Date d'achat: Date d'achat
 État: État
 category:

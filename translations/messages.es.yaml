@@ -133,6 +133,8 @@ article:
   updatedAt: Actualizar en
   empty: Ningún artículo
   actions: Acciones
+  edit: Editar
+  delete: Borrar
 Date d'achat: Fecha de compra
 État: Estado
 actions:

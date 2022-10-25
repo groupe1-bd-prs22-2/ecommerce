@@ -134,6 +134,8 @@ article:
   updatedAt: Updated At
   empty: No article
   actions: Actions
+  edit: Edit content
+  delete: Delete
 Date d'achat: Purchase date
 État: Status
 actions:
