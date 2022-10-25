@@ -2,18 +2,112 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <meta name="description" content="Male_Fashion Template">
+        <meta name="keywords" content="Male_Fashion, unica, creative, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>MangaMania - {% block title %}{% endblock %}</title>
+
+        <!-- Icône -->
+        <link rel="icon" href="{{ asset ('img/icon/icon.png') }}">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+              rel="stylesheet">
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/elegant-icons.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
+        <link rel="stylesheet" href="{{ asset('build/cookie-consent/cookie-consent.css') }}">
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            <script src="https://js.stripe.com/v3/"></script> <!-- Chargement de Stripe.js -->
+            <script src="{{ asset('build/cookie-consent/cookie-consent.js') }}"></script>
+            <script>
+                const cookieConsent = new CookieConsent({
+                    contentUrl: "build/cookie-consent/cookie-consent-content", // location of the language files
+                    privacyPolicyUrl: "/cgu"
+                })
+            </script>
         {% endblock %}
     </head>
     <body>
+        {{ render(controller('App\\Controller\\NavbarController::renderNav',{'route':app.request.get('_route')})) }}
+        {{ include('layouts/flash.html.twig') }}
         {% block body %}{% endblock %}
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"><img src="{{ asset('img/footer-logo.png') }}" alt=""></a>
+
+                            </div>
+                            <p>The customer is at the heart of our unique business model, which includes design.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 offset-lg-1 col-md-4 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>RGPD</h6>
+                            <ul>
+                                <li><a href="{{ path('app_cgu') }}">{{ 'footer.cgu'|trans }}</a></li>
+                                <li><a href="{{ path('app_mentions') }}">{{ 'footer.ml'|trans }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-lg-12 text-center">
+                        <div class="footer__copyright__text">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <p>Copyright ©
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script>
+                                All rights reserved
+                            </p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+
+        <!-- Search Begin -->
+        <div class="search-model">
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <div class="search-close-switch">+</div>
+                <form class="search-model-form">
+                    <input type="text" id="search-input" placeholder="Search here.....">
+                </form>
+            </div>
+        </div>
+
+        <!-- Script -->
+        <script src="{{ asset ('js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset ('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset ('js/jquery.nice-select.min.js') }}"></script>
+        <script src="{{ asset ('js/jquery.nicescroll.min.js') }}"></script>
+        <script src="{{ asset ('js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset ('js/jquery.countdown.min.js') }}"></script>
+        <script src="{{ asset ('js/jquery.slicknav.js') }}"></script>
+        <script src="{{ asset ('js/mixitup.min.js') }}"></script>
+        <script src="{{ asset ('js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset ('js/main.js') }}"></script>
+
+        <!-- Script JS spécifique à la page en cours -->
+        {% block js %}{% endblock %}
     </body>
 </html>

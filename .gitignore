@@ -1,4 +1,7 @@
 
+.DS_Store
+*/.DS_Store
+
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -8,11 +11,19 @@
 /var/
 /vendor/
 .idea
+docker-compose.override.yml
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
 /public/build/
+/public/uploads/*
+/public/css/*
+/public/fonts/*
+/public/img/*
+/public/js/*
+/public/sass/*
 npm-debug.log
 yarn-error.log
+package-lock.json
 ###< symfony/webpack-encore-bundle ###

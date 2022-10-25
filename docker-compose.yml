@@ -3,22 +3,31 @@ version: '3.8'
 services:
   # Configuration MySQL
   db:
-    image: mysql:5.7
-    command: --default-authentication-plugin=mysql_native_password
+    image: postgres
     restart: always
     ports:
-      - "3309:3309"
+      - '5432:5432'
     environment:
-      MYSQL_ROOT_PASSWORD: 4db4ea9f1
-      MYSQL_USER: ecommerce_dev
-      MYSQL_PASSWORD: 3c0mMerce
-      MYSQL_DATABASE: ecommerce
-      MYSQL_TCP_PORT: 3309
+      POSTGRES_USER: ecommerce_dev
+      POSTGRES_PASSWORD: 3c0mMerce
+      POSTGRES_DB: ecommerce
+      #MYSQL_ROOT_PASSWORD: 4db4ea9f1
+      #MYSQL_USER: ecommerce_dev
+      #MYSQL_PASSWORD: 3c0mMerce
+      #MYSQL_DATABASE: ecommerce
+      #MYSQL_TCP_PORT: 3309
+      #TZ: Europe/Paris
+    volumes:
+      - db:/var/lib/postgresql/data
   # Configuration PHP
   php:
-    container_name: ecommerce-app
+    container_name: mangamania
     build:
       context: ./.docker/php
+      args:
+        USER_ID: ${USER_ID}
+        GROUP_ID: ${GROUP_ID}
+        USERNAME: ${USERNAME}
     volumes:
       - ./:/var/www/ecommerce
     links:
@@ -35,3 +44,14 @@ services:
       - php
     ports:
       - "8089:8089"
+
+  # Configuration de Node JS pour lancer les commandes Yarn
+  node:
+    image: node:16-alpine
+    working_dir: /var/www/eezidom
+    volumes:
+      - ./:/var/www/eezidom
+
+volumes:
+  db:
+    driver: local

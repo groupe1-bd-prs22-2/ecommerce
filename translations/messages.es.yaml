@@ -1,0 +1,76 @@
+# Langue : 'Español'
+navbar:
+  lang : Lengua
+  home : Inicio
+  shop : Tienda
+  blog : Noticias
+  contact : Contacto
+  login: Conexión
+  logout: Cerrar sesión
+  register: Registro
+user:
+  editinfo: Modificar mi información
+  editpass: Modificar el clave
+  currentpass: Clave actual
+  newpass: Nueva clave
+  repeatpass: Repita el clave
+  infoperso: Mi información personal
+confirm: Validar
+footer:
+  cgu: Condición general del usuario
+  ml: Menciones legales
+register: Registro
+commande:
+  history: Mi historial de pedidos
+  name: Apellido
+  quantity: Monto
+  date: Fecha
+login:
+  title: Iniciar sesión en mi cuenta Manga Mania
+  email: Email
+  password: Clave
+home:
+  collection : colección
+  shopnow: Comprar ahora
+  sasuke : es uno de los personajes principales de la serie. Originalmente fue presentado como protagonista, un miembro de Konoha perteneciente al Equipo Kakashi.
+  goku: es el protagonista principal del manga Dragon Ball y Dragon Ball Super, y de sus adaptaciones animadas.
+  clothes : Ropa
+  figurines : Figuras
+blog :
+  readmore: Leer más
+  ourblog : Nuestro blog
+shop:
+  search : Recherche ...
+  categories : Catégories
+  price : Prix
+  addtocart : Añadir a la cesta
+  sortbyprice : Ordenar por precio
+admin:
+  category:
+    edit: Actualizar categoría %name%
+    list: Lista de categorías
+    create: Crear una categoría
+    name: Libelo
+    createdAt: Fecha de creación
+    empty: Ninguna categoría creada
+  product:
+    list: Lista de productos
+    create: Crear un nuevo producto
+    name: Libelo
+    categories: Categoría(s)
+    price: Precio
+    quantity: Stock
+    createdAt: Fecha de creación
+    updatedAt: Última actualización
+    edit: Poner al día %name%
+  contact:
+    sujet: Asunto del mensaje
+    email: Receptor de E-mail
+    message: Vuestro mensaje
+    empty: Vacío
+    list: Lista de mensajes
+dashboard:
+  sales: Ventas
+  earnings: Ingresos
+  users: Clientela
+  earningsChart: Cifra de negocio

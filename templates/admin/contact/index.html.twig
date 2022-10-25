@@ -1,0 +1,38 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}{{'admin.contact.list'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container my-3">
+        <h1>{{ 'admin.contact.list'|trans }}</h1>
+
+        <table class="table table-sm table-hover">
+            <thead>
+            <tr>
+                <th>{{ 'admin.contact.email'|trans }}</th>
+                <th>{{ 'admin.contact.sujet'|trans }}</th>
+                <th>{{ 'admin.contact.message'|trans }}</th>
+                <th>{{ 'actions.title'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.sujet }} </td>
+                <td>{{ contact.message }}</td>
+                <td>
+                    <div class="d-flex gap-3">
+                        {{ include('admin/contact/_delete_form.html.twig' , { "contact":contact }) }}
+                    </div>
+                </td>
+            </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">{{ 'admin.contact.empty'|trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

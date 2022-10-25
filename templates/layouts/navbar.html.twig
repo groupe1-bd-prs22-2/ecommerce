@@ -1,0 +1,120 @@
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__option">
+        <div class="offcanvas__links">
+            <a href="{{ path('app_login') }}">{{ 'navbar.login'|trans }}</a>
+        </div>
+        <div class="offcanvas__top__hover">
+            <span>{{ 'navbar.lang'|trans }} <i class="arrow_carrot-down"></i></span>
+            <ul>
+                {% for locale in locales %}
+                    {% if locale != app.request.locale %}
+                        <li style="padding : 5px"><a href="{{ path('change_locale', {'locale':locale})}}"><img src="{{asset('img/icon/'~locale~'.png')}}" height="20px" alt="{{ locale }}"></a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="offcanvas__nav__option">
+        <a href="{{ path('user') }}" style="color: black; text-decoration: none;">
+            <i class="fa fa-user-o fa-lg" aria-hidden="true"></i>
+        </a>
+        <a href="{{ path('app_cart') }}"><img src="{{ asset('img/icon/cart.png') }}" alt=""></a>
+        <div class="price">{{ cartAmount }} €</div>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+    <!--<div class="offcanvas__text">
+        <p>Free shipping, 30-day return or refund guarantee.</p>
+    </div>-->
+</div>
+<!-- Offcanvas Menu End -->
+
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7">
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="header__top__right">
+                        {% if app.user %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <div class="header__top__links">
+                                    <a href="{{ path('admin_dashboard_index') }}">{{ 'navbar.admin.dashboard'|trans }}</a>
+                                </div>
+                            {% endif %}
+                            <div class="header__top__links">
+                                <a href="{{ path('app_logout') }}">{{ 'navbar.logout'|trans }}</i></a>
+                            </div>
+                        {% else %}
+                            <div class="header__top__links">
+                                <a href="{{ path('app_login') }}">{{ 'navbar.login'|trans }}</a>
+                            </div>
+                            <div class="header__top__links">
+                                <a href="{{ path('app_register') }}">{{ 'navbar.register'|trans }}</a>
+                            </div>
+                        {% endif %}
+                        <div class="header__top__hover">
+                            <span>{{ 'navbar.lang'|trans }} <i class="arrow_carrot-down"></i></span>
+                            <ul>
+                                {% for locale in locales %}
+                                    {% if locale != app.request.locale %}
+                                        <li style="padding : 5px"><a href="{{ path('change_locale', {'locale':locale})}}"><img src="{{asset('img/icon/'~locale~'.png')}}" height="20px" alt="{{ locale }}"></a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="{{ path('app_home') }}"><img src="{{ asset('img/logo.png') }}" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li class="{{ route == 'app_home' ? 'active' : ''}}"><a href="{{ path('app_home') }}">{{ 'navbar.home'|trans }}</a></li>
+                        <li class="{{ route in ['app_shop','app_shop_detail'] ?  'active' : ''}}"><a href="{{ path ('app_shop') }}">{{ 'navbar.shop'|trans }}</a></li>
+                        {% if pages|length %}
+                            <li>
+                                <a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    {% for p in pages %}
+                                        <li>
+                                            <a href="{{ path('app_page_show', {'slug': p.slug}) }}">{{ p.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endif %}
+                        <li class="{{ route == 'app_blog' ? 'active' : ''}}"><a href="{{ path('app_blog') }}">{{ 'navbar.blog'|trans }}</a></li>
+                        <li class="{{ route == 'app_contact' ? 'active' : ''}}"><a href="{{ path('app_contact') }}">{{ 'navbar.contact'|trans }}</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    <a href="{{ path('user') }}" style="color: black; text-decoration: none;">
+                        <i class="fa fa-user-o fa-lg" aria-hidden="true"></i>
+                    </a>
+                    <a href="{{ path('app_cart') }}"><img src="{{ asset('img/icon/cart.png') }}" alt=""></a>
+                    <div class="price">{{ cartAmount }} €</div>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>

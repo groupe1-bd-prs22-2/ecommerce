@@ -1,0 +1,80 @@
+# Langue : 'English'
+navbar:
+  lang : Language
+  home : Home
+  shop : Shop
+  blog : Blog
+  contact : Contact
+  signin: Sign in
+  login: Log in
+  logout: Log out
+  register: Registration
+confirm: Confirm
+footer:
+  cgu: General user condition
+  ml: Legal mentions
+user:
+  editinfo : Edit my information
+  editpass: Edit my password
+  currentpass: Current password
+  newpass: New password
+  repeatpass: Repeat password
+  infoperso: My personal information
+commande:
+  history: My order history
+  name: Name
+  quantity: Quantity
+  date: Date
+login:
+  title: Login to my Manga Mania account
+  email: Email
+  password: Password
+register: Register
+home:
+  collection : collection
+  shopnow: Shop now
+  sasuke : is one of the main characters of the series. He was originally introduced as a protagonist, a member of Konoha belonging to Team Kakashi.
+  goku: is the main protagonist of the manga Dragon Ball and Dragon Ball Super, and their animated adaptations.
+  clothes : Clothes
+  figurines : Figurines
+blog :
+  readmore: Read more
+  ourblog : Our Blog
+shop:
+  search : Search ...
+  categories : Categories
+  price : Price
+  addtocart : Add to cart
+  sortbyprice : Sort by Price
+  lowtohigh: Bajo a Alto
+  hightolow: Alto a Bajo
+admin:
+  category:
+    edit: Update category %name%
+    list: List of categories
+    create: Create a category
+    name: Name
+    createdAt: Creation date
+    empty: No category created
+  product:
+    list: Products List
+    create: Create a new product
+    name: Name
+    categories: Categories
+    price: Price
+    quantity: Quantity
+    createdAt: Creation date
+    updatedAt: Last update
+    edit: Update %name%
+  contact:
+    sujet: Message subject
+    email: Recipient email
+    message: Message content
+    empty: Empty
+    list: List of messages
+dashboard:
+  sales: Sales
+  earnings: Earnings
+  users: Clients
+  earningsChart: Gross sales
+

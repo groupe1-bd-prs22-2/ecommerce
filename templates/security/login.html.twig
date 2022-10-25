@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'navbar.login'|trans }}{% endblock %}
+
+{% block body %}
+    <!-- Contact Section Begin -->
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12">
+                    <form method="post" class="contact spad ">
+                        <div class="section-title">
+                            <h2>{{ 'login.title'|trans }}</h2>
+                        </div>
+                        <div class="contact__form">
+                            <div class="row">
+                                <h1 class="h3 mb-3 font-weight-normal"></h1>
+                                <label for="inputEmail">{{ 'login.email'|trans }}</label>
+                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                                <label for="inputPassword">{{ 'login.password'|trans }}</label>
+                                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                {#
+                                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                                See https://symfony.com/doc/current/security/remember_me.html
+
+                                <div class="checkbox mb-3">
+                                    <label>
+                                        <input type="checkbox" name="_remember_me"> Remember me
+                                    </label>
+                                </div>
+                                #}
+                                <div class="col-lg-6 col-md-6">
+                                    <button class="site-btn w-100" type="submit">
+                                        {{ 'navbar.login'|trans }}
+                                    </button>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <a class="text-white text-center site-btn w-100 letter-space" href="{{ path('app_register') }}" >
+                                        {{ 'navbar.register'|trans }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+
+
+

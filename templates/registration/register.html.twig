@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <!-- Contact Section Begin -->
+    <section class="contact spad ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="section-title">
+                        <h2>{{ "register"| trans }}</h2>
+                    </div>
+                    <div class="contact__form">
+                        {{ form_start(registrationForm) }}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    {{ form_row(registrationForm.email) }}
+                                </div>
+                                <div class="col-lg-6">
+                                    {{ form_row(registrationForm.firstname) }}
+                                </div><div class="col-lg-6">
+                                    {{ form_row(registrationForm.lastname) }}
+                                </div><div class="col-lg-6">
+                                    {{ form_row(registrationForm.plainPassword, {
+                                        label: 'Password'
+                                    }) }}
+                                </div>
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <button type="submit" class="site-btn w-100">{{ 'register'|trans }}</button>
+                                </div>
+                            </div>
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class=" p-4 register-bg">
+                        <img src="{{ asset('img/wanted/zoro.png') }}" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}{{ 'orders.list'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container my-3">
+        <h1>{{ 'orders.administration'|trans }}</h1>
+
+        {# total items count #}
+        <div class="count">
+            {{ 'orders.total' | trans }} : {{ pagination.getTotalItemCount }}
+        </div>
+        <table class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    {# sorting of properties based on query components #}
+                    <th>Référence</th>
+                    <th{% if pagination.isSorted('o.status') %} class="sorted"{% endif %}>
+                        {{ knp_pagination_sortable(pagination, 'État', 'o.status') }}
+                    </th>
+                    <th{% if pagination.isSorted('o.created_at') %} class="sorted"{% endif %}>
+                        {{ knp_pagination_sortable(pagination, 'Date d\'achat', 'o.created_at') }}
+                    </th>
+                    <th>Montant</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in pagination %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <td>{{ order.reference }}</td>
+                        <td>{{ ('orders.status.' ~ order.status) | trans }}</td>
+                        <td>{{ order.createdAt | date('d/m/Y H:i:s') }}</td>
+                        <td>{{ order.totalAmount }} €</td>
+                        <td class="d-flex gap-2">
+                            &nbsp;
+                            {# Bouton "préparer" #}
+                            {% if order.status in [constant('App\\Entity\\Order::STATUS_CANCELED')] %}
+                                <form method="post"
+                                      action="{{ path('admin_order_edit_status', {'id': order.id}) }}">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('edit-status-' ~ order.id) }}">
+                                    <input type="hidden" name="status" value="{{ constant('App\\Entity\\Order::STATUS_PREPARATION') }}">
+                                    <button class="btn btn-warning btn-sm text-white">{{ 'orders.prepare'|trans }}</button>
+                                </form>
+                            {% endif %}
+                            {# Bouton "expéditer" #}
+                            {% if order.status in [constant('App\\Entity\\Order::STATUS_PREPARATION')] %}
+                                <form method="post"
+                                      action="{{ path('admin_order_edit_status', {'id': order.id}) }}">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('edit-status-' ~ order.id) }}">
+                                    <input type="hidden" name="status" value="{{ constant('App\\Entity\\Order::STATUS_SHIPPED') }}">
+                                    <button class="btn btn-info btn-sm text-white">{{ 'orders.ship'|trans }}</button>
+                                </form>
+                            {% endif %}
+                            {# Bouton marquer comme "délivré" #}
+                            {% if order.status in [constant('App\\Entity\\Order::STATUS_SHIPPED')] %}
+                                <form method="post"
+                                      action="{{ path('admin_order_edit_status', {'id': order.id}) }}">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('edit-status-' ~ order.id) }}">
+                                    <input type="hidden" name="status" value="{{ constant('App\\Entity\\Order::STATUS_DELIVERED') }}">
+                                    <button class="btn btn-success btn-sm">{{ 'orders.deliver'|trans }}</button>
+                                </form>
+                            {% endif %}
+                            {# Bouton "annuler" #}
+                            {% if order.status not in [constant('App\\Entity\\Order::STATUS_CANCELED'), constant('App\\Entity\\Order::STATUS_DELIVERED')] %}
+                                <form method="post"
+                                      action="{{ path('admin_order_edit_status', {'id': order.id}) }}">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('edit-status-' ~ order.id) }}">
+                                    <input type="hidden" name="status" value="{{ constant('App\\Entity\\Order::STATUS_CANCELED') }}">
+                                    <button class="btn btn-danger btn-sm">{{ 'orders.cancel'|trans }}</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {# display navigation #}
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+{% endblock %}
+

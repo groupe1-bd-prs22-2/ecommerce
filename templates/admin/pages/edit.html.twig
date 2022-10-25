@@ -1,0 +1,11 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}{{ 'pages.edit'|trans({ '%title%': page.title }) }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-5">{{ 'pages.edit'|trans({ '%title%': page.title }) }}</h1>
+
+        {{ include('admin/pages/_form.html.twig', {'button_label': 'save'|trans}) }}
+    </div>
+{% endblock %}

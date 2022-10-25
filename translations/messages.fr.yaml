@@ -1,0 +1,122 @@
+# Langue : 'Français'
+navbar:
+    lang : Langue
+    home : Accueil
+    shop : Boutique
+    blog : Actualité
+    contact : Contact
+    signin: Se connecter
+    register: S'inscrire
+    login: Se connecter
+    logout: Déconnexion
+    admin:
+        administration: Administration
+        cms: Gestion de contenu
+        orders: Commandes
+        backToSite: Revenir sur le site
+        dashboard: Tableau de bord
+        category: Catégories
+        product: Produits
+        pages: Pages
+        article: Articles
+        contact: Support
+        logout: Déconnexion
+confirm: Valider
+footer:
+    cgu: Conditions générales de l'utilisateur
+    ml: Mentions légales
+user:
+    editinfo: Modifier mes informations
+    editpass: Modification du mot de passe
+    currentpass: Mot de passe actuel
+    newpass: Nouveau mot de passe
+    repeatpass: Répeter le mot de passe
+    infoperso: Mes informations personnels
+commande:
+    history: Historique de mes commandes
+    name: Nom
+    quantity: Quantité
+    date: Date
+errors:
+    payment:
+        must_be_auth: Merci de créer votre compte Manga Mania afin de poursuivre votre achat.
+login:
+    title: Me connecter à mon compte Manga Mania
+    email: Email
+    password: Mot de passe
+home:
+    collection : collection
+    shopnow: Acheter maintenant
+    sasuke : est l'un des personnages principaux de la série. Il a été initialement présenté comme un protagoniste, un membre de Konoha appartenant à l'Équipe Kakashi.
+    goku: est le principal protagoniste des manga Dragon Ball et Dragon Ball Super, et de leurs adaptations animées.
+    clothes : Vêtements
+    figurines : Figurines
+    latest_news: Dernières actualités
+blog :
+    readmore: Savoir plus
+    ourblog : Notre Blog
+register: S'inscrire
+shop:
+    product:
+        out_of_stock: Rupture de stock
+        new: Nouveau
+        see: Voir la fiche produit
+    search : Recherche...
+    categories : Catégories
+    price : Prix
+    addtocart : Ajouter au panier
+    sortbyprice : Trier par Prix
+    lowtohigh: Ordre croissant
+    hightolow: Ordre décroissant
+orders:
+    list: Liste des commandes
+    administration: Gestion des commandes
+    total: Nombre total de commandes enregistrées
+    ship: Expédier
+    deliver: Marquer comme "délivré"
+    cancel: Annuler la commande
+    prepare: Préparer la commande
+    status:
+        canceled: Commande annulée
+        in_preparation: Commande en cours de préparation
+        shipped: Commande expédiée
+        delivered: Commande délivrée
+quantity:
+    short: Qté
+
+# Administration
+actions:
+    title: Actions
+    delete: Supprimer
+    edit: Modifier
+    update: Mettre à jour
+admin:
+    category:
+        edit: Mettre à jour la catégorie %name%
+        list: Liste des catégories
+        create: Créer une catégorie
+        name: Libellé
+        createdAt: Date de création
+        empty: Aucune catégorie créée
+    product:
+        list: Liste des produits
+        create: Créer un nouveau produit
+        name: Libellé
+        categories: Catégorie(s)
+        price: Prix
+        quantity: Stock
+        createdAt: Date de création
+        updatedAt: Dernière mise à jour
+        edit: Mettre à jour %name%
+    contact:
+        sujet: Sujet du message
+        email: Email du déstinataire
+        message: Corps du message
+        empty: Vide
+        list: Liste des messages
+dashboard:
+    sales: Ventes
+    earnings: Revenus
+    users: Clients
+    earningsChart: Chiffre d'affaires
+

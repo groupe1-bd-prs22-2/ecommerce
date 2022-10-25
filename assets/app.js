@@ -6,7 +6,23 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
+// Import de TinyMCE
+import tinymce from "tinymce";
+import 'tinymce/themes/silver/theme';
+
+tinymce.init({
+    selector: '.tinymce'
+})
+
+// Import de Select2.js
+import $ from 'jquery';
+import 'select2';
+import 'select2/dist/css/select2.min.css';
+
+// Initialisation des différentes librairies au chargement de la page
+$(() => {
+    $('.select-2').select2()
+})
 
 // start the Stimulus application
-import './bootstrap';
+//import './bootstrap';

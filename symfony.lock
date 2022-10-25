@@ -1,4 +1,10 @@
 {
+    "beberlei/doctrineextensions": {
+        "version": "v1.3.0"
+    },
+    "behat/transliterator": {
+        "version": "v1.3.0"
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -16,6 +22,9 @@
     },
     "doctrine/common": {
         "version": "3.2.2"
+    },
+    "doctrine/data-fixtures": {
+        "version": "1.5.2"
     },
     "doctrine/dbal": {
         "version": "3.3.3"
@@ -35,6 +44,18 @@
             "config/packages/doctrine.yaml",
             "src/Entity/.gitignore",
             "src/Repository/.gitignore"
+        ]
+    },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "1f5514cfa15b947298df4d771e694e578d4c204d"
+        },
+        "files": [
+            "./src/DataFixtures/AppFixtures.php"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
@@ -75,16 +96,28 @@
         "version": "1.1.2"
     },
     "egulias/email-validator": {
-        "version": "3.1.2"
+        "version": "3.2.1"
     },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.7"
+    },
+    "gedmo/doctrine-extensions": {
+        "version": "v3.5.0"
+    },
+    "knplabs/knp-components": {
+        "version": "v3.6.0"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.9.0"
     },
     "laminas/laminas-code": {
         "version": "4.5.1"
     },
     "monolog/monolog": {
         "version": "2.3.5"
+    },
+    "nesbot/carbon": {
+        "version": "2.62.1"
     },
     "nikic/php-parser": {
         "version": "v4.13.2"
@@ -128,6 +161,33 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "stof/doctrine-extensions-bundle": {
+        "version": "1.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.2",
+            "ref": "e805aba9eff5372e2d149a9ff56566769e22819d"
+        },
+        "files": [
+            "config/packages/stof_doctrine_extensions.yaml"
+        ]
+    },
+    "stripe/stripe-php": {
+        "version": "v8.9.0"
+    },
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "9d254a22efca7264203eea98b866f16f944b2f09"
+        },
+        "files": [
+            "public/.htaccess"
+        ]
+    },
     "symfony/asset": {
         "version": "v6.0.3"
     },
@@ -152,6 +212,9 @@
             "bin/console"
         ]
     },
+    "symfony/css-selector": {
+        "version": "v6.0.11"
+    },
     "symfony/debug-bundle": {
         "version": "6.0",
         "recipe": {
@@ -174,7 +237,7 @@
         "version": "v6.0.6"
     },
     "symfony/doctrine-messenger": {
-        "version": "v6.0.3"
+        "version": "v6.0.12"
     },
     "symfony/dotenv": {
         "version": "v6.0.5"
@@ -250,9 +313,9 @@
         "version": "6.0",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "4.3",
-            "ref": "bbfc7e27257d3a3f12a6fb0a42540a42d9623a37"
+            "ref": "97a61eabb351d7f6cb7702039bcfe07fe9d7e03c"
         },
         "files": [
             "config/packages/mailer.yaml"
@@ -271,9 +334,9 @@
         "version": "6.0",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.3",
-            "ref": "25e3c964d3aee480b3acc3114ffb7940c89edfed"
+            "branch": "main",
+            "version": "6.0",
+            "ref": "2523f7d31488903e247a522e760dc279be7f7aaf"
         },
         "files": [
             "config/packages/messenger.yaml"
@@ -493,6 +556,12 @@
     },
     "symfony/yaml": {
         "version": "v6.0.3"
+    },
+    "tijsverkoyen/css-to-inline-styles": {
+        "version": "2.2.4"
+    },
+    "twig/cssinliner-extra": {
+        "version": "v3.4.0"
     },
     "twig/extra-bundle": {
         "version": "v3.3.8"

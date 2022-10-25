@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>{{ 'user.user'|trans }}</h4>
+                        <div class="breadcrumb__links">
+                            <a href="{{ path('app_home') }}">{{ 'navbar.home'|trans }}</a>
+                            <span>{{ 'user.user'|trans }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="contact_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form_container " >
+                        <div class="section-title">
+                            <span>Mes informations personnels</span>
+                        </div>
+                        <center>
+                            <div>
+                                {{ 'user.firstname'|trans }} : {{ app.user.firstname }}
+                            </div>
+                            <div>
+                                {{ 'user.secondname'|trans }} : {{ app.user.lastname }}
+                            </div>
+                            <div>
+                                @ : {{ app.user.email }}
+                            </div>
+                        </center>
+                            <div>
+
+                            </div>
+                            <br>
+                        <center>
+
+                                <div class="row-2">
+                                    <button class="site-btn">
+                                        <a style=" color: #FFFFFF" href="{{ path('user_edit') }}">{{ 'user.editinfo'|trans }}</a>
+                                    </button>
+                                    <button class="site-btn">
+                                        <a style=" color: #FFFFFF" href="{{ path('user_edit_pass') }}">{{ 'user.editpass'|trans }}</a>
+                                    </button>
+                                </div>
+
+                        </center>
+
+                        <br>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="heading_container">
+                        <h2>{{ 'order.reference'|trans }}</h2>
+                    </div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>{{ 'commande.name'|trans }} </th>
+                            <th>{{ 'commande.quantity'|trans }}</th>
+                            <th>{{ 'commande.date'|trans }}</th>
+                            <th>{{ 'commande.price'|trans }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td>{{ order.reference }}</td>
+                                <td>{{ order.status }} </td>
+                                <td>{{ order.createdAt | date('d/m/y H:i') }}</td>
+                                <td>{{ order.totalAmount }} €
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

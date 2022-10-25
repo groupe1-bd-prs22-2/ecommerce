@@ -1,0 +1,65 @@
+<nav id="sidebar" class="sidebar js-sidebar">
+    <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand" href="#">
+            <span class="align-middle">{{ 'navbar.admin.administration'|trans }}</span>
+        </a>
+
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('app_home') }}">
+                    <i class="align-middle" data-feather="home"></i> <span class="align-middle">{{ 'navbar.admin.backToSite'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-header">
+                {{ 'navbar.admin.administration'|trans }}
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_dashboard_index') }}">
+                    <i class="align-middle" data-feather="bar-chart"></i> <span class="align-middle">{{ 'navbar.admin.dashboard'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_order_index') }}">
+                    <i class="align-middle" data-feather="package"></i> <span class="align-middle">{{ 'navbar.admin.orders'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_category_index') }}">
+                    <i class="align-middle" data-feather="tag"></i> <span class="align-middle">{{ 'navbar.admin.category'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_product_index') }}">
+                    <i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">{{ 'navbar.admin.product'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_contact_index') }}">
+                    <i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">{{ 'navbar.admin.contact'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-header">
+                {{ 'navbar.admin.cms'|trans }}
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_pages_index') }}">
+                    <i class="align-middle" data-feather="bookmark"></i> <span class="align-middle">{{ 'navbar.admin.pages'|trans }}</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_article_index') }}">
+                    <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">{{ 'navbar.admin.article'|trans }}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
