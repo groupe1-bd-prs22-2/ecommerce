@@ -27,8 +27,8 @@
                 <div class="col-lg-3">
                     <div class="shop__sidebar">
                         <div class="shop__sidebar__search">
-                            <form action="#">
-                                <input type="text" placeholder="{{ 'shop.search'|trans }}">
+                            <form action="{{ path('app_shop') }}" method="GET">
+                                <input type="text" name="search" placeholder="{{ 'shop.search'|trans }}">
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
                         </div>

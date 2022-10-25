@@ -54,6 +54,11 @@ class ProductRepository extends ServiceEntityRepository
 
         $q = $this->createQueryBuilder('p');
 
+        if (isset($filtres['name'])) {
+            $q->andWhere("LOWER(p.name) LIKE :name")
+                ->setParameter('name', '%' . mb_strtolower($filtres['name']) . '%');
+        }
+
         if(isset($filtres['category'])){
             $q->join('p.categories','c')
                 ->andWhere('c.slug = :categorieid')

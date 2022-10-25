@@ -22,16 +22,18 @@ class ShopController extends AbstractController
      *
      * @param ProductRepository $productRepository
      * @param CategoryRepository $categoryRepository
+     * @param Request $request
      * @return Response
      */
     #[Route('/', name: 'app_shop', methods: ['GET'])]
     public function index(ProductRepository $productRepository,CategoryRepository $categoryRepository, Request $request): Response
     {
-
+        // Récupération des filtres des produits
         $parametres = [
             'prixMax'=> $request->query->get('prixMax'),
             'category' => $request->query->get('categorie'),
-            'prixMin' =>  $request->query->get('prixMin')
+            'prixMin' =>  $request->query->get('prixMin'),
+            'name' => $request->query->get('search')
         ];
 
         return $this->render('shop/index.html.twig', [
@@ -69,5 +71,4 @@ class ShopController extends AbstractController
             'cartForm' => $cartForm->createView()
         ]);
     }
-
 }
