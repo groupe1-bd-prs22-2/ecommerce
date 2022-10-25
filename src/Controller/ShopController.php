@@ -52,7 +52,7 @@ class ShopController extends AbstractController
      * @throws Exception
      */
     #[Route('/product/{slug}', name: 'app_shop_detail')]
-    public function detail(Product $product, Request $request, Cart $cart): Response
+    public function detail(Product $product, Request $request, Cart $cart, ProductRepository $productRepository): Response
     {
         // Chargement du formulaire d'ajout au panier
         $cartForm = $this->createForm(AddToCartType::class, $product);
@@ -68,6 +68,7 @@ class ShopController extends AbstractController
 
         return $this->render('shop/detail.html.twig', [
             'product' => $product,
+            'products'=>$productRepository->findProductByMax(4),
             'cartForm' => $cartForm->createView()
         ]);
     }
