@@ -50,16 +50,28 @@ class ProductRepository extends ServiceEntityRepository
         ;
     }
 
+    public function searchProductsByFilters($filtres){
 
-    /*
-    public function findOneBySomeField($value): ?Product
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $q = $this->createQueryBuilder('p');
+
+        if(isset($filtres['category'])){
+            $q->join('p.categories','c')
+                ->andWhere('c.slug = :categorieid')
+                ->setParameter('categorieid',$filtres['category']);
+
+        }
+
+        if (isset($filtres['prixMin'])) {
+            $q->andWhere('p.price >= :prixMin')
+                ->setParameter('prixMin', $filtres['prixMin']);
+        }
+
+        if (isset($filtres['prixMax'])){
+            $q->andWhere('p.price <= :prixMax')
+            ->setParameter('prixMax',$filtres['prixMax']);
+        }
+
+        return $q->getQuery()->getResult();
     }
-    */
+
 }

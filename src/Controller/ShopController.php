@@ -28,22 +28,14 @@ class ShopController extends AbstractController
     public function index(ProductRepository $productRepository,CategoryRepository $categoryRepository, Request $request): Response
     {
 
-
-        $category = $request->query->get('categorie');
-
-
-        if (!is_null($category)){
-            $c = $categoryRepository->findOneBy(['slug'=> $category]);
-            //dd($c);
-            $product = $c->getProducts();
-
-        }else{
-            $product = $productRepository->findAll();
-        }
+        $parametres = [
+            'prixMax'=> $request->query->get('prixMax'),
+            'category' => $request->query->get('categorie'),
+            'prixMin' =>  $request->query->get('prixMin')
+        ];
 
         return $this->render('shop/index.html.twig', [
-
-            'products' => $product,
+            'products' => $productRepository->searchProductsByFilters($parametres),
             'category' => $categoryRepository->findAll(),
         ]);
     }
