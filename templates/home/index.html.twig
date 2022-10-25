@@ -111,30 +111,6 @@
                     {% for p in products%}
                         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix {{p.tags}}">
                             {{ include('shop/_product_preview.html.twig', {'p': p}) }}
-                            {# <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{asset('uploads/products/' ~ p.picture)}}">
-                                    {% if p.tags == "new" %}
-                                    <span class="label">New</span>
-                                    {% endif %}
-                                    <ul class="product__hover">
-                                        <li><a href="#"><img src="{{ asset('img/icon/heart.png') }}" alt=""></a></li>
-                                        <li><a href="#"><img src="{{ asset('img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-                                        <li><a href="{{ path('app_shop_detail',{'slug' : p.slug})}}"><img src="img/icon/search.png" alt=""></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>{{ p.name }}</h6>
-                                    <a href="#" class="add-cart">+ {{ 'shop.addtocart' | trans }}</a>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <h5>{{ p.price }}</h5>
-                                </div>
-                            </div> #}
                         </div>
                     {% endfor %}
 
