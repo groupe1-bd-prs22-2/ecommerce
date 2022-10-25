@@ -60,9 +60,12 @@ class ShopController extends AbstractController
 
         // Traitement du formulaire : ajout du produit et de la quantité voulue au panier
         if ($cartForm->isSubmitted() && $cartForm->isValid()) {
-            $cart->addProduct($product, $cartForm->get('quantity')->getData());
-
-            $this->addFlash('success', new TranslatableMessage('cart.product.added'));
+            if ($product->getQuantity() < $cartForm->get('quantity')->getData()) {
+                $this->addFlash('danger', new TranslatableMessage('cart.product.qty_not_enough'));
+            } else {
+                $cart->addProduct($product, $cartForm->get('quantity')->getData());
+                $this->addFlash('success', new TranslatableMessage('cart.product.added'));
+            }
             return $this->redirectToRoute('app_cart');
         }
 

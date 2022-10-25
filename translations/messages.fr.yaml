@@ -177,3 +177,6 @@ cart:
     total: Total
     addToCart: Ajouter au panier
     pay : Payer
+    product:
+        added: Le produit a bien été ajouté au panier.
+        qty_not_enough: La quantité demandée est supérieure au stock.

@@ -75,7 +75,12 @@ class CartController extends AbstractController
         $quantity = (int) $request->get('quantity');
 
         if (!empty($product) && !empty($quantity)) {
-            $cart->addProduct($product, $quantity);
+            if ($product->getQuantity() < $quantity) {
+                $this->addFlash('danger', new TranslatableMessage('cart.product.qty_not_enough'));
+            } else {
+                $cart->addProduct($product, $quantity);
+                $this->addFlash('success', new TranslatableMessage('cart.product.added'));
+            }
         }
 
         return $this->redirectToRoute('app_cart');

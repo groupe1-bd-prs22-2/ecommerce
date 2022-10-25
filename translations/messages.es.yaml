@@ -164,3 +164,6 @@ cart:
   total: Total
   addToCart: Añadir a la cesta
   pay: Pagar
+  product:
+    added: El producto ha sido añadido al carrito.
+    qty_not_enough: La cantidad solicitada es mayor que el stock.

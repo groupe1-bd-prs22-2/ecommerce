@@ -164,3 +164,6 @@ cart:
   total: Total
   addToCart : Add to cart
   pay : Pay
+  product:
+    added: Product added to cart.
+    qty_not_enough: Stock not enough
