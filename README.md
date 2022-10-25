@@ -5,7 +5,7 @@
 URL de l'application 
 -----------
 
-Vous pouvez accéder à l'application via l'URL suivante : https://mangamania.herokuapp.com/
+Vous pouvez accéder à l'application via l'URL suivante : https://manga-mania.herokuapp.com/
 
 Compte administrateur
 -----------
