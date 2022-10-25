@@ -158,3 +158,4 @@ cart:
   empty: Empty cart
   total: Total
   addToCart : Add to cart
+  pay : Pay

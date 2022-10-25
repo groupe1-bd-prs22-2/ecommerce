@@ -158,3 +158,4 @@ cart:
   empty: Cesta vacía
   total: Total
   addToCart : Añadir a la cesta
+  pay: Pagar

@@ -171,3 +171,4 @@ cart:
     empty: Panier vide
     total: Total
     addToCart: Ajouter au panier
+    pay : Payer
