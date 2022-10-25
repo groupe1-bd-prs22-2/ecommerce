@@ -180,3 +180,6 @@ cart:
     product:
         added: Le produit a bien été ajouté au panier.
         qty_not_enough: La quantité demandée est supérieure au stock.
+    payment:
+        proceed: Procéder au paiement
+        card: Paiement par carte

@@ -167,3 +167,6 @@ cart:
   product:
     added: El producto ha sido añadido al carrito.
     qty_not_enough: La cantidad solicitada es mayor que el stock.
+  payment:
+    proceed: Proceder al pago
+    card: Pago con tarjeta

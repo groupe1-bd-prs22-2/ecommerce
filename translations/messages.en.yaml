@@ -167,3 +167,6 @@ cart:
   product:
     added: Product added to cart.
     qty_not_enough: Stock not enough
+  payment:
+    proceed: Proceed to payment
+    card: Payment by card
