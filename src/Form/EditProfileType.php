@@ -16,7 +16,13 @@ class EditProfileType extends AbstractType
         $builder
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
-            ->add('Valider', SubmitType::class)
+            ->add('Valider', SubmitType::class, [
+                'attr' => [
+                    'style' => ' background-color : black;
+                    border : black;'
+
+                ]
+            ])
         ;
     }
 

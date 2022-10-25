@@ -3,21 +3,33 @@
 {% block title %}Modifier son profil{% endblock %}
 
 {% block body %}
-
-    <section class="contact_section layout_padding">
+    <section class="breadcrumb-option">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="form_container">
-                        <div class="heading_container">
-                            <h2>
-                                {{ 'user.editinfo'|trans }}
-                            </h2>
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>{{ 'user.edit'|trans }}</h4>
+                        <div class="breadcrumb__links">
+                            <a href="{{ path('app_home') }}">{{ 'navbar.home'|trans }}</a>
+                            <span>{{ 'user.edit'|trans }}</span>
                         </div>
-                        {{ form(editUserForm) }}
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form_container ">
+                    <div class="section-title">
+                        <span>{{ 'user.editinfo'|trans }}</span>
+                    </div>
+                    {{ form(editUserForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
