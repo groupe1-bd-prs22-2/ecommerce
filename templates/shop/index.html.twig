@@ -43,7 +43,7 @@
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
                                                     {% for c in category %}
-                                                        <li><a href="#">{{ c.name }} ({{ c.products|length }})</a></li>
+                                                        <li><a href="{{ path ('app_shop')  }}?categorie={{c.slug}}">{{ c.name }} ({{ c.products|length }})</a></li>
                                                     {% endfor %}
                                                 </ul>
                                             </div>

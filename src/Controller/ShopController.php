@@ -25,10 +25,25 @@ class ShopController extends AbstractController
      * @return Response
      */
     #[Route('/', name: 'app_shop', methods: ['GET'])]
-    public function index(ProductRepository $productRepository,CategoryRepository $categoryRepository): Response
+    public function index(ProductRepository $productRepository,CategoryRepository $categoryRepository, Request $request): Response
     {
+
+
+        $category = $request->query->get('categorie');
+
+
+        if (!is_null($category)){
+            $c = $categoryRepository->findOneBy(['slug'=> $category]);
+            //dd($c);
+            $product = $c->getProducts();
+
+        }else{
+            $product = $productRepository->findAll();
+        }
+
         return $this->render('shop/index.html.twig', [
-            'products' => $productRepository->findAll(),
+
+            'products' => $product,
             'category' => $categoryRepository->findAll(),
         ]);
     }
