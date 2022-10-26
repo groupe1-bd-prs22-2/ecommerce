@@ -140,7 +140,7 @@
                         <div class="blog__item__text">
                             <span><img src="{{ asset('img/icon/calendar.png') }}" alt="">{{ a.createdAt  ? a.createdAt|date('l F o') : '' }}</span>
                             <h5>{{ a.title }}</h5>
-                            <a href="{{path('app_article_detail',{'slug' : a.slug})}}">{{ 'shop.readmore' | trans }}</a>
+                            <a href="{{path('app_article_detail',{'slug' : a.slug})}}">{{ 'blog.readmore' | trans }}</a>
                         </div>
                     </div>
                 </div>
